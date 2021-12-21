@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.anna.mindhealth.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_session"
+        android:name="com.anna.mindhealth.ui.session.SessionFragment"
+        android:label="@string/menu_session"
+        tools:layout="@layout/fragment_session" />
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.anna.mindhealth.ui.profile.ProfileFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/nav_more"
+        android:name="com.anna.mindhealth.ui.more.MoreFragment"
+        android:label="@string/menu_more"
+        tools:layout="@layout/fragment_more" />
+
+</navigation>

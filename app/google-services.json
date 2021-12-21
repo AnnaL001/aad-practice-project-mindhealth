@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "603867730973",
+    "project_id": "mindhealth-acf4a",
+    "storage_bucket": "mindhealth-acf4a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:603867730973:android:9b9d4f1e638a38c99d22f4",
+        "android_client_info": {
+          "package_name": "com.anna.mindhealth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "603867730973-dkqdrs11afc9u47dj3tng3im9k5pbmoi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZ6yT9jD9jETZiWKaHDQutYN2fsmG8Lbc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "603867730973-dkqdrs11afc9u47dj3tng3im9k5pbmoi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

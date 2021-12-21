@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">MindHealth</string>
+
+    <!-- UI Display -->
+    <string name="splash_screen_image_desc">Application Logo</string>
+    <string name="role_screen_text_subtitle"> Easing access to mental health care services</string>
+    <string name="hint_input_first_name">First name</string>
+    <string name="hint_input_last_name">Last name</string>
+    <string name="hint_input_password">Password</string>
+    <string name="hint_input_email">Email</string>
+    <string name="hint_input_confirm_password">Confirm password</string>
+    <string name="btn_patient_selection_text">I need therapy</string>
+    <string name="btn_therapist_selection_text">I\'m a therapist</string>
+    <string name="txv_create_account_text">Create an account</string>
+    <string name="btn_register_via_google_text">Sign in with google</string>
+    <string name="txv_or_text">or</string>
+    <string name="txv_login_text">Log In</string>
+    <string name="txv_reset_password_text">Forgot password</string>
+    <string name="txv_welcome_user_text">Welcome %1$s, </string>
+    <string name="txv_feelings_inquiry_text">How are you feeling today?</string>
+    <string name="txv_assessment_state_text">Assessment state</string>
+    <string name="btn_view_responses_link_text">See your responses</string>
+    <string name="btn_therapist_selection_state_text">You\'re yet to be assigned a therapist</string>
+    <string name="icon_assessment_status_false">Assessment not done icon</string>
+    <string name="btn_therapist_selection_link_text">Select a therapist</string>
+    <string name="txv_scheduled_sessions_text">Scheduled sessions</string>
+    <string name="txv_ongoing_sessions_text">Ongoing sessions</string>
+    <string name="txv_personal_info_text">Personal info</string>
+    <string name="txv_personal_info_subtext">View/edit personal info</string>
+    <string name="txv_therapist_info_text">Therapist profile</string>
+    <string name="txv_therapist_info_subtext">View, rate/switch therapist</string>
+    <string name="icon_session_history_desc">Icon representing session history</string>
+    <string name="txv_session_history_info_text">Session history</string>
+    <string name="txv_session_history_subtext">View previous sessions details</string>
+
+    <!-- Navigation -->
+    <string name="menu_home">Home</string>
+    <string name="menu_session">Session</string>
+    <string name="menu_profile">Profile</string>
+    <string name="menu_more">More</string>
+    <string name="menu_role_selection">Select a role</string>
+
+    <!-- App Notifications -->
+    <string name="toast_log_in_success"> Authenticated with email: %1$s </string>
+    <string name="toast_log_in_fail"> Authentication failure </string>
+    <string name="toast_email_verification_success"> Sent email verification </string>
+    <string name="toast_email_verification_fail"> Email verification not sent. Click "Resend Email Verification" </string>
+    <string name="toast_email_verification_prompt"> Check your email to verify your account </string>
+
+    <!-- Error messages -->
+    <string name="error_msg_required"> All fields must be filled </string>
+    <string name="error_msg_pswd_confirm_pswd"> Password and Confirm password should match </string>
+    <string name="error_msg_pswd_criteria"> Password should be a combination of uppercase, lowercase and digits </string>
+    <string name="error_msg_pswd_length"> Minimum password length is 8 characters </string>
+    <string name="error_msg_email_criteria"> Email pattern is name@example.com </string>
+</resources>
