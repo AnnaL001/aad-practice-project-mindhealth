@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/txv_welcome_user"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/txv_feelings_inquiry"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/txv_assessment_state"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="sans-serif-condensed-medium"
                 android:paddingVertical="8dp"
-                android:text="@string/btn_view_responses_link_text"
+                android:text="@string/btn_view_assessment_link_text"
                 android:textAppearance="@style/ButtonText"
                 android:textColor="#01579B"
                 android:textSize="16sp"
@@ -93,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_begin="224dp" />
+                app:layout_constraintGuide_begin="249dp" />
 
             <ImageView
                 android:id="@+id/icon_assignment_status"
@@ -131,7 +131,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/txv_therapist_selection_state"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

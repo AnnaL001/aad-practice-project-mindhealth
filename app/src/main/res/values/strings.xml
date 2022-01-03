@@ -20,6 +20,7 @@
     <string name="txv_feelings_inquiry_text">How are you feeling today?</string>
     <string name="txv_assessment_state_text">Assessment state</string>
     <string name="btn_view_responses_link_text">See your responses</string>
+    <string name="btn_view_assessment_link_text">Take assessment test</string>
     <string name="btn_therapist_selection_state_text">You\'re yet to be assigned a therapist</string>
     <string name="icon_assessment_status_false">Assessment not done icon</string>
     <string name="btn_therapist_selection_link_text">Select a therapist</string>
@@ -39,13 +40,17 @@
     <string name="menu_profile">Profile</string>
     <string name="menu_more">More</string>
     <string name="menu_role_selection">Select a role</string>
+    <string name="menu_assessment">Assessment</string>
 
     <!-- App Notifications -->
     <string name="toast_log_in_success"> Authenticated with email: %1$s </string>
     <string name="toast_log_in_fail"> Authentication failure </string>
+    <string name="toast_sign_up_fail"> Something went wrong </string>
     <string name="toast_email_verification_success"> Sent email verification </string>
     <string name="toast_email_verification_fail"> Email verification not sent. Click "Resend Email Verification" </string>
     <string name="toast_email_verification_prompt"> Check your email to verify your account </string>
+    <string name="toast_assessment_choices_save_success"> Your choices have been saved </string>
+    <string name="toast_assessment_choices_save_fail">Error occurred when saving your choices </string>
 
     <!-- Error messages -->
     <string name="error_msg_required"> All fields must be filled </string>
@@ -53,4 +58,50 @@
     <string name="error_msg_pswd_criteria"> Password should be a combination of uppercase, lowercase and digits </string>
     <string name="error_msg_pswd_length"> Minimum password length is 8 characters </string>
     <string name="error_msg_email_criteria"> Email pattern is name@example.com </string>
+
+    <!-- Database fields -->
+    <string name="dbcol_patients"> Patients </string>
+    <string name="dbcol_therapists"> Therapists </string>
+    <string name="dbcol_assessment"> Assessment </string>
+    <string name="doc_choices">Choices</string>
+
+    <!-- Assessment questions -->
+    <string name="assessment_title">Initial Assessment </string>
+    <string name="assessment_question1">What is your gender?</string>
+    <string name="male_gender">Male</string>
+    <string name="female_gender">Female</string>
+    <string name="other_gender">Other</string>
+    <string name="assessment_question2">How old are you?</string>
+    <string name="child_age">0 – 18 years</string>
+    <string name="young_adult">19 – 30 years</string>
+    <string name="middle_aged">31 – 45 years</string>
+    <string name="old_aged">Above 45 years</string>
+    <string name="assessment_question3">What is your relationship status?</string>
+    <string name="single_status">Single</string>
+    <string name="married_status">Married</string>
+    <string name="divorced_status">Divorced</string>
+    <string name="widowed_status">Widowed</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="assessment_question4">Have you seen a therapist before?</string>
+    <string name="assessment_question5">Do you think COVID 19 has affected your mental health?</string>
+    <string name="assessment_question6">How would you describe your physical health?</string>
+    <string name="just_there">Just there</string>
+    <string name="in_between">In between</string>
+    <string name="great">Great</string>
+    <string name="assessment_question7">How would you describe your eating habits?</string>
+    <string name="assessment_question8">How would you rate your finances?</string>
+    <string name="assessment_question9">What is your preferred language?</string>
+    <string name="lang_eng">English</string>
+    <string name="lang_swa">Swahili</string>
+    <string name="lang_fre">French</string>
+    <string name="assessment_question10">Select your country</string>
+    <string name="assessment_question11">Select your preferred options</string>
+    <string name="individual_therapy">Individual Therapy</string>
+    <string name="group_therapy">Group Therapy</string>
+    <string name="couples_therapy">Couples Therapy</string>
+    <string name="submit">Submit</string>
+    <string name="checkbox_options">Select a value</string>
+    <string name="arrrow_right_icon_content_desc">arrrow right icon</string>
+
 </resources>

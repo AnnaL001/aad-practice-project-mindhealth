@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="card_with_color_bg">@color/color_primary_dark</color>
-    <color name="image_in_card_with_color_tint">@color/color_primary_light</color>
+    <color name="image_in_card_with_color_tint">@color/white</color>
     <color name="card_primary_button_color">@color/color_primary_dark</color>
     <color name="card_primary_btn_text">@color/white</color>
+    <color name="splash_screen_text_color">@color/color_secondary</color>
 </resources>

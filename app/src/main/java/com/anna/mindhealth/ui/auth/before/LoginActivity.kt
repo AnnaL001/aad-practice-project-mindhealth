@@ -3,10 +3,9 @@ package com.anna.mindhealth.ui.auth.before
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.anna.mindhealth.R
-import com.anna.mindhealth.base.AppNotificationMethods
+import com.anna.mindhealth.base.Utility.shortToastMessage
 import com.anna.mindhealth.databinding.ActivityLoginBinding
 import com.anna.mindhealth.ui.auth.after.MainActivity
 import com.anna.mindhealth.ui.role.RoleSelectionActivity
@@ -52,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
             if (email.isNotEmpty() && password.isNotEmpty()){
                 loginViewModel.login(email, password)
             } else {
-                AppNotificationMethods.shortToastMessage(this, getString(R.string.error_msg_required))
+                shortToastMessage(this, getString(R.string.error_msg_required))
             }
         }
 

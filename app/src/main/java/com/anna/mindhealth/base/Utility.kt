@@ -6,10 +6,8 @@ import android.view.View
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 
-class AppNotificationMethods {
-    companion object{
-        fun shortToastMessage(context: Context, message: String) {
-            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
-        }
+object Utility {
+    fun shortToastMessage(context: Context, message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 }

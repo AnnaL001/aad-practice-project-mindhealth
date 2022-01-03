@@ -82,4 +82,7 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="RadioButtonStyle" parent="Widget.MaterialComponents.CompoundButton.RadioButton">
+        <item name="buttonTint">@color/splash_screen_text_color</item>
+    </style>
 </resources>

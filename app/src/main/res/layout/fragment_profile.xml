@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -32,6 +31,7 @@
                 android:layout_marginTop="8dp"
                 android:background="@color/card_primary_button_color"
                 android:contentDescription="@string/icon_assessment_status_false"
+                android:importantForAccessibility="no"
                 android:scaleType="fitCenter"
                 app:layout_constraintEnd_toStartOf="@id/guideline2"
                 app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +93,8 @@
                 app:layout_constraintStart_toStartOf="@+id/guideline3"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_baseline_keyboard_arrow_right_24"
-                app:tint="@color/image_in_card_with_color_tint" />
+                app:tint="@color/image_in_card_with_color_tint"
+                android:contentDescription="@string/arrrow_right_icon_content_desc" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -124,6 +125,7 @@
                 android:layout_marginTop="8dp"
                 android:background="@color/card_primary_button_color"
                 android:contentDescription="@string/icon_assessment_status_false"
+                android:importantForAccessibility="no"
                 android:scaleType="fitCenter"
                 app:layout_constraintEnd_toStartOf="@id/guideline4"
                 app:layout_constraintStart_toStartOf="parent"
@@ -180,12 +182,14 @@
                 android:layout_width="0dp"
                 android:layout_height="35dp"
                 android:layout_marginEnd="8dp"
+                android:contentDescription="@string/arrrow_right_icon_content_desc"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline5"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_baseline_keyboard_arrow_right_24"
-                app:tint="@color/image_in_card_with_color_tint" />
+                app:tint="@color/image_in_card_with_color_tint"
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -216,6 +220,7 @@
                 android:layout_marginTop="8dp"
                 android:background="@color/card_primary_button_color"
                 android:contentDescription="@string/icon_session_history_desc"
+                android:importantForAccessibility="no"
                 android:scaleType="fitCenter"
                 app:layout_constraintEnd_toStartOf="@id/guideline6"
                 app:layout_constraintStart_toStartOf="parent"
@@ -277,7 +282,8 @@
                 app:layout_constraintStart_toStartOf="@+id/guideline7"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_baseline_keyboard_arrow_right_24"
-                app:tint="@color/image_in_card_with_color_tint" />
+                app:tint="@color/image_in_card_with_color_tint"
+                android:contentDescription="@string/arrrow_right_icon_content_desc" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 

@@ -3,12 +3,9 @@ package com.anna.mindhealth.ui.auth.before
 import android.app.Application
 import androidx.core.util.PatternsCompat
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
 import com.anna.mindhealth.R
-import com.anna.mindhealth.base.AppNotificationMethods
+import com.anna.mindhealth.base.Utility.shortToastMessage
 import com.anna.mindhealth.data.repository.AuthRepository
-import com.google.firebase.auth.FirebaseUser
 
 class RegisterViewModel(application: Application): AndroidViewModel(application) {
     private val authRepository: AuthRepository
@@ -18,8 +15,8 @@ class RegisterViewModel(application: Application): AndroidViewModel(application)
     }
 
 
-    fun register(email: String, password: String){
-        authRepository.register(email, password)
+    fun register(email: String, password: String, securityLevel: Int){
+        authRepository.register(email, password, securityLevel)
     }
 
     /*
@@ -38,20 +35,20 @@ class RegisterViewModel(application: Application): AndroidViewModel(application)
                         if (password == confirmPassword){
                             isValidated = true
                         } else {
-                            AppNotificationMethods.shortToastMessage(getApplication<Application>().applicationContext, getApplication<Application>().getString(R.string.error_msg_pswd_confirm_pswd))
+                            shortToastMessage(getApplication<Application>().applicationContext, getApplication<Application>().getString(R.string.error_msg_pswd_confirm_pswd))
                         }
                     } else {
-                        AppNotificationMethods.shortToastMessage(getApplication<Application>().applicationContext, getApplication<Application>().getString(R.string.error_msg_pswd_criteria))
+                       shortToastMessage(getApplication<Application>().applicationContext, getApplication<Application>().getString(R.string.error_msg_pswd_criteria))
                     }
 
                 } else {
-                    AppNotificationMethods.shortToastMessage(getApplication<Application>().applicationContext, getApplication<Application>().getString(R.string.error_msg_pswd_length))
+                    shortToastMessage(getApplication<Application>().applicationContext, getApplication<Application>().getString(R.string.error_msg_pswd_length))
                 }
             } else {
-                AppNotificationMethods.shortToastMessage(getApplication<Application>().applicationContext, getApplication<Application>().getString(R.string.error_msg_email_criteria))
+                shortToastMessage(getApplication<Application>().applicationContext, getApplication<Application>().getString(R.string.error_msg_email_criteria))
             }
         } else {
-            AppNotificationMethods.shortToastMessage(getApplication<Application>().applicationContext, getApplication<Application>().getString(R.string.error_msg_required))
+            shortToastMessage(getApplication<Application>().applicationContext, getApplication<Application>().getString(R.string.error_msg_required))
         }
 
         return isValidated

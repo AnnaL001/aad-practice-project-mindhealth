@@ -3,10 +3,7 @@ package com.anna.mindhealth.ui.auth.before
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.util.PatternsCompat
 import androidx.lifecycle.ViewModelProvider
-import com.anna.mindhealth.R
-import com.anna.mindhealth.base.AppNotificationMethods
 import com.anna.mindhealth.databinding.ActivityRegisterBinding
 
 class RegisterActivity: AppCompatActivity() {
@@ -25,6 +22,10 @@ class RegisterActivity: AppCompatActivity() {
         binding.edtInputConfirmPassword.editText!!.text.toString()
     }
 
+    private val selectedSecurityLevel by lazy {
+        intent.getIntExtra(LoginActivity.securityLevel, 0)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
@@ -38,8 +39,9 @@ class RegisterActivity: AppCompatActivity() {
     private fun initializeButtons(){
         binding.btnRegisterViaEmail.setOnClickListener {
             if (registerViewModel.validateCredentialsInput(inputEmail,inputPassword,inputConfirmPassword)){
-                registerViewModel.register(inputEmail, inputPassword)
+                registerViewModel.register(inputEmail, inputPassword, selectedSecurityLevel)
             }
+            startActivity(Intent(this, LoginActivity::class.java))
         }
 
         binding.btnRegisterViaGoogle.setOnClickListener {
