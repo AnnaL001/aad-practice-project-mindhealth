@@ -16,7 +16,7 @@ import com.anna.mindhealth.R
 import com.anna.mindhealth.data.model.Assessment
 import com.anna.mindhealth.databinding.FragmentAssessmentQuestionsBinding
 
-class AssessmentFragment: Fragment(){
+class AssessmentQuestionsFragment: Fragment(){
     private var _binding: FragmentAssessmentQuestionsBinding ?= null
     private lateinit var assessmentViewModel: AssessmentViewModel
 
@@ -97,6 +97,6 @@ class AssessmentFragment: Fragment(){
     }
 
     companion object{
-        val TAG = AssessmentFragment::class.simpleName
+        val TAG = AssessmentQuestionsFragment::class.simpleName
     }
 }

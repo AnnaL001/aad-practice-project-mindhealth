@@ -19,7 +19,7 @@
     <string name="txv_welcome_user_text">Welcome %1$s, </string>
     <string name="txv_feelings_inquiry_text">How are you feeling today?</string>
     <string name="txv_assessment_state_text">Assessment state</string>
-    <string name="btn_view_responses_link_text">See your responses</string>
+    <string name="btn_view_responses_link_text">View your responses</string>
     <string name="btn_view_assessment_link_text">Take assessment test</string>
     <string name="btn_therapist_selection_state_text">You\'re yet to be assigned a therapist</string>
     <string name="icon_assessment_status_false">Assessment not done icon</string>
@@ -103,5 +103,6 @@
     <string name="submit">Submit</string>
     <string name="checkbox_options">Select a value</string>
     <string name="arrrow_right_icon_content_desc">arrrow right icon</string>
+    <string name="menu_assessment_responses">Assessment Responses</string>
 
 </resources>

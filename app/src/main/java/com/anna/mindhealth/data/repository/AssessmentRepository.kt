@@ -5,16 +5,18 @@ import android.util.Log
 import com.anna.mindhealth.R
 import com.anna.mindhealth.base.Utility.shortToastMessage
 import com.anna.mindhealth.data.`interface`.CrudRepo
+import com.anna.mindhealth.data.`interface`.UserRepo
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class AssessmentRepository(private val application: Application): CrudRepo {
+    private val userRepository: UserRepo = UserRepository(application)
+
     /* =======================================================
     *   Function to insert assessment responses into Firestore
     *   @param data -- instance of Assessment data class
     * ========================================================  */
-
     override fun insert(data: Any) {
         val userId = Firebase.auth.currentUser!!.uid
         Firebase.firestore.collection(application.getString(R.string.dbcol_patients))
@@ -25,7 +27,7 @@ class AssessmentRepository(private val application: Application): CrudRepo {
                     Log.d(TAG, "Assessment answers saved")
                     shortToastMessage(application.applicationContext,
                     application.getString(R.string.toast_assessment_choices_save_success))
-                    AuthRepository(application).updateAssessmentStatus(true)
+                    userRepository.updateAssessmentStatus(true)
                 } else {
                     Log.d(TAG, "Error: Assessment answers not saved", task.exception)
                     shortToastMessage(application.applicationContext,

@@ -5,10 +5,11 @@ import androidx.core.util.PatternsCompat
 import androidx.lifecycle.AndroidViewModel
 import com.anna.mindhealth.R
 import com.anna.mindhealth.base.Utility.shortToastMessage
+import com.anna.mindhealth.data.`interface`.AuthRepo
 import com.anna.mindhealth.data.repository.AuthRepository
 
 class RegisterViewModel(application: Application): AndroidViewModel(application) {
-    private val authRepository: AuthRepository
+    private val authRepository: AuthRepo
 
     init {
         authRepository = AuthRepository(application)
@@ -19,11 +20,12 @@ class RegisterViewModel(application: Application): AndroidViewModel(application)
         authRepository.register(email, password, securityLevel)
     }
 
-    /*
-    * =========================
-    * Validate all input fields
-    * =========================
-    */
+    /* =========================
+    *  Validate all input fields
+    *  @param email
+    *  @param password
+    *  @param confirmPassword
+    *  ========================= */
     fun validateCredentialsInput(email: String, password: String, confirmPassword: String): Boolean{
         var isValidated = false
 
@@ -54,11 +56,9 @@ class RegisterViewModel(application: Application): AndroidViewModel(application)
         return isValidated
     }
 
-    /*
-    * ===========================
-    * Check for password validity
-    * ===========================
-    */
+    /* =================================================
+    *  Extension function to check for password validity
+    *  ================================================= */
     private fun String.isPasswordValid(): Boolean{
         // Password criteria
         val hasUpperCase: (Char) -> Boolean = { it.isUpperCase() }
@@ -68,12 +68,9 @@ class RegisterViewModel(application: Application): AndroidViewModel(application)
         return this.any { hasUpperCase(it) } && this.any { hasLowerCase(it) } && this.any { hasDigits(it) }
     }
 
-    /*
-    * ========================
-    * Check for email validity
-    * ========================
-    */
-    private fun String.isEmailValid(): Boolean{
-        return PatternsCompat.EMAIL_ADDRESS.matcher(this).matches()
-    }
+    /* ==============================================
+    *  Extension function to check for email validity
+    *  ============================================== */
+    private fun String.isEmailValid(): Boolean = PatternsCompat.EMAIL_ADDRESS.matcher(this).matches()
+
 }

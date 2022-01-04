@@ -6,11 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import com.anna.mindhealth.R
 import com.anna.mindhealth.base.Utility.shortToastMessage
 import com.anna.mindhealth.data.`interface`.AuthRepo
-import com.anna.mindhealth.data.`interface`.CrudRepo
-import com.anna.mindhealth.data.model.User
+import com.anna.mindhealth.data.`interface`.UserRepo
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class AuthRepository(private val application: Application): AuthRepo {
@@ -65,7 +63,7 @@ class AuthRepository(private val application: Application): AuthRepo {
                     // Update authenticated user value
                     _authUser.postValue(Firebase.auth.currentUser)
                     sendVerification()
-                    insertUser(email,securityLevel)
+                    UserRepository(application).insert(email,securityLevel)
                 }
                 else -> {
                     Log.e(TAG, "createUserWithEmail: Failure", task.exception)
@@ -75,57 +73,6 @@ class AuthRepository(private val application: Application): AuthRepo {
 
     }
 
-    /* ===============================
-    *   Function to insert user data into Firestore
-    *   @param email
-    *   @param securityLevel
-    * ================================  */
-    private fun insertUser(email: String, securityLevel: Int) {
-        val userId = Firebase.auth.currentUser!!.uid
-        val user = User(id = userId , email = email, name = email.substring(0, email.indexOf("@")), security_level = securityLevel)
-
-        when(securityLevel){
-            1 -> {
-                Log.d(TAG, "insertUser: Inserting patient data...")
-                Firebase.firestore.collection(application.getString(R.string.dbcol_patients))
-                    .document(userId).set(user).addOnCompleteListener { task ->
-                        logOut()
-                    }.addOnFailureListener {
-                        shortToastMessage(application.applicationContext, application.getString(R.string.toast_sign_up_fail))
-                    }
-                Log.d(TAG, "insertUser: patient data inserted ...")
-            }
-
-            2 -> {
-                Log.d(TAG, "insertUser: Inserting therapist data ...")
-                Firebase.firestore.collection(application.getString(R.string.dbcol_therapists))
-                    .document(userId).set(user).addOnCompleteListener { task ->
-                        logOut()
-                    }.addOnFailureListener {
-                        shortToastMessage(application.applicationContext, application.getString(R.string.toast_sign_up_fail))
-                    }
-                Log.d(TAG, "insertUser: Therapist data inserted ...")
-            }
-            else -> Log.e(TAG, "Error: Security Level Unidentified")
-        }
-    }
-
-    /* ======================================================
-    *   Function to update whether assessment has been done
-    *   @param status
-    * =======================================================  */
-    fun updateAssessmentStatus(status: Boolean){
-        val userId = Firebase.auth.currentUser!!.uid
-        Firebase.firestore.collection(application.getString(R.string.dbcol_patients)).document(userId).
-                update("_assessment_done", status).
-                addOnCompleteListener { task ->
-                    if (task.isSuccessful){
-                        Log.d(TAG, "Assessment status updated")
-                    } else {
-                        Log.e(TAG, "Error occurred while updating status", task.exception)
-                    }
-                }
-    }
 
     /* ========================================
     *   Function to send an email verification
@@ -147,9 +94,9 @@ class AuthRepository(private val application: Application): AuthRepo {
         }
     }
 
-    /* ========================================
+    /* =============================================
     *   Function to check user authentication state
-    * =========================================  */
+    * ==============================================  */
     override fun checkAuthState() {
         Log.i(TAG, "Checking authentication ...")
         if (Firebase.auth.currentUser != null){

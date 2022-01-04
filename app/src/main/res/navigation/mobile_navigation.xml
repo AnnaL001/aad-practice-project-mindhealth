@@ -16,6 +16,12 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <action android:id="@+id/action_fragment_home_to_fragment_assessment_responses"
+            app:destination="@id/nav_assessment_responses"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
 
     <fragment
         android:id="@+id/nav_session"
@@ -37,7 +43,7 @@
 
     <fragment
         android:id="@+id/nav_assessment_questions"
-        android:name="com.anna.mindhealth.ui.assessment.AssessmentFragment"
+        android:name="com.anna.mindhealth.ui.assessment.AssessmentQuestionsFragment"
         android:label="@string/menu_assessment"
         tools:layout="@layout/fragment_assessment_questions"/>
         <action android:id="@+id/action_fragment_assessment_questions_to_fragment_home"
@@ -46,5 +52,13 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+
+
+    <fragment
+        android:id="@+id/nav_assessment_responses"
+        android:name="com.anna.mindhealth.ui.assessment.AssessmentResponsesFragment"
+        android:label="@string/menu_assessment_responses"
+        tools:layout="@layout/fragment_assessment_responses"/>
+
 
 </navigation>
