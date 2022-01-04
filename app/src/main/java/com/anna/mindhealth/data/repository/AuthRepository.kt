@@ -68,7 +68,7 @@ class AuthRepository(private val application: Application): AuthRepo {
                     insertUser(email,securityLevel)
                 }
                 else -> {
-                    Log.d(TAG, "createUserWithEmail: Failure", task.exception)
+                    Log.e(TAG, "createUserWithEmail: Failure", task.exception)
                 }
             }
         }
@@ -106,7 +106,7 @@ class AuthRepository(private val application: Application): AuthRepo {
                     }
                 Log.d(TAG, "insertUser: Therapist data inserted ...")
             }
-            else -> Log.d(TAG, "Error: Security Level Unidentified")
+            else -> Log.e(TAG, "Error: Security Level Unidentified")
         }
     }
 
@@ -115,7 +115,16 @@ class AuthRepository(private val application: Application): AuthRepo {
     *   @param status
     * =======================================================  */
     fun updateAssessmentStatus(status: Boolean){
-
+        val userId = Firebase.auth.currentUser!!.uid
+        Firebase.firestore.collection(application.getString(R.string.dbcol_patients)).document(userId).
+                update("_assessment_done", status).
+                addOnCompleteListener { task ->
+                    if (task.isSuccessful){
+                        Log.d(TAG, "Assessment status updated")
+                    } else {
+                        Log.e(TAG, "Error occurred while updating status", task.exception)
+                    }
+                }
     }
 
     /* ========================================
@@ -130,7 +139,7 @@ class AuthRepository(private val application: Application): AuthRepo {
                     R.string.toast_email_verification_success
                 ))
             } else {
-                Log.d(TAG, "Email verification not sent", task.exception)
+                Log.e(TAG, "Email verification not sent", task.exception)
                 shortToastMessage(application.applicationContext, application.getString(
                     R.string.toast_email_verification_fail
                 ))

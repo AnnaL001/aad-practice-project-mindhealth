@@ -11,6 +11,7 @@ import android.widget.RadioGroup
 import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import com.anna.mindhealth.R
 import com.anna.mindhealth.data.model.Assessment
 import com.anna.mindhealth.databinding.FragmentAssessmentQuestionsBinding
@@ -31,77 +32,36 @@ class AssessmentFragment: Fragment(){
         super.onViewCreated(view, savedInstanceState)
         assessmentViewModel = ViewModelProvider(this).get(AssessmentViewModel::class.java)
 
-        initializeButton()
+        initializeButtons()
 
     }
 
-    private fun initializeButton(){
+    private fun initializeButtons(){
         binding.btnSaveChoices.setOnClickListener {
-            // Question 1
-            val selectedGender = getRadioSelectedItem(binding.radioGrpGender)
-            val genderQuestion = binding.txvAssessmentQuestion1.text.toString()
-
-            // Question 2
-            val selectedAge = getRadioSelectedItem(binding.radioGrpAge)
-            val ageQuestion = binding.txvAssessmentQuestion2.text.toString()
-
-            // Question 3
-            val selectedRelationshipStatus = getRadioSelectedItem(binding.radioGrpRshipStatus)
-            val relationshipStatusQuestion = binding.txvAssessmentQuestion3.text.toString()
-
-            // Question 4
-            val selectedSeenTherapist = getRadioSelectedItem(binding.radioGrpSeenTherapist)
-            val seenTherapistQuestion = binding.txvAssessmentQuestion4.text.toString()
-
-            // Question 5
-            val selectedMentalEffect = getRadioSelectedItem(binding.radioGrpMentalEffect)
-            val mentalEffectQuestion = binding.txvAssessmentQuestion5.text.toString()
-
-            // Question 6
-            val selectedPhysicalState = getRadioSelectedItem(binding.radioGrpPhysicalHealth)
-            val physicalStateQuestion = binding.txvAssessmentQuestion6.text.toString()
-
-            // Question 7
-            val selectedEatingHabit = getRadioSelectedItem(binding.radioGrpEatingHabits)
-            val eatingHabitQuestion = binding.txvAssessmentQuestion7.text.toString()
-
-            // Question 8
-            val selectedFinancialStatus = getRadioSelectedItem(binding.radioGrpFinances)
-            val financialStateQuestion = binding.txvAssessmentQuestion8.text.toString()
-
-            //Question 9
-            val selectedLanguage = getRadioSelectedItem(binding.radioGrpPrefLang)
-            val languageQuestion = binding.txvAssessmentQuestion9.text.toString()
-
-            //Question10
-            val selectedCountry = getSelectedSpinnerItem(binding.spinnerCountries)
-            val countryQuestion = binding.txvAssessmentQuestion10.text.toString()
-
-            //Question 11
-            val selectedOptions = getSelectedCheckboxes(listOf(
-                binding.checkboxCouplesTherapy, binding.checkboxGroupTherapy, binding.checkboxIndividualTherapy
-            ))
-            val optionsQuestion = binding.txvAssessmentQuestion11.text.toString()
-
-
+            // Retrieve assessment responses
             val responses = hashMapOf(
-                genderQuestion to selectedGender,
-                ageQuestion to selectedAge,
-                relationshipStatusQuestion to selectedRelationshipStatus,
-                seenTherapistQuestion to selectedSeenTherapist,
-                mentalEffectQuestion to selectedMentalEffect,
-                physicalStateQuestion to selectedPhysicalState,
-                eatingHabitQuestion to selectedEatingHabit,
-                financialStateQuestion to selectedFinancialStatus,
-                languageQuestion to selectedLanguage,
-                countryQuestion to selectedCountry,
-                optionsQuestion to selectedOptions
+                binding.txvAssessmentQuestion1.text.toString() to getRadioSelectedItem(binding.radioGrpGender),
+                binding.txvAssessmentQuestion2.text.toString() to getRadioSelectedItem(binding.radioGrpAge),
+                binding.txvAssessmentQuestion3.text.toString() to getRadioSelectedItem(binding.radioGrpRshipStatus),
+                binding.txvAssessmentQuestion4.text.toString() to getRadioSelectedItem(binding.radioGrpSeenTherapist),
+                binding.txvAssessmentQuestion5.text.toString() to getRadioSelectedItem(binding.radioGrpMentalEffect),
+                binding.txvAssessmentQuestion6.text.toString() to getRadioSelectedItem(binding.radioGrpPhysicalHealth),
+                binding.txvAssessmentQuestion7.text.toString() to getRadioSelectedItem(binding.radioGrpEatingHabits),
+                binding.txvAssessmentQuestion8.text.toString() to getRadioSelectedItem(binding.radioGrpFinances),
+                binding.txvAssessmentQuestion9.text.toString() to getRadioSelectedItem(binding.radioGrpPrefLang),
+                binding.txvAssessmentQuestion10.text.toString() to getSelectedSpinnerItem(binding.spinnerCountries),
+                binding.txvAssessmentQuestion11.text.toString() to
+                        getSelectedCheckboxes(listOf(
+                    binding.checkboxCouplesTherapy, binding.checkboxGroupTherapy, binding.checkboxIndividualTherapy
+                ))
             )
 
             Log.d(TAG, "$responses")
 
-//            val assessment = Assessment(title = getString(R.string.assessment_title), responses = responses)
-//            assessmentViewModel.insertAssessmentResponses(assessment)
+            // Insert assessment responses and redirect to home
+            val assessment = Assessment(title = getString(R.string.assessment_title), responses = responses)
+            assessmentViewModel.insertAssessmentResponses(assessment)
+            redirectToHome()
         }
     }
 
@@ -125,6 +85,10 @@ class AssessmentFragment: Fragment(){
         }
 
         return selectedItems.joinToString()
+    }
+
+    private fun redirectToHome(){
+        view?.findNavController()?.navigate(R.id.action_fragment_assessment_questions_to_fragment_home)
     }
 
     override fun onDestroy() {
