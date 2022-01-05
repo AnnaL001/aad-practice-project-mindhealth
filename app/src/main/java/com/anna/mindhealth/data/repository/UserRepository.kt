@@ -2,6 +2,8 @@ package com.anna.mindhealth.data.repository
 
 import android.app.Application
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.anna.mindhealth.R
 import com.anna.mindhealth.base.Utility.shortToastMessage
 import com.anna.mindhealth.data.`interface`.AuthRepo
@@ -16,6 +18,9 @@ import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 
 class UserRepository(private val application: Application): UserRepo {
+    private var _patientRef: MutableLiveData<DocumentReference> = MutableLiveData()
+
+    private val patientRef get() = _patientRef
 
     /* ===============================================
     *   Function to insert user data into Firestore
@@ -66,7 +71,7 @@ class UserRepository(private val application: Application): UserRepo {
     override fun updateAssessmentStatus(status: Boolean){
         val userId = Firebase.auth.currentUser!!.uid
         Firebase.firestore.collection(application.getString(R.string.dbcol_patients)).document(userId).
-        update("assessment_done", status).
+        update("is_assessment_done", status).
         addOnCompleteListener { task ->
             if (task.isSuccessful){
                 Log.d(TAG, "Assessment status updated")
@@ -76,9 +81,15 @@ class UserRepository(private val application: Application): UserRepo {
         }
     }
 
+    /* ======================================================
+    *   Function to fetch patient data
+    *   @param userId
+    * =======================================================  */
+    override fun readPatient(userId: String): LiveData<DocumentReference> {
+        _patientRef.postValue(Firebase.firestore.collection(application.getString(R.string.dbcol_patients)).document(userId))
+        return patientRef
+    }
 
-    override fun readPatient(userId: String): DocumentReference =
-        Firebase.firestore.collection(application.getString(R.string.dbcol_patients)).document(userId)
 
     companion object {
         val TAG = UserRepository::class.simpleName

@@ -47,10 +47,10 @@
     <string name="toast_log_in_fail"> Authentication failure </string>
     <string name="toast_sign_up_fail"> Something went wrong </string>
     <string name="toast_email_verification_success"> Sent email verification </string>
-    <string name="toast_email_verification_fail"> Email verification not sent. Click "Resend Email Verification" </string>
+    <string name="toast_email_verification_fail"> Error while sending email verification. Click "Resend Email Verification" to retry </string>
     <string name="toast_email_verification_prompt"> Check your email to verify your account </string>
-    <string name="toast_assessment_choices_save_success"> Your choices have been saved </string>
-    <string name="toast_assessment_choices_save_fail">Error occurred when saving your choices </string>
+    <string name="toast_assessment_choices_save_success"> Your responses have been saved </string>
+    <string name="toast_assessment_choices_save_fail">Error occurred while saving your responses </string>
 
     <!-- Error messages -->
     <string name="error_msg_required"> All fields must be filled </string>
@@ -63,7 +63,7 @@
     <string name="dbcol_patients"> Patients </string>
     <string name="dbcol_therapists"> Therapists </string>
     <string name="dbcol_assessment"> Assessment </string>
-    <string name="doc_choices">Choices</string>
+    <string name="doc_responses">Responses</string>
 
     <!-- Assessment questions -->
     <string name="assessment_title">Initial Assessment </string>
@@ -104,5 +104,7 @@
     <string name="checkbox_options">Select a value</string>
     <string name="arrrow_right_icon_content_desc">arrrow right icon</string>
     <string name="menu_assessment_responses">Assessment Responses</string>
+    <string name="assessment_question_text">Assessment question</string>
+    <string name="assessment_response_text">Assessment response</string>
 
 </resources>

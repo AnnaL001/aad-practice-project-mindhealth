@@ -18,13 +18,11 @@ class HomeViewModel(application: Application): AndroidViewModel(application) {
     private val authRepository: AuthRepo
     private val userRepository: UserRepo
 
-    val authUser: LiveData<FirebaseUser>
-    val patientData: DocumentReference
+    val patientData: LiveData<DocumentReference>
 
     init {
         authRepository = AuthRepository(application)
         userRepository = UserRepository(application)
-        authUser = authRepository.authUser
         patientData = userRepository.readPatient(Firebase.auth.currentUser!!.uid)
     }
 }

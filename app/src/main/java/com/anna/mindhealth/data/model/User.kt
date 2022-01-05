@@ -5,7 +5,9 @@ data class User(
     val email: String = "",
     val name: String = "",
     val avatar: String = "",
-    val assessment_done: Boolean = false,
-    val therapist_selected: Boolean = false,
+    @field:JvmField // Boolean field prefixed with 'is'
+    val is_assessment_done: Boolean = false,
+    @field:JvmField // Boolean field prefixed with 'is'
+    val is_therapist_selected: Boolean = false,
     val security_level: Int = 0 // Not set
 )

@@ -34,18 +34,20 @@ class HomeFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
-        homeViewModel.patientData.get().addOnCompleteListener { task ->
-            val patient = task.result.toObject<User>()
+        homeViewModel.patientData.observe(viewLifecycleOwner, { patientRef ->
+            patientRef.get().addOnCompleteListener { task ->
+                val patient = task.result.toObject<User>()
 
-            binding.txvWelcomeUser.text = getString(R.string.txv_welcome_user_text, patient!!.name)
-            initializeAssessmentStatus(patient)
+                binding.txvWelcomeUser.text = getString(R.string.txv_welcome_user_text, patient!!.name)
+                initializeAssessmentStatus(patient)
 
-        }
+            }
+        })
     }
 
 
     private fun initializeAssessmentStatus(user: User){
-        if (user.assessment_done){
+        if (user.is_assessment_done){
             binding.btnViewResponsesLink.apply {
                 text = getString(R.string.btn_view_responses_link_text)
                 setOnClickListener {
@@ -67,6 +69,18 @@ class HomeFragment: Fragment() {
 
     private fun redirectToResponses(){
         view?.findNavController()?.navigate(R.id.action_fragment_home_to_fragment_assessment_responses)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        homeViewModel.patientData.observe(viewLifecycleOwner, { patientRef ->
+            patientRef.get().addOnCompleteListener { task ->
+                val patient = task.result.toObject<User>()
+
+                initializeAssessmentStatus(patient!!)
+
+            }
+        })
     }
 
     override fun onDestroy() {
