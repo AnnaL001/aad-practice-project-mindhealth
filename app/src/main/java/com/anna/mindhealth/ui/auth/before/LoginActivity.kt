@@ -7,7 +7,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.anna.mindhealth.R
 import com.anna.mindhealth.base.Utility.shortToastMessage
 import com.anna.mindhealth.databinding.ActivityLoginBinding
-import com.anna.mindhealth.ui.auth.after.MainActivity
+import com.anna.mindhealth.ui.auth.after.PatientActivity
+import com.anna.mindhealth.ui.auth.after.TherapistActivity
 import com.anna.mindhealth.ui.role.RoleSelectionActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -33,11 +34,19 @@ class LoginActivity : AppCompatActivity() {
 
         loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
-        loginViewModel.authUser.observe(this, { firebaseUser ->
-            if (firebaseUser != null){
-                startActivity(Intent(this, MainActivity::class.java))
-            }
-        })
+        if (selectedSecurityLevel == 1){
+            loginViewModel.authUser.observe(this, { patientUser ->
+                if (patientUser != null){
+                    startActivity(Intent(this, PatientActivity::class.java))
+                }
+            })
+        } else {
+            loginViewModel.authUser.observe(this, { therapistUser ->
+                if (therapistUser != null){
+                    startActivity(Intent(this, TherapistActivity::class.java))
+                }
+            })
+        }
 
         initializeButtons()
         initializeLinks()

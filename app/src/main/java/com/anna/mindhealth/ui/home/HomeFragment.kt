@@ -1,22 +1,17 @@
 package com.anna.mindhealth.ui.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.anna.mindhealth.R
-import com.anna.mindhealth.data.model.User
-import com.anna.mindhealth.data.repository.AuthRepository
-import com.anna.mindhealth.data.repository.UserRepository
+import com.anna.mindhealth.data.model.Patient
 import com.anna.mindhealth.databinding.FragmentHomeBinding
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
-import com.google.firebase.ktx.Firebase
 
 class HomeFragment: Fragment() {
     private var _binding: FragmentHomeBinding ?= null
@@ -36,7 +31,7 @@ class HomeFragment: Fragment() {
 
         homeViewModel.patientData.observe(viewLifecycleOwner, { patientRef ->
             patientRef.get().addOnCompleteListener { task ->
-                val patient = task.result.toObject<User>()
+                val patient = task.result.toObject<Patient>()
 
                 binding.txvWelcomeUser.text = getString(R.string.txv_welcome_user_text, patient!!.name)
                 initializeAssessmentStatus(patient)
@@ -46,8 +41,8 @@ class HomeFragment: Fragment() {
     }
 
 
-    private fun initializeAssessmentStatus(user: User){
-        if (user.is_assessment_done){
+    private fun initializeAssessmentStatus(patient: Patient){
+        if (patient.is_assessment_done){
             binding.btnViewResponsesLink.apply {
                 text = getString(R.string.btn_view_responses_link_text)
                 setOnClickListener {
@@ -75,13 +70,15 @@ class HomeFragment: Fragment() {
         super.onStart()
         homeViewModel.patientData.observe(viewLifecycleOwner, { patientRef ->
             patientRef.get().addOnCompleteListener { task ->
-                val patient = task.result.toObject<User>()
+                val patient = task.result.toObject<Patient>()
 
                 initializeAssessmentStatus(patient!!)
 
             }
         })
     }
+
+
 
     override fun onDestroy() {
         super.onDestroy()

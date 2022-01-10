@@ -17,7 +17,7 @@ class AssessmentRepository(private val application: Application): CrudRepo {
     private val userRepository: UserRepo = UserRepository(application)
     private var _assessmentRef: MutableLiveData<DocumentReference> = MutableLiveData()
 
-    private val assessmentRef get() = _assessmentRef
+    private val assessmentRef: LiveData<DocumentReference> get() = _assessmentRef
 
     /* =======================================================
     *   Function to insert assessment responses into Firestore
@@ -27,7 +27,7 @@ class AssessmentRepository(private val application: Application): CrudRepo {
         val userId = Firebase.auth.currentUser!!.uid
         Firebase.firestore.collection(application.getString(R.string.dbcol_patients))
             .document(userId).collection(application.getString(R.string.dbcol_assessment))
-            .document(application.getString(R.string.doc_responses)).set(data).addOnCompleteListener { task ->
+            .document(application.getString(R.string.doc_initial_assessment)).set(data).addOnCompleteListener { task ->
                 Log.d(TAG, "Saving assessment answers...")
                 if (task.isSuccessful){
                     Log.d(TAG, "Assessment answers saved")
@@ -45,7 +45,7 @@ class AssessmentRepository(private val application: Application): CrudRepo {
     override fun read(id: String): LiveData<DocumentReference> {
         _assessmentRef.postValue(Firebase.firestore.collection(application.getString(R.string.dbcol_patients)).document(id)
             .collection(application.getString(R.string.dbcol_assessment))
-            .document(application.getString(R.string.doc_responses)))
+            .document(application.getString(R.string.doc_initial_assessment)))
         return assessmentRef
     }
 

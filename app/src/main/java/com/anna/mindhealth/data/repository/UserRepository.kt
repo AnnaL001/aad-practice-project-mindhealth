@@ -6,36 +6,34 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.anna.mindhealth.R
 import com.anna.mindhealth.base.Utility.shortToastMessage
-import com.anna.mindhealth.data.`interface`.AuthRepo
 import com.anna.mindhealth.data.`interface`.UserRepo
-import com.anna.mindhealth.data.model.User
-import com.google.android.gms.tasks.Task
+import com.anna.mindhealth.data.model.Patient
+import com.anna.mindhealth.data.model.Therapist
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.DocumentReference
-import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 
 class UserRepository(private val application: Application): UserRepo {
     private var _patientRef: MutableLiveData<DocumentReference> = MutableLiveData()
 
-    private val patientRef get() = _patientRef
+    private val patientRef: LiveData<DocumentReference> get() = _patientRef
 
-    /* ===============================================
+    /* ================================================
     *   Function to insert user data into Firestore
     *   @param email
     *   @param securityLevel
-    * ================================================  */
+    * =================================================  */
     override fun insert(email: String, securityLevel: Int) {
-        val userId = Firebase.auth.currentUser!!.uid
-        val user = User(id = userId , email = email, name = email.substring(0, email.indexOf("@")), security_level = securityLevel)
+        val authId = Firebase.auth.currentUser!!.uid
+        val patient = Patient(id = authId , email = email, name = email.substring(0, email.indexOf("@")), security_level = securityLevel)
+        val therapist = Therapist(id = authId, email = email, name = email.substring(0, email.indexOf("@")), security_level = securityLevel )
 
         when(securityLevel){
             1 -> {
                 Log.d(TAG, "insertUser: Inserting patient data...")
                 Firebase.firestore.collection(application.getString(R.string.dbcol_patients))
-                    .document(userId).set(user).addOnCompleteListener {
+                    .document(authId).set(patient).addOnCompleteListener {
                         AuthRepository(application).logOut()
                     }.addOnFailureListener {
                         shortToastMessage(
@@ -49,7 +47,7 @@ class UserRepository(private val application: Application): UserRepo {
             2 -> {
                 Log.d(AuthRepository.TAG, "insertUser: Inserting therapist data ...")
                 Firebase.firestore.collection(application.getString(R.string.dbcol_therapists))
-                    .document(userId).set(user).addOnCompleteListener { task ->
+                    .document(authId).set(therapist).addOnCompleteListener {
                         AuthRepository(application).logOut()
                     }.addOnFailureListener {
                         shortToastMessage(
@@ -64,13 +62,13 @@ class UserRepository(private val application: Application): UserRepo {
     }
 
 
-    /* ======================================================
+    /* =======================================================
     *   Function to update whether assessment has been done
     *   @param status
-    * =======================================================  */
+    * ========================================================  */
     override fun updateAssessmentStatus(status: Boolean){
-        val userId = Firebase.auth.currentUser!!.uid
-        Firebase.firestore.collection(application.getString(R.string.dbcol_patients)).document(userId).
+        val patientId = Firebase.auth.currentUser!!.uid
+        Firebase.firestore.collection(application.getString(R.string.dbcol_patients)).document(patientId).
         update("is_assessment_done", status).
         addOnCompleteListener { task ->
             if (task.isSuccessful){
@@ -83,7 +81,7 @@ class UserRepository(private val application: Application): UserRepo {
 
     /* ======================================================
     *   Function to fetch patient data
-    *   @param userId
+    *   @param patientId
     * =======================================================  */
     override fun readPatient(userId: String): LiveData<DocumentReference> {
         _patientRef.postValue(Firebase.firestore.collection(application.getString(R.string.dbcol_patients)).document(userId))

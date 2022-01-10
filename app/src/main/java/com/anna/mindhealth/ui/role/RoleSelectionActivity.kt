@@ -2,14 +2,10 @@ package com.anna.mindhealth.ui.role
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.anna.mindhealth.databinding.ActivityRoleSelectionBinding
-import com.anna.mindhealth.ui.auth.after.MainActivity
+import com.anna.mindhealth.ui.auth.after.PatientActivity
 import com.anna.mindhealth.ui.auth.before.LoginActivity
 
 class RoleSelectionActivity : AppCompatActivity() {
@@ -25,7 +21,7 @@ class RoleSelectionActivity : AppCompatActivity() {
 
         roleSelectionViewModel.authUser.observe(this, { firebaseUser ->
             if (firebaseUser != null){
-                startActivity(Intent(this, MainActivity::class.java))
+                startActivity(Intent(this, PatientActivity::class.java))
             }
         })
 

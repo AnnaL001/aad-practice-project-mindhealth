@@ -7,7 +7,7 @@ import com.anna.mindhealth.data.`interface`.AuthRepo
 import com.anna.mindhealth.data.repository.AuthRepository
 import com.google.firebase.auth.FirebaseUser
 
-class MainViewModel(application: Application): AndroidViewModel(application) {
+class UserActivityViewModel(application: Application): AndroidViewModel(application) {
     private val authRepository: AuthRepo
     val authUser: LiveData<FirebaseUser>
 
@@ -18,5 +18,9 @@ class MainViewModel(application: Application): AndroidViewModel(application) {
 
     fun checkAuthenticationState(){
         authRepository.checkAuthState()
+    }
+
+    fun logout(){
+        authRepository.logOut()
     }
 }

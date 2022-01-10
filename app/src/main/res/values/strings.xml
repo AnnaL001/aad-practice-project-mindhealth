@@ -63,7 +63,7 @@
     <string name="dbcol_patients"> Patients </string>
     <string name="dbcol_therapists"> Therapists </string>
     <string name="dbcol_assessment"> Assessment </string>
-    <string name="doc_responses">Responses</string>
+    <string name="doc_initial_assessment"> Initial Assessment </string>
 
     <!-- Assessment questions -->
     <string name="assessment_title">Initial Assessment </string>
@@ -106,5 +106,6 @@
     <string name="menu_assessment_responses">Assessment Responses</string>
     <string name="assessment_question_text">Assessment question</string>
     <string name="assessment_response_text">Assessment response</string>
+    <string name="logout">Logout</string>
 
 </resources>

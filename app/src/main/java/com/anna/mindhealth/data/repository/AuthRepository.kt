@@ -2,11 +2,11 @@ package com.anna.mindhealth.data.repository
 
 import android.app.Application
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.anna.mindhealth.R
 import com.anna.mindhealth.base.Utility.shortToastMessage
 import com.anna.mindhealth.data.`interface`.AuthRepo
-import com.anna.mindhealth.data.`interface`.UserRepo
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -14,7 +14,7 @@ import com.google.firebase.ktx.Firebase
 class AuthRepository(private val application: Application): AuthRepo {
     private var _authUser: MutableLiveData<FirebaseUser> = MutableLiveData()
 
-    val authUser get() = _authUser
+    val authUser: LiveData<FirebaseUser> get() = _authUser
 
     /* ===============================
     *   Function to authenticate a user
@@ -48,12 +48,12 @@ class AuthRepository(private val application: Application): AuthRepo {
 
     }
 
-    /* ===============================
+    /* ================================
     *   Function to register a user
     *   @param email
     *   @param password
     *   @param securityLevel
-    * ================================  */
+    * =================================  */
     override fun register(email: String, password: String, securityLevel: Int) {
         Firebase.auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             Log.i(TAG, "Registering user with $email")

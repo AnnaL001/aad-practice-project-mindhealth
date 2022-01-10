@@ -41,7 +41,6 @@ class RegisterActivity: AppCompatActivity() {
             if (registerViewModel.validateCredentialsInput(inputEmail,inputPassword,inputConfirmPassword)){
                 registerViewModel.register(inputEmail, inputPassword, selectedSecurityLevel)
             }
-            startActivity(Intent(this, LoginActivity::class.java))
         }
 
         binding.btnRegisterViaGoogle.setOnClickListener {

@@ -89,6 +89,7 @@ class AssessmentQuestionsFragment: Fragment(){
 
     private fun redirectToHome(){
         view?.findNavController()?.navigate(R.id.action_fragment_assessment_questions_to_fragment_home)
+
     }
 
     override fun onDestroy() {

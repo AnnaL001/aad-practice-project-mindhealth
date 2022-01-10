@@ -1,6 +1,6 @@
 package com.anna.mindhealth.data.model
 
-data class User(
+data class Patient(
     val id: String = "",
     val email: String = "",
     val name: String = "",
@@ -9,5 +9,6 @@ data class User(
     val is_assessment_done: Boolean = false,
     @field:JvmField // Boolean field prefixed with 'is'
     val is_therapist_selected: Boolean = false,
+    val therapist: String = "",
     val security_level: Int = 0 // Not set
 )
