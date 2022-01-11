@@ -106,36 +106,38 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/edt_input_password_login" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/txv_or_login_screen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="@string/txv_or_text"
-        android:textAppearance="@style/ScreenTextSubTitle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_login_via_email" />
+<!--    <com.google.android.material.textview.MaterialTextView-->
+<!--        android:id="@+id/txv_or_login_screen"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:fontFamily="sans-serif-condensed"-->
+<!--        android:text="@string/txv_or_text"-->
+<!--        android:textAppearance="@style/ScreenTextSubTitle"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/btn_login_via_email" />-->
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_login_via_google"
-            style="@style/SecondaryButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:paddingVertical="18dp"
-            android:text="@string/btn_register_via_google_text"
-            android:textAppearance="@style/ButtonText"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txv_or_login_screen" />
+
+<!--    <com.google.android.material.button.MaterialButton-->
+<!--        android:id="@+id/btn_login_via_google"-->
+<!--        style="@style/SecondaryButton"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:fontFamily="sans-serif-condensed-medium"-->
+<!--        android:paddingVertical="18dp"-->
+<!--        android:text="@string/btn_register_via_google_text"-->
+<!--        android:textAppearance="@style/ButtonText"-->
+<!--        android:textSize="16sp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/txv_or_login_screen" />-->
+
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txv_reset_password"
@@ -152,7 +154,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toEndOf="@id/txv_register_link"
-            app:layout_constraintTop_toBottomOf="@id/btn_login_via_google" />
+            app:layout_constraintTop_toBottomOf="@id/btn_login_via_email" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txv_register_link"
@@ -169,6 +171,6 @@
             app:layout_constraintEnd_toStartOf="@id/txv_reset_password"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_login_via_google" />
+            app:layout_constraintTop_toBottomOf="@id/btn_login_via_email" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

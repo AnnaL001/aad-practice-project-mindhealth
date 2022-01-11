@@ -23,7 +23,6 @@ class RoleSelectionActivity : AppCompatActivity() {
 
         roleSelectionViewModel.authUser.observe(this, { firebaseUser ->
             if (firebaseUser != null){
-                var userSecurityLevel = 0
                 roleSelectionViewModel.userData.observe(this, { userRef ->
                     userRef.get().addOnCompleteListener { task ->
                         when (task.result.data?.get("security_level").toString().toInt()) {

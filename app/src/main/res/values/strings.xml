@@ -11,7 +11,7 @@
     <string name="hint_input_confirm_password">Confirm password</string>
     <string name="btn_patient_selection_text">I need therapy</string>
     <string name="btn_therapist_selection_text">I\'m a therapist</string>
-    <string name="txv_create_account_text">Create an account</string>
+    <string name="txv_create_account_text">Create account</string>
     <string name="btn_register_via_google_text">Sign in with google</string>
     <string name="txv_or_text">or</string>
     <string name="txv_login_text">Log In</string>

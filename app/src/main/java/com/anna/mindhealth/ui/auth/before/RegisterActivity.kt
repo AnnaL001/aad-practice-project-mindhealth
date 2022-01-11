@@ -32,7 +32,6 @@ class RegisterActivity: AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
         registerViewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)
-        Log.d("RegisterActivity", "SecurityLevel: $selectedSecurityLevel")
 
         initializeButtons()
         initializeLink()
@@ -47,9 +46,6 @@ class RegisterActivity: AppCompatActivity() {
                 selectedSecurityLevel))
         }
 
-        binding.btnRegisterViaGoogle.setOnClickListener {
-
-        }
     }
 
     private fun initializeLink(){

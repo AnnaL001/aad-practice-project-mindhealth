@@ -33,7 +33,9 @@
             android:id="@+id/txv_app_name_register_screen"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
             android:fontFamily="sans-serif-medium"
             android:gravity="center_horizontal"
             android:text="@string/app_name"
@@ -125,38 +127,38 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/edt_input_confirm_password" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/txv_or"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="sans-serif-condensed"
-            android:text="@string/txv_or_text"
-            android:textAppearance="@style/ScreenTextSubTitle"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/guideline11"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_register_via_email" />
+<!--        <com.google.android.material.textview.MaterialTextView-->
+<!--            android:id="@+id/txv_or"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:layout_marginEnd="16dp"-->
+<!--            android:fontFamily="sans-serif-condensed"-->
+<!--            android:text="@string/txv_or_text"-->
+<!--            android:textAppearance="@style/ScreenTextSubTitle"-->
+<!--            android:textSize="20sp"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/guideline11"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/btn_register_via_email" />-->
 
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_register_via_google"
-            style="@style/SecondaryButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:paddingVertical="18dp"
-            android:text="@string/btn_register_via_google_text"
-            android:textAppearance="@style/ButtonText"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/guideline11"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txv_or" />
+<!--        <com.google.android.material.button.MaterialButton-->
+<!--            android:id="@+id/btn_register_via_google"-->
+<!--            style="@style/SecondaryButton"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:layout_marginEnd="16dp"-->
+<!--            android:fontFamily="sans-serif-condensed-medium"-->
+<!--            android:paddingVertical="18dp"-->
+<!--            android:text="@string/btn_register_via_google_text"-->
+<!--            android:textAppearance="@style/ButtonText"-->
+<!--            android:textSize="20sp"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/guideline11"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/txv_or" />-->
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txv_login_link"
@@ -177,7 +179,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.74" />
+            app:layout_constraintGuide_percent="0.65" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

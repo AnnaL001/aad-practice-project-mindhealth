@@ -109,9 +109,6 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-        binding.btnLoginViaGoogle.setOnClickListener {
-
-        }
     }
 
     private fun initializeLinks(){

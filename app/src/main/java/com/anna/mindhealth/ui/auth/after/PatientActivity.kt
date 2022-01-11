@@ -51,9 +51,6 @@ class PatientActivity : AppCompatActivity() {
         // Connect Bottom Navigation View with NavController
         navView.setupWithNavController(navController)
 
-        if (navController.currentDestination?.id == R.id.nav_home){
-            refreshCurrentFragment(R.id.nav_home)
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -72,15 +69,8 @@ class PatientActivity : AppCompatActivity() {
         }
     }
 
-    private fun refreshCurrentFragment(fragmentId: Int){
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        navController.popBackStack(fragmentId,true)
-        navController.navigate(fragmentId)
-    }
-
     override fun onStart() {
         super.onStart()
         userActivityViewModel.checkAuthenticationState()
     }
-
 }

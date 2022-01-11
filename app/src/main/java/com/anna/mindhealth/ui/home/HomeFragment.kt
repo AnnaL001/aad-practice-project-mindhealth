@@ -1,6 +1,7 @@
 package com.anna.mindhealth.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,7 +36,6 @@ class HomeFragment: Fragment() {
 
                 binding.txvWelcomeUser.text = getString(R.string.txv_welcome_user_text, patient!!.name)
                 initializeAssessmentStatus(patient)
-
             }
         })
     }
@@ -66,22 +66,13 @@ class HomeFragment: Fragment() {
         view?.findNavController()?.navigate(R.id.action_fragment_home_to_fragment_assessment_responses)
     }
 
-//    override fun onStart() {
-//        super.onStart()
-//        homeViewModel.patientData.observe(viewLifecycleOwner, { patientRef ->
-//            patientRef.get().addOnCompleteListener { task ->
-//                val patient = task.result.toObject<Patient>()
-//
-//                initializeAssessmentStatus(patient!!)
-//
-//            }
-//        })
-//    }
-
-
+    companion object{
+        val TAG = HomeFragment::class.simpleName
+    }
 
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
     }
+
 }
