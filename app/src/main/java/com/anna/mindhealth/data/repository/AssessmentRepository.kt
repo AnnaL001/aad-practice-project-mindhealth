@@ -25,7 +25,7 @@ class AssessmentRepository(private val application: Application): CrudRepo {
     * ========================================================  */
     override fun insert(data: Any) {
         val userId = Firebase.auth.currentUser!!.uid
-        Firebase.firestore.collection(application.getString(R.string.dbcol_patients))
+        Firebase.firestore.collection(application.getString(R.string.dbcol_users))
             .document(userId).collection(application.getString(R.string.dbcol_assessment))
             .document(application.getString(R.string.doc_initial_assessment)).set(data).addOnCompleteListener { task ->
                 Log.d(TAG, "Saving assessment answers...")
@@ -43,7 +43,7 @@ class AssessmentRepository(private val application: Application): CrudRepo {
     }
 
     override fun read(id: String): LiveData<DocumentReference> {
-        _assessmentRef.postValue(Firebase.firestore.collection(application.getString(R.string.dbcol_patients)).document(id)
+        _assessmentRef.postValue(Firebase.firestore.collection(application.getString(R.string.dbcol_users)).document(id)
             .collection(application.getString(R.string.dbcol_assessment))
             .document(application.getString(R.string.doc_initial_assessment)))
         return assessmentRef

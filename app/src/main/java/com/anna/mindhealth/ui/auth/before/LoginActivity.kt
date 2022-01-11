@@ -2,6 +2,7 @@ package com.anna.mindhealth.ui.auth.before
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.anna.mindhealth.R
@@ -19,6 +20,10 @@ class LoginActivity : AppCompatActivity() {
         intent.getIntExtra(RoleSelectionActivity.securityLevel, 0)
     }
 
+    private val setSecurityLevel by lazy {
+        intent.getIntExtra(RegisterActivity.securityLevel, 0)
+    }
+
     private val edtInputEmailLogin by lazy {
         binding.edtInputEmailLogin.editText
     }
@@ -34,22 +39,62 @@ class LoginActivity : AppCompatActivity() {
 
         loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
-        if (selectedSecurityLevel == 1){
-            loginViewModel.authUser.observe(this, { patientUser ->
-                if (patientUser != null){
-                    startActivity(Intent(this, PatientActivity::class.java))
-                }
-            })
-        } else {
-            loginViewModel.authUser.observe(this, { therapistUser ->
-                if (therapistUser != null){
-                    startActivity(Intent(this, TherapistActivity::class.java))
-                }
-            })
-        }
-
+        initializeSelectedSecurityLevel()
+        initializeSetSecurityLevel()
         initializeButtons()
         initializeLinks()
+    }
+
+    private fun initializeSelectedSecurityLevel(){
+        loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+
+        when (selectedSecurityLevel) {
+            1 -> {
+                loginViewModel.authUser.observe(this, { patientUser ->
+                    if (patientUser != null) {
+                        startActivity(Intent(this, PatientActivity::class.java))
+                    }
+                })
+            }
+
+            2 -> {
+                loginViewModel.authUser.observe(this, { therapistUser ->
+                    if (therapistUser != null) {
+                        startActivity(Intent(this, TherapistActivity::class.java))
+                    }
+                })
+            }
+            else -> Log.d(
+                TAG,
+                "User's selected security level is not set"
+            )
+        }
+    }
+
+    private fun initializeSetSecurityLevel(){
+        loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
+
+        when (setSecurityLevel) {
+            1 -> {
+                loginViewModel.authUser.observe(this, { patientUser ->
+                    if (patientUser != null) {
+                        startActivity(Intent(this, PatientActivity::class.java))
+                    }
+                })
+            }
+
+            2 -> {
+                loginViewModel.authUser.observe(this, { therapistUser ->
+                    if (therapistUser != null) {
+                        startActivity(Intent(this, TherapistActivity::class.java))
+                    }
+                })
+            }
+            else -> Log.d(
+                TAG,
+                "User's set security level is not set"
+            )
+        }
     }
 
     private fun initializeButtons(){
@@ -82,6 +127,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     companion object {
+        val TAG = LoginActivity::class.simpleName
         const val securityLevel = "com.anna.MindHealth.ui.auth.before.LoginActivity.securityLevel"
     }
 }

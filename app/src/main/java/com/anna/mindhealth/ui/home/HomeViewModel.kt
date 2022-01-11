@@ -20,6 +20,6 @@ class HomeViewModel(application: Application): AndroidViewModel(application) {
     init {
         authRepository = AuthRepository(application)
         userRepository = UserRepository(application)
-        patientData = userRepository.readPatient(Firebase.auth.currentUser!!.uid)
+        patientData = userRepository.read(Firebase.auth.currentUser!!.uid)
     }
 }

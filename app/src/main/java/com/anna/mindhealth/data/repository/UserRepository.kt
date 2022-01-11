@@ -32,7 +32,7 @@ class UserRepository(private val application: Application): UserRepo {
         when(securityLevel){
             1 -> {
                 Log.d(TAG, "insertUser: Inserting patient data...")
-                Firebase.firestore.collection(application.getString(R.string.dbcol_patients))
+                Firebase.firestore.collection(application.getString(R.string.dbcol_users))
                     .document(authId).set(patient).addOnCompleteListener {
                         AuthRepository(application).logOut()
                     }.addOnFailureListener {
@@ -46,7 +46,7 @@ class UserRepository(private val application: Application): UserRepo {
 
             2 -> {
                 Log.d(AuthRepository.TAG, "insertUser: Inserting therapist data ...")
-                Firebase.firestore.collection(application.getString(R.string.dbcol_therapists))
+                Firebase.firestore.collection(application.getString(R.string.dbcol_users))
                     .document(authId).set(therapist).addOnCompleteListener {
                         AuthRepository(application).logOut()
                     }.addOnFailureListener {
@@ -68,7 +68,7 @@ class UserRepository(private val application: Application): UserRepo {
     * ========================================================  */
     override fun updateAssessmentStatus(status: Boolean){
         val patientId = Firebase.auth.currentUser!!.uid
-        Firebase.firestore.collection(application.getString(R.string.dbcol_patients)).document(patientId).
+        Firebase.firestore.collection(application.getString(R.string.dbcol_users)).document(patientId).
         update("is_assessment_done", status).
         addOnCompleteListener { task ->
             if (task.isSuccessful){
@@ -83,8 +83,12 @@ class UserRepository(private val application: Application): UserRepo {
     *   Function to fetch patient data
     *   @param patientId
     * =======================================================  */
-    override fun readPatient(userId: String): LiveData<DocumentReference> {
-        _patientRef.postValue(Firebase.firestore.collection(application.getString(R.string.dbcol_patients)).document(userId))
+    override fun read(userId: String?): LiveData<DocumentReference> {
+        _patientRef.postValue(userId?.let {
+            Firebase.firestore.collection(application.getString(R.string.dbcol_users)).document(
+                it
+            )
+        })
         return patientRef
     }
 

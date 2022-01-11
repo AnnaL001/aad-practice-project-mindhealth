@@ -2,6 +2,7 @@ package com.anna.mindhealth.ui.auth.before
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.anna.mindhealth.databinding.ActivityRegisterBinding
@@ -31,6 +32,7 @@ class RegisterActivity: AppCompatActivity() {
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
         registerViewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)
+        Log.d("RegisterActivity", "SecurityLevel: $selectedSecurityLevel")
 
         initializeButtons()
         initializeLink()
@@ -41,6 +43,8 @@ class RegisterActivity: AppCompatActivity() {
             if (registerViewModel.validateCredentialsInput(inputEmail,inputPassword,inputConfirmPassword)){
                 registerViewModel.register(inputEmail, inputPassword, selectedSecurityLevel)
             }
+            startActivity(Intent(this, LoginActivity::class.java).putExtra(securityLevel,
+                selectedSecurityLevel))
         }
 
         binding.btnRegisterViaGoogle.setOnClickListener {
@@ -50,8 +54,13 @@ class RegisterActivity: AppCompatActivity() {
 
     private fun initializeLink(){
         binding.txvLoginLink.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
+            startActivity(Intent(this, LoginActivity::class.java).
+            putExtra(securityLevel, selectedSecurityLevel))
         }
+    }
+
+    companion object{
+        const val securityLevel = "com.anna.MindHealth.ui.auth.before.RegisterActivity.securityLevel"
     }
 
 }

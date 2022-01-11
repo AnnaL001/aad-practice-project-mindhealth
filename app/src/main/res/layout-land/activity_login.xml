@@ -113,7 +113,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="144dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="sans-serif-condensed-medium"
         android:paddingVertical="18dp"
@@ -138,7 +138,9 @@
         android:textAppearance="@style/TextButton"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline10"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@id/txv_register_link"
         app:layout_constraintTop_toBottomOf="@+id/btn_login_via_google" />
 
     <com.google.android.material.textview.MaterialTextView
@@ -146,17 +148,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="24dp"
         android:clickable="true"
         android:fontFamily="sans-serif-condensed-medium"
         android:minHeight="48dp"
         android:text="@string/txv_create_account_text"
         android:textAppearance="@style/TextButton"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/txv_reset_password"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="@+id/guideline10"
-        app:layout_constraintTop_toBottomOf="@id/txv_reset_password" />
+        app:layout_constraintTop_toBottomOf="@id/btn_login_via_google" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline10"

@@ -2,10 +2,12 @@ package com.anna.mindhealth.ui.role
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.anna.mindhealth.databinding.ActivityRoleSelectionBinding
 import com.anna.mindhealth.ui.auth.after.PatientActivity
+import com.anna.mindhealth.ui.auth.after.TherapistActivity
 import com.anna.mindhealth.ui.auth.before.LoginActivity
 
 class RoleSelectionActivity : AppCompatActivity() {
@@ -21,7 +23,19 @@ class RoleSelectionActivity : AppCompatActivity() {
 
         roleSelectionViewModel.authUser.observe(this, { firebaseUser ->
             if (firebaseUser != null){
-                startActivity(Intent(this, PatientActivity::class.java))
+                var userSecurityLevel = 0
+                roleSelectionViewModel.userData.observe(this, { userRef ->
+                    userRef.get().addOnCompleteListener { task ->
+                        when (task.result.data?.get("security_level").toString().toInt()) {
+                            1 -> startActivity(Intent(this, PatientActivity::class.java))
+                            2 -> startActivity(Intent(this, TherapistActivity::class.java))
+                            else -> Log.d(TAG, "User's security level is not among the specified security levels")
+
+                        }
+
+                    }
+                })
+
             }
         })
 
@@ -48,6 +62,7 @@ class RoleSelectionActivity : AppCompatActivity() {
     }
 
     companion object {
+        val TAG = RoleSelectionActivity::class.simpleName
         const val securityLevel = "com.anna.mindHealth.ui.role.RoleSelection.securityLevel"
     }
 }

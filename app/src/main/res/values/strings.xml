@@ -60,10 +60,9 @@
     <string name="error_msg_email_criteria"> Email pattern is name@example.com </string>
 
     <!-- Database fields -->
-    <string name="dbcol_patients"> Patients </string>
-    <string name="dbcol_therapists"> Therapists </string>
-    <string name="dbcol_assessment"> Assessment </string>
-    <string name="doc_initial_assessment"> Initial Assessment </string>
+    <string name="dbcol_users"> users </string>
+    <string name="dbcol_assessment"> assessment </string>
+    <string name="doc_initial_assessment"> initial assessment </string>
 
     <!-- Assessment questions -->
     <string name="assessment_title">Initial Assessment </string>

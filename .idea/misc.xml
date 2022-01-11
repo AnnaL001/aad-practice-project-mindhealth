@@ -26,7 +26,7 @@
         <entry key="app/src/main/res/layout-sw600dp/fragment_register.xml" value="0.16" />
         <entry key="app/src/main/res/layout-sw600dp/fragment_role_selection.xml" value="0.128125" />
         <entry key="app/src/main/res/layout-sw600dp/fragment_session.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.21" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_patient.xml" value="0.15185185185185185" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.12" />
@@ -35,6 +35,7 @@
         <entry key="app/src/main/res/layout/activity_splashscreen.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_therapist.xml" value="0.1" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.15185185185185185" />
+        <entry key="app/src/main/res/layout/content_patient.xml" value="0.15185185185185185" />
         <entry key="app/src/main/res/layout/content_therapist.xml" value="0.15185185185185185" />
         <entry key="app/src/main/res/layout/fragment_assessment_questions.xml" value="0.23312011371712865" />
         <entry key="app/src/main/res/layout/fragment_assessment_responses.xml" value="0.1" />

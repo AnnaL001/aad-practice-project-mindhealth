@@ -66,17 +66,17 @@ class HomeFragment: Fragment() {
         view?.findNavController()?.navigate(R.id.action_fragment_home_to_fragment_assessment_responses)
     }
 
-    override fun onStart() {
-        super.onStart()
-        homeViewModel.patientData.observe(viewLifecycleOwner, { patientRef ->
-            patientRef.get().addOnCompleteListener { task ->
-                val patient = task.result.toObject<Patient>()
-
-                initializeAssessmentStatus(patient!!)
-
-            }
-        })
-    }
+//    override fun onStart() {
+//        super.onStart()
+//        homeViewModel.patientData.observe(viewLifecycleOwner, { patientRef ->
+//            patientRef.get().addOnCompleteListener { task ->
+//                val patient = task.result.toObject<Patient>()
+//
+//                initializeAssessmentStatus(patient!!)
+//
+//            }
+//        })
+//    }
 
 
 
