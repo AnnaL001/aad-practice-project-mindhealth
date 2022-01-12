@@ -18,7 +18,6 @@ class RoleSelectionViewModel(application: Application): AndroidViewModel(applica
     private val userRepository: UserRepo
     val authUser: LiveData<FirebaseUser>
 
-
     init {
         authRepository = AuthRepository(application)
         userRepository = UserRepository(application)
@@ -29,5 +28,5 @@ class RoleSelectionViewModel(application: Application): AndroidViewModel(applica
         authRepository.checkAuthState()
     }
 
-    val userData: LiveData<DocumentReference> = userRepository.read(Firebase.auth.currentUser?.uid)
+    val userReference: DocumentReference? = userRepository.read(Firebase.auth.currentUser?.uid)
 }

@@ -9,6 +9,7 @@ import com.anna.mindhealth.base.Utility.shortToastMessage
 import com.anna.mindhealth.data.`interface`.AuthRepo
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class AuthRepository(private val application: Application): AuthRepo {
@@ -33,6 +34,7 @@ class AuthRepository(private val application: Application): AuthRepo {
                         Log.d(TAG, "signInUserWithEmail: Success")
                         shortToastMessage(application.applicationContext, application.getString(
                             R.string.toast_log_in_success, Firebase.auth.currentUser!!.email))
+
                     } else {
                         Log.d(TAG, "Sending email verification prompt")
                         shortToastMessage(application.applicationContext, application.getString(

@@ -24,7 +24,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/icon_assignment_status"
+                android:id="@+id/imv_assignment_status"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="8dp"
@@ -94,7 +94,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_baseline_keyboard_arrow_right_24"
                 app:tint="@color/image_in_card_with_color_tint"
-                android:contentDescription="@string/arrrow_right_icon_content_desc" />
+                android:contentDescription="@string/open_personal_info_screen" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -182,7 +182,7 @@
                 android:layout_width="0dp"
                 android:layout_height="35dp"
                 android:layout_marginEnd="8dp"
-                android:contentDescription="@string/arrrow_right_icon_content_desc"
+                android:contentDescription="@string/open_therapist_profile_screen"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline5"
@@ -283,7 +283,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_baseline_keyboard_arrow_right_24"
                 app:tint="@color/image_in_card_with_color_tint"
-                android:contentDescription="@string/arrrow_right_icon_content_desc" />
+                android:contentDescription="@string/open_session_history_screen" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 

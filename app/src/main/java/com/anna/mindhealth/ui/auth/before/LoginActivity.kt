@@ -39,15 +39,13 @@ class LoginActivity : AppCompatActivity() {
 
         loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
 
+        initializeButtons()
         initializeSelectedSecurityLevel()
         initializeSetSecurityLevel()
-        initializeButtons()
         initializeLinks()
     }
 
     private fun initializeSelectedSecurityLevel(){
-        loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
-
         when (selectedSecurityLevel) {
             1 -> {
                 loginViewModel.authUser.observe(this, { patientUser ->
@@ -72,8 +70,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun initializeSetSecurityLevel(){
-        loginViewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
-
         when (setSecurityLevel) {
             1 -> {
                 loginViewModel.authUser.observe(this, { patientUser ->

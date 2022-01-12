@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:visibility="gone">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/txv_welcome_user"
@@ -98,7 +99,7 @@
                 app:layout_constraintGuide_begin="249dp" />
 
             <ImageView
-                android:id="@+id/icon_assignment_status"
+                android:id="@+id/imv_assignment_status"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="16dp"
@@ -115,6 +116,7 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardTherapistSelectionStatus"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"

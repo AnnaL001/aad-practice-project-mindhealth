@@ -51,6 +51,8 @@
     <string name="toast_email_verification_prompt"> Check your email to verify your account </string>
     <string name="toast_assessment_choices_save_success"> Your responses have been saved </string>
     <string name="toast_assessment_choices_save_fail">Error occurred while saving your responses </string>
+    <string name="toast_log_in_wrong_role_patient"> Only patient login allowed </string>
+    <string name="toast_log_in_wrong_role_therapist"> Only therapist login allowed </string>
 
     <!-- Error messages -->
     <string name="error_msg_required"> All fields must be filled </string>
@@ -106,5 +108,8 @@
     <string name="assessment_question_text">Assessment question</string>
     <string name="assessment_response_text">Assessment response</string>
     <string name="logout">Logout</string>
+    <string name="open_personal_info_screen">Open personal info screen </string>
+    <string name="open_therapist_profile_screen">Open therapist profile screen</string>
+    <string name="open_session_history_screen">Open session history screen </string>
 
 </resources>

@@ -23,17 +23,14 @@ class RoleSelectionActivity : AppCompatActivity() {
 
         roleSelectionViewModel.authUser.observe(this, { firebaseUser ->
             if (firebaseUser != null){
-                roleSelectionViewModel.userData.observe(this, { userRef ->
-                    userRef.get().addOnCompleteListener { task ->
-                        when (task.result.data?.get("security_level").toString().toInt()) {
-                            1 -> startActivity(Intent(this, PatientActivity::class.java))
-                            2 -> startActivity(Intent(this, TherapistActivity::class.java))
-                            else -> Log.d(TAG, "User's security level is not among the specified security levels")
-
-                        }
-
+                roleSelectionViewModel.userReference?.get()?.addOnCompleteListener { task ->
+                    when (task.result.data?.get("security_level").toString().toInt()) {
+                        1 -> startActivity(Intent(this, PatientActivity::class.java))
+                        2 -> startActivity(Intent(this, TherapistActivity::class.java))
+                        else -> Log.d(TAG, "User's security level is not among the specified security levels")
                     }
-                })
+
+                }
 
             }
         })

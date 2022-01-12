@@ -15,10 +15,6 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class UserRepository(private val application: Application): UserRepo {
-    private var _patientRef: MutableLiveData<DocumentReference> = MutableLiveData()
-
-    private val patientRef: LiveData<DocumentReference> get() = _patientRef
-
     /* ================================================
     *   Function to insert user data into Firestore
     *   @param email
@@ -83,12 +79,11 @@ class UserRepository(private val application: Application): UserRepo {
     *   Function to fetch patient data
     *   @param patientId
     * =======================================================  */
-    override fun read(userId: String?): LiveData<DocumentReference> {
-        _patientRef.postValue(userId?.let {
-            Firebase.firestore.collection(application.getString(R.string.dbcol_users)).document(
-                it
-            )
-        })
+    override fun read(userId: String?): DocumentReference? {
+        val patientRef = userId?.let {
+            Firebase.firestore.collection(application.getString(R.string.dbcol_users))
+                .document(it)
+        }
         return patientRef
     }
 

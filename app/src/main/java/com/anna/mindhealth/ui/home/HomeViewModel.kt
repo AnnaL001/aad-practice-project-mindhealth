@@ -2,7 +2,6 @@ package com.anna.mindhealth.ui.home
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import com.anna.mindhealth.data.`interface`.AuthRepo
 import com.anna.mindhealth.data.`interface`.UserRepo
 import com.anna.mindhealth.data.repository.AuthRepository
@@ -15,11 +14,11 @@ class HomeViewModel(application: Application): AndroidViewModel(application) {
     private val authRepository: AuthRepo
     private val userRepository: UserRepo
 
-    val patientData: LiveData<DocumentReference>
+    val patientReference: DocumentReference ?
 
     init {
         authRepository = AuthRepository(application)
         userRepository = UserRepository(application)
-        patientData = userRepository.read(Firebase.auth.currentUser!!.uid)
+        patientReference = userRepository.read(Firebase.auth.currentUser!!.uid)
     }
 }

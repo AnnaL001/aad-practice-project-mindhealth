@@ -4,7 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.13796296296296295" />
+        <entry key="app/src/main/res/drawable/ic_baseline_co_present_24.xml" value="0.13425925925925927" />
+        <entry key="app/src/main/res/drawable/ic_baseline_dashboard_24.xml" value="0.13425925925925927" />
+        <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.13425925925925927" />
+        <entry key="app/src/main/res/drawable/ic_baseline_image_24.xml" value="0.13425925925925927" />
+        <entry key="app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.13425925925925927" />
+        <entry key="app/src/main/res/drawable/ic_baseline_logout_24.xml" value="0.13425925925925927" />
+        <entry key="app/src/main/res/drawable/ic_baseline_manage_accounts_24.xml" value="0.13425925925925927" />
+        <entry key="app/src/main/res/drawable/ic_baseline_replay_24.xml" value="0.13425925925925927" />
         <entry key="app/src/main/res/drawable/ic_baseline_self_improvement_24.xml" value="0.13796296296296295" />
+        <entry key="app/src/main/res/drawable/ic_baseline_videocam_24.xml" value="0.13425925925925927" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.13425925925925927" />
+        <entry key="app/src/main/res/drawable/ic_outline_assignment_late_24.xml" value="0.13425925925925927" />
         <entry key="app/src/main/res/layout-h1920dp/fragment_register.xml" value="0.22" />
         <entry key="app/src/main/res/layout-h2160dp/fragment_register.xml" value="0.17083333333333334" />
         <entry key="app/src/main/res/layout-land/activity_login.xml" value="0.22" />
@@ -26,6 +37,7 @@
         <entry key="app/src/main/res/layout-sw600dp/fragment_register.xml" value="0.16" />
         <entry key="app/src/main/res/layout-sw600dp/fragment_role_selection.xml" value="0.128125" />
         <entry key="app/src/main/res/layout-sw600dp/fragment_session.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/activity_blank.xml" value="0.15185185185185185" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_patient.xml" value="0.15185185185185185" />

@@ -7,6 +7,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.anna.mindhealth.R
+import com.anna.mindhealth.base.Utility.shortToastMessage
 import com.anna.mindhealth.databinding.ActivityTherapistBinding
 import com.anna.mindhealth.ui.role.RoleSelectionActivity
 
@@ -25,6 +26,14 @@ class TherapistActivity: AppCompatActivity() {
         userActivityViewModel.authUser.observe(this, { therapistUser ->
             if (therapistUser == null){
                 startActivity(Intent(this, RoleSelectionActivity::class.java))
+            } else {
+                userActivityViewModel.userReference?.get()?.addOnCompleteListener { task ->
+                    if (task.result.data?.get("security_level").toString().toInt() != 2){
+                        userActivityViewModel.logout()
+                        shortToastMessage(this, getString(R.string.toast_log_in_wrong_role_therapist)
+                        )
+                    }
+                }
             }
         })
     }
