@@ -11,26 +11,16 @@ import com.anna.mindhealth.R
 import com.anna.mindhealth.base.Utility.PATIENT_ROLE
 import com.anna.mindhealth.base.Utility.THERAPIST_ROLE
 import com.anna.mindhealth.base.Utility.getFileName
+import com.anna.mindhealth.base.Utility.shortToastMessage
 import com.anna.mindhealth.databinding.ActivityRegisterBinding
+import com.anna.mindhealth.ui.role.RoleSelectionActivity
 import com.google.android.material.textview.MaterialTextView
 
 class RegisterActivity: AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var registerViewModel: RegisterViewModel
+
     private var resumeUri: Uri ?= null
-
-    private val inputEmail by lazy {
-        binding.edtInputEmail.editText!!.text.toString()
-    }
-
-    private val inputPassword by lazy {
-        binding.edtInputPassword.editText!!.text.toString()
-    }
-
-    private val inputConfirmPassword by lazy {
-        binding.edtInputConfirmPassword.editText!!.text.toString()
-    }
-
     private val selectedSecurityLevel by lazy {
         intent.getIntExtra(LoginActivity.securityLevel, 0)
     }
@@ -42,6 +32,8 @@ class RegisterActivity: AppCompatActivity() {
 
         setContentView(binding.root)
         registerViewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)
+
+
 
         val openFileSelector = registerForActivityResult(ActivityResultContracts.GetContent()){ uri ->
             if (uri != null){
@@ -60,16 +52,35 @@ class RegisterActivity: AppCompatActivity() {
         binding.btnRegisterViaEmail.setOnClickListener {
             when(selectedSecurityLevel){
                 PATIENT_ROLE -> {
-                    if (registerViewModel.validateCredentialsInput(inputEmail,inputPassword,inputConfirmPassword)){
-                        registerViewModel.register(inputEmail, inputPassword, selectedSecurityLevel, null)
+                    if (registerViewModel.validateCredentialsInput(
+                            binding.edtInputEmail.editText!!.text.toString(),
+                            binding.edtInputPassword.editText!!.text.toString(),
+                            binding.edtInputConfirmPassword.editText!!.text.toString())){
+                        registerViewModel.register(
+                            binding.edtInputEmail.editText!!.text.toString(),
+                            binding.edtInputPassword.editText!!.text.toString(),
+                            selectedSecurityLevel,
+                            null)
                     }
                 }
 
                 THERAPIST_ROLE -> {
-                    if (registerViewModel.validateCredentialsInput(inputEmail, inputPassword, inputConfirmPassword) && resumeUri != null){
-                            registerViewModel.register(inputEmail, inputPassword, selectedSecurityLevel,resumeUri)
+                    if (registerViewModel.validateCredentialsInput(
+                            binding.edtInputEmail.editText!!.text.toString(),
+                            binding.edtInputPassword.editText!!.text.toString(),
+                            binding.edtInputConfirmPassword.editText!!.text.toString())){
+                        if (resumeUri != null){
+                            registerViewModel.register(
+                                binding.edtInputEmail.editText!!.text.toString(),
+                                binding.edtInputEmail.editText!!.text.toString(),
+                                selectedSecurityLevel,
+                                resumeUri)
                             startActivity(Intent(this, LoginActivity::class.java).putExtra(
                                 securityLevel, selectedSecurityLevel))
+                        } else {
+                            shortToastMessage(this, getString(R.string.error_msg_no_file))
+                        }
+
                     }
                 }
             }
