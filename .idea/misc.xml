@@ -16,6 +16,7 @@
         <entry key="app/src/main/res/drawable/ic_baseline_videocam_24.xml" value="0.13425925925925927" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.13425925925925927" />
         <entry key="app/src/main/res/drawable/ic_outline_assignment_late_24.xml" value="0.13425925925925927" />
+        <entry key="app/src/main/res/drawable/rounded_corners.xml" value="0.13055555555555556" />
         <entry key="app/src/main/res/layout-h1920dp/fragment_register.xml" value="0.22" />
         <entry key="app/src/main/res/layout-h2160dp/fragment_register.xml" value="0.17083333333333334" />
         <entry key="app/src/main/res/layout-land/activity_login.xml" value="0.22" />
@@ -41,7 +42,7 @@
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_patient.xml" value="0.15185185185185185" />
-        <entry key="app/src/main/res/layout/activity_register.xml" value="0.12" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.20121951219512196" />
         <entry key="app/src/main/res/layout/activity_role_selection.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_signed_in.xml" value="0.15185185185185185" />
         <entry key="app/src/main/res/layout/activity_splashscreen.xml" value="0.22" />
@@ -49,7 +50,7 @@
         <entry key="app/src/main/res/layout/content_main.xml" value="0.15185185185185185" />
         <entry key="app/src/main/res/layout/content_patient.xml" value="0.15185185185185185" />
         <entry key="app/src/main/res/layout/content_therapist.xml" value="0.15185185185185185" />
-        <entry key="app/src/main/res/layout/fragment_assessment_questions.xml" value="0.23312011371712865" />
+        <entry key="app/src/main/res/layout/fragment_assessment_questions.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_assessment_responses.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.25" />
@@ -59,6 +60,7 @@
         <entry key="app/src/main/res/layout/fragment_role_selection.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_session.xml" value="0.20175438596491227" />
         <entry key="app/src/main/res/layout/fragment_splashscreen.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/layout_submit_cv.xml" value="0.25" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.15185185185185185" />
         <entry key="app/src/main/res/menu/bottom_nav_menu_patient.xml" value="0.15185185185185185" />
         <entry key="app/src/main/res/menu/bottom_nav_menu_therapist.xml" value="0.15185185185185185" />

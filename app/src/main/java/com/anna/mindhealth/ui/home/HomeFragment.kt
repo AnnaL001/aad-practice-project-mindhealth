@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.anna.mindhealth.R
+import com.anna.mindhealth.base.Utility.PATIENT_ROLE
 import com.anna.mindhealth.data.model.Patient
 import com.anna.mindhealth.databinding.FragmentHomeBinding
 import com.google.firebase.firestore.ktx.toObject
@@ -32,7 +33,7 @@ class HomeFragment: Fragment() {
         homeViewModel.patientReference?.get()?.addOnCompleteListener { task ->
             val patient = task.result.toObject<Patient>()
 
-            if (patient!!.security_level == 1){
+            if (patient!!.security_level == PATIENT_ROLE){
                 binding.root.visibility = View.VISIBLE
             }
 

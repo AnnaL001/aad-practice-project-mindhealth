@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.anna.mindhealth.base.Utility.PATIENT_ROLE
+import com.anna.mindhealth.base.Utility.THERAPIST_ROLE
 import com.anna.mindhealth.databinding.ActivityRoleSelectionBinding
 import com.anna.mindhealth.ui.auth.after.PatientActivity
 import com.anna.mindhealth.ui.auth.after.TherapistActivity
@@ -25,8 +27,8 @@ class RoleSelectionActivity : AppCompatActivity() {
             if (firebaseUser != null){
                 roleSelectionViewModel.userReference?.get()?.addOnCompleteListener { task ->
                     when (task.result.data?.get("security_level").toString().toInt()) {
-                        1 -> startActivity(Intent(this, PatientActivity::class.java))
-                        2 -> startActivity(Intent(this, TherapistActivity::class.java))
+                        PATIENT_ROLE -> startActivity(Intent(this, PatientActivity::class.java))
+                        THERAPIST_ROLE -> startActivity(Intent(this, TherapistActivity::class.java))
                         else -> Log.d(TAG, "User's security level is not among the specified security levels")
                     }
 
@@ -41,13 +43,13 @@ class RoleSelectionActivity : AppCompatActivity() {
     private fun initializeButtons(){
         binding.btnPatientSelection.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java).apply {
-                putExtra(securityLevel, 1)
+                putExtra(securityLevel, PATIENT_ROLE)
             })
         }
 
         binding.btnTherapistSelection.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java).apply {
-                putExtra(securityLevel, 2)
+                putExtra(securityLevel, THERAPIST_ROLE)
             })
         }
     }

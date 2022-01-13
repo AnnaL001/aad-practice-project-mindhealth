@@ -1,6 +1,7 @@
 package com.anna.mindhealth.data.repository
 
 import android.app.Application
+import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -56,7 +57,7 @@ class AuthRepository(private val application: Application): AuthRepo {
     *   @param password
     *   @param securityLevel
     * =================================  */
-    override fun register(email: String, password: String, securityLevel: Int) {
+    override fun register(email: String, password: String, securityLevel: Int, resumeUri: Uri?) {
         Firebase.auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             Log.i(TAG, "Registering user with $email")
             when(task.isSuccessful){
@@ -65,7 +66,7 @@ class AuthRepository(private val application: Application): AuthRepo {
                     // Update authenticated user value
                     _authUser.postValue(Firebase.auth.currentUser)
                     sendVerification()
-                    UserRepository(application).insert(email,securityLevel)
+                    UserRepository(application).insert(email,securityLevel, resumeUri)
                 }
                 else -> {
                     Log.e(TAG, "createUserWithEmail: Failure", task.exception)

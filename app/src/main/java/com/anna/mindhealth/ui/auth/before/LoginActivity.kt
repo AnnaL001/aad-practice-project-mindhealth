@@ -6,6 +6,8 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.anna.mindhealth.R
+import com.anna.mindhealth.base.Utility.PATIENT_ROLE
+import com.anna.mindhealth.base.Utility.THERAPIST_ROLE
 import com.anna.mindhealth.base.Utility.shortToastMessage
 import com.anna.mindhealth.databinding.ActivityLoginBinding
 import com.anna.mindhealth.ui.auth.after.PatientActivity
@@ -47,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun initializeSelectedSecurityLevel(){
         when (selectedSecurityLevel) {
-            1 -> {
+            PATIENT_ROLE -> {
                 loginViewModel.authUser.observe(this, { patientUser ->
                     if (patientUser != null) {
                         startActivity(Intent(this, PatientActivity::class.java))
@@ -55,7 +57,7 @@ class LoginActivity : AppCompatActivity() {
                 })
             }
 
-            2 -> {
+            THERAPIST_ROLE -> {
                 loginViewModel.authUser.observe(this, { therapistUser ->
                     if (therapistUser != null) {
                         startActivity(Intent(this, TherapistActivity::class.java))
@@ -71,7 +73,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun initializeSetSecurityLevel(){
         when (setSecurityLevel) {
-            1 -> {
+            PATIENT_ROLE -> {
                 loginViewModel.authUser.observe(this, { patientUser ->
                     if (patientUser != null) {
                         startActivity(Intent(this, PatientActivity::class.java))
@@ -79,7 +81,7 @@ class LoginActivity : AppCompatActivity() {
                 })
             }
 
-            2 -> {
+            THERAPIST_ROLE -> {
                 loginViewModel.authUser.observe(this, { therapistUser ->
                     if (therapistUser != null) {
                         startActivity(Intent(this, TherapistActivity::class.java))

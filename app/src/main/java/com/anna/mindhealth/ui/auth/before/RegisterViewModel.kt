@@ -1,23 +1,29 @@
 package com.anna.mindhealth.ui.auth.before
 
 import android.app.Application
+import android.content.Context
+import android.net.Uri
 import androidx.core.util.PatternsCompat
 import androidx.lifecycle.AndroidViewModel
 import com.anna.mindhealth.R
 import com.anna.mindhealth.base.Utility.shortToastMessage
 import com.anna.mindhealth.data.`interface`.AuthRepo
+import com.anna.mindhealth.data.`interface`.UserRepo
 import com.anna.mindhealth.data.repository.AuthRepository
+import com.anna.mindhealth.data.repository.UserRepository
 
 class RegisterViewModel(application: Application): AndroidViewModel(application) {
     private val authRepository: AuthRepo
+    private val userRepository: UserRepo
 
     init {
         authRepository = AuthRepository(application)
+        userRepository = UserRepository(application)
     }
 
 
-    fun register(email: String, password: String, securityLevel: Int){
-        authRepository.register(email, password, securityLevel)
+    fun register(email: String, password: String, securityLevel: Int, uri: Uri?){
+        authRepository.register(email, password, securityLevel, uri)
     }
 
     /* =========================

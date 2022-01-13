@@ -11,6 +11,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.anna.mindhealth.R
+import com.anna.mindhealth.base.Utility.PATIENT_ROLE
 import com.anna.mindhealth.base.Utility.shortToastMessage
 import com.anna.mindhealth.databinding.ActivityPatientBinding
 import com.anna.mindhealth.ui.role.RoleSelectionActivity
@@ -36,7 +37,7 @@ class PatientActivity : AppCompatActivity() {
                 startActivity(Intent(this, RoleSelectionActivity::class.java))
             } else {
                 userActivityViewModel.userReference?.get()?.addOnCompleteListener { task ->
-                    if (task.result.data?.get("security_level").toString().toInt() != 1){
+                    if (task.result.data?.get("security_level").toString().toInt() != PATIENT_ROLE){
                         userActivityViewModel.logout()
                         shortToastMessage(this, getString(R.string.toast_log_in_wrong_role_patient))
                     }
@@ -80,4 +81,5 @@ class PatientActivity : AppCompatActivity() {
         super.onStart()
         userActivityViewModel.checkAuthenticationState()
     }
+    
 }
