@@ -44,12 +44,14 @@ class RoleSelectionActivity : AppCompatActivity() {
         binding.btnPatientSelection.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java).apply {
                 putExtra(securityLevel, PATIENT_ROLE)
+                putExtra(activityName, TAG)
             })
         }
 
         binding.btnTherapistSelection.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java).apply {
                 putExtra(securityLevel, THERAPIST_ROLE)
+                putExtra(activityName, TAG)
             })
         }
     }
@@ -61,6 +63,7 @@ class RoleSelectionActivity : AppCompatActivity() {
 
     companion object {
         val TAG = RoleSelectionActivity::class.simpleName
-        const val securityLevel = "com.anna.mindHealth.ui.role.RoleSelection.securityLevel"
+        const val securityLevel = "com.anna.mindHealth.ui.role.RoleSelectionActivity.securityLevel"
+        const val activityName = "com.anna.mindHealh.ui.RoleSelectionActivity"
     }
 }

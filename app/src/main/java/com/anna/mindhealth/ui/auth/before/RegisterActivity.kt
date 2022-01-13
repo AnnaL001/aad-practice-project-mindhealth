@@ -94,13 +94,17 @@ class RegisterActivity: AppCompatActivity() {
 
     private fun initializeLink(){
         binding.txvLoginLink.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java).
-            putExtra(securityLevel, selectedSecurityLevel))
+            startActivity(Intent(this, LoginActivity::class.java).apply {
+                putExtra(securityLevel, selectedSecurityLevel)
+                putExtra(activityName, TAG)
+            })
         }
     }
 
     companion object{
+        val TAG = RegisterActivity::class.simpleName
         const val securityLevel = "com.anna.MindHealth.ui.auth.before.RegisterActivity.securityLevel"
+        const val activityName = "com.anna.MindHealth.ui.auth.before.RegisterActivity"
     }
 
 }

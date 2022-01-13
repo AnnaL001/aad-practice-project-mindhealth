@@ -97,11 +97,11 @@ class LoginActivity : AppCompatActivity() {
 
     private fun initializeButtons(){
         binding.btnLoginViaEmail.setOnClickListener {
-            val email = edtInputEmailLogin!!.text.toString()
-            val password = edtInputPasswordLogin!!.text.toString()
-
-            if (email.isNotEmpty() && password.isNotEmpty()){
-                loginViewModel.login(email, password)
+            if (edtInputEmailLogin!!.text.toString().isNotEmpty() &&
+                edtInputPasswordLogin!!.text.toString().isNotEmpty()){
+                loginViewModel.login(
+                    edtInputEmailLogin!!.text.toString(),
+                    edtInputPasswordLogin!!.text.toString())
             } else {
                 shortToastMessage(this, getString(R.string.error_msg_required))
             }
@@ -110,16 +110,25 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun initializeLinks(){
+        val roleSelectionActivity = intent.getStringExtra(RoleSelectionActivity.activityName)
+        val registerActivity = intent.getStringExtra(RegisterActivity.activityName)
+
         binding.txvRegisterLink.setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java).apply {
-                putExtra(securityLevel, selectedSecurityLevel)
-            })
+            if (roleSelectionActivity != null){
+                startActivity(Intent(this, RegisterActivity::class.java)
+                    .putExtra(securityLevel, selectedSecurityLevel))
+            } else if (registerActivity != null){
+                startActivity(Intent(this, RegisterActivity::class.java)
+                    .putExtra(securityLevel, setSecurityLevel))
+            }
         }
 
         binding.txvResetPassword.setOnClickListener {
 
         }
     }
+
+
 
     companion object {
         val TAG = LoginActivity::class.simpleName

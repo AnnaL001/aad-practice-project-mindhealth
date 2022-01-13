@@ -77,6 +77,11 @@ class PatientActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        userActivityViewModel.logout()
+    }
+
     override fun onStart() {
         super.onStart()
         userActivityViewModel.checkAuthenticationState()
