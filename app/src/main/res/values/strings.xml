@@ -23,6 +23,7 @@
     <string name="btn_view_assessment_link_text">Take assessment test</string>
     <string name="btn_therapist_selection_state_text">You\'re yet to be assigned a therapist</string>
     <string name="icon_assessment_status_false">Assessment not done icon</string>
+    <string name="icon_assessment_status_true">Assessment done icon</string>
     <string name="btn_therapist_selection_link_text">Select a therapist</string>
     <string name="txv_scheduled_sessions_text">Scheduled sessions</string>
     <string name="txv_ongoing_sessions_text">Ongoing sessions</string>
@@ -33,6 +34,31 @@
     <string name="icon_session_history_desc">Icon representing session history</string>
     <string name="txv_session_history_info_text">Session history</string>
     <string name="txv_session_history_subtext">View previous sessions details</string>
+    <string name="logout">Logout</string>
+    <string name="open_personal_info_screen">Open personal info screen </string>
+    <string name="open_therapist_profile_screen">Open therapist profile screen</string>
+    <string name="open_session_history_screen">Open session history screen </string>
+    <string name="content_desc_upload">Select file to upload</string>
+    <string name="txv_upload_cv">Upload resume</string>
+    <string name="txv_upload_cv_file_name">Upload resume: %1$s </string>
+    <string name="error_msg_no_file">Select resume in pdf file format</string>
+    <string name="txv_greetings_user_text">Hello %1$s, </string>
+    <string name="txv_welcome_therapist_text">Welcome to MindHealth</string>
+    <string name="txv_update_profile_prompt_text">Let us get to know you better</string>
+    <string name="btn_update_profile_link_text">Update your profile</string>
+    <string name="txv_availability_state_text">Update your availability status</string>
+    <string name="txv_availability_set_text">Your session availability: %1$s</string>
+    <string name="icon_availability_status_false">Not available</string>
+    <string name="icon_availability_status_true">Available</string>
+    <string name="btn_update_availability_text">Update availability</string>
+    <string name="hint_input_short_desc">Short description</string>
+    <string name="hint_input_concerns">Concerns</string>
+    <string name="hint_input_helping_approach">Approach to helping</string>
+    <string name="hint_input_services_provided">Services provided</string>
+    <string name="working_ages">Select ages you work with</string>
+    <string name="preferred_lang">Select your preferred language(s)</string>
+    <string name="hint_input_physical_address">Physical address</string>
+
 
     <!-- Navigation -->
     <string name="menu_home">Home</string>
@@ -41,10 +67,11 @@
     <string name="menu_more">More</string>
     <string name="menu_role_selection">Select a role</string>
     <string name="menu_assessment">Assessment</string>
+    <string name="menu_edit_profile">Edit Profile</string>
 
     <!-- App Notifications -->
     <string name="toast_log_in_success"> Authenticated with email: %1$s </string>
-    <string name="toast_log_in_fail"> Authentication failure </string>
+    <string name="toast_log_in_fail"> Authentication failure</string>
     <string name="toast_sign_up_fail"> Something went wrong </string>
     <string name="toast_email_verification_success"> Sent email verification </string>
     <string name="toast_email_verification_fail"> Error while sending email verification. Click "Resend Email Verification" to retry </string>
@@ -57,6 +84,9 @@
     <string name="toast_upload_paused">Resume upload status: Paused</string>
     <string name="toast_upload_fail">Resume upload status: Failed</string>
     <string name="toast_upload_success"> Resume upload status: Success </string>
+    <string name="toast_log_in_unvetted_therapist">Your application is still being vetted</string>
+    <string name="toast_therapist_profile_data_save_success">Your profile has been updated</string>
+    <string name="toast_therapist_profile_data_save_fail">Error occurred while saving your profile data</string>
 
     <!-- Error messages -->
     <string name="error_msg_required"> All fields must be filled </string>
@@ -69,6 +99,8 @@
     <string name="dbcol_users"> users </string>
     <string name="dbcol_assessment"> assessment </string>
     <string name="doc_initial_assessment"> initial assessment </string>
+    <string name="dbcol_therapist_profile">profile</string>
+    <string name="doc_therapist_profile">therapist profile</string>
 
     <!-- Assessment questions -->
     <string name="assessment_title">Initial Assessment </string>
@@ -107,17 +139,8 @@
     <string name="couples_therapy">Couples Therapy</string>
     <string name="submit">Submit</string>
     <string name="checkbox_options">Select a value</string>
-    <string name="arrrow_right_icon_content_desc">arrrow right icon</string>
     <string name="menu_assessment_responses">Assessment Responses</string>
     <string name="assessment_question_text">Assessment question</string>
     <string name="assessment_response_text">Assessment response</string>
-    <string name="logout">Logout</string>
-    <string name="open_personal_info_screen">Open personal info screen </string>
-    <string name="open_therapist_profile_screen">Open therapist profile screen</string>
-    <string name="open_session_history_screen">Open session history screen </string>
-    <string name="content_desc_upload">Select file to upload</string>
-    <string name="txv_upload_cv">Upload resume</string>
-    <string name="txv_upload_cv_file_name">Upload resume: %1$s </string>
-    <string name="error_msg_no_file">Select resume in pdf file format</string>
-
+    <string name="menu_therapy_profile">Therapy profile</string>
 </resources>

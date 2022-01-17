@@ -15,13 +15,10 @@ import com.google.firebase.ktx.Firebase
 
 class AssessmentRepository(private val application: Application): CrudRepo {
     private val userRepository: UserRepo = UserRepository(application)
-    private var _assessmentRef: MutableLiveData<DocumentReference> = MutableLiveData()
-
-    private val assessmentRef: LiveData<DocumentReference> get() = _assessmentRef
 
     /* =======================================================
     *   Function to insert assessment responses into Firestore
-    *   @param data -- instance of Assessment data class
+    *   @param data: Assessment
     * ========================================================  */
     override fun insert(data: Any) {
         val userId = Firebase.auth.currentUser!!.uid
@@ -42,12 +39,15 @@ class AssessmentRepository(private val application: Application): CrudRepo {
             }
     }
 
-    override fun read(id: String): LiveData<DocumentReference> {
-        _assessmentRef.postValue(Firebase.firestore.collection(application.getString(R.string.dbcol_users)).document(id)
-            .collection(application.getString(R.string.dbcol_assessment))
-            .document(application.getString(R.string.doc_initial_assessment)))
-        return assessmentRef
-    }
+    /* =======================================================
+    *   Function to fetch assessment data from Firestore
+    *   @param id: String
+    * ========================================================  */
+    override fun read(id: String): DocumentReference =
+        Firebase.firestore.collection(application.getString(R.string.dbcol_users))
+            .document(id).collection(application.getString(R.string.dbcol_assessment))
+            .document(application.getString(R.string.doc_initial_assessment))
+
 
     companion object{
         val TAG = AssessmentRepository::class.simpleName

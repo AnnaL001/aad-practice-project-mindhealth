@@ -13,6 +13,7 @@ import com.anna.mindhealth.base.Utility.THERAPIST_ROLE
 import com.anna.mindhealth.base.Utility.getFileName
 import com.anna.mindhealth.base.Utility.shortToastMessage
 import com.anna.mindhealth.databinding.ActivityRegisterBinding
+import com.anna.mindhealth.databinding.LayoutSubmitCvBinding
 import com.anna.mindhealth.ui.role.RoleSelectionActivity
 import com.google.android.material.textview.MaterialTextView
 
@@ -32,7 +33,6 @@ class RegisterActivity: AppCompatActivity() {
 
         setContentView(binding.root)
         registerViewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)
-
 
 
         val openFileSelector = registerForActivityResult(ActivityResultContracts.GetContent()){ uri ->
@@ -72,7 +72,7 @@ class RegisterActivity: AppCompatActivity() {
                         if (resumeUri != null){
                             registerViewModel.register(
                                 binding.edtInputEmail.editText!!.text.toString(),
-                                binding.edtInputEmail.editText!!.text.toString(),
+                                binding.edtInputPassword.editText!!.text.toString(),
                                 selectedSecurityLevel,
                                 resumeUri)
                             startActivity(Intent(this, LoginActivity::class.java).putExtra(

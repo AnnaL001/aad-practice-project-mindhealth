@@ -1,6 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/mobile_navigation_therapist">
+    android:id="@+id/mobile_navigation_therapist"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/nav_home">
 
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.anna.mindhealth.ui.therapist.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home_therapist" />
+        <action android:id="@+id/action_fragment_home_to_fragment_edit_profile"
+            app:destination="@id/nav_edit_profile"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+
+    <fragment
+        android:id="@+id/nav_session"
+        android:name="com.anna.mindhealth.ui.therapist.session.SessionFragment"
+        android:label="@string/menu_session"
+        tools:layout="@layout/fragment_session_therapist" />
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.anna.mindhealth.ui.therapist.profile.ProfileFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/fragment_profile_therapist" />
+
+    <fragment
+        android:id="@+id/nav_more"
+        android:name="com.anna.mindhealth.ui.therapist.more.MoreFragment"
+        android:label="@string/menu_more"
+        tools:layout="@layout/fragment_more_therapist" />
+
+    <fragment
+        android:id="@+id/nav_edit_profile"
+        android:name="com.anna.mindhealth.ui.therapist.therapy_profile.ProfileUpdateFragment"
+        android:label="@string/menu_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
+        <action android:id="@+id/action_fragment_edit_profile_to_fragment_therapy_profile"
+            app:destination="@id/nav_therapy_profile"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+
+    <fragment
+        android:id="@+id/nav_therapy_profile"
+        android:name="com.anna.mindhealth.ui.therapist.therapy_profile.ProfileViewFragment"
+        android:label="@string/menu_therapy_profile"
+        tools:layout="@layout/fragment_therapy_profile" />
 </navigation>

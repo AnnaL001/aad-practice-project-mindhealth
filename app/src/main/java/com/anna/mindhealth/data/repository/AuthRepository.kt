@@ -20,12 +20,13 @@ class AuthRepository(private val application: Application): AuthRepo {
 
     /* ===============================
     *   Function to authenticate a user
-    *   @param email
-    *   @param password
+    *   @param email: String
+    *   @param password: String
     * ================================  */
     override fun logIn(email: String, password: String) {
         Firebase.auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
             Log.i(TAG, "Signing In user ...")
+
             when(task.isSuccessful){
                 true -> {
                     if (Firebase.auth.currentUser!!.isEmailVerified){
@@ -53,9 +54,9 @@ class AuthRepository(private val application: Application): AuthRepo {
 
     /* ================================
     *   Function to register a user
-    *   @param email
-    *   @param password
-    *   @param securityLevel
+    *   @param email: String
+    *   @param password: String
+    *   @param securityLevel: Int
     * =================================  */
     override fun register(email: String, password: String, securityLevel: Int, resumeUri: Uri?) {
         Firebase.auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->

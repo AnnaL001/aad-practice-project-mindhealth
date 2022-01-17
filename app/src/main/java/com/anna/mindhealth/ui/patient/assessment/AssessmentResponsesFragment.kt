@@ -1,4 +1,4 @@
-package com.anna.mindhealth.ui.assessment
+package com.anna.mindhealth.ui.patient.assessment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.anna.mindhealth.R
 import com.anna.mindhealth.data.model.Assessment
 import com.anna.mindhealth.databinding.FragmentAssessmentResponsesBinding
 import com.google.firebase.firestore.ktx.toObject
@@ -19,7 +18,7 @@ class AssessmentResponsesFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentAssessmentResponsesBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -28,8 +27,7 @@ class AssessmentResponsesFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         assessmentViewModel = ViewModelProvider(this).get(AssessmentViewModel::class.java)
 
-        assessmentViewModel.assessmentResponses.observe(viewLifecycleOwner, { assessmentRef ->
-            assessmentRef.get().addOnCompleteListener { task ->
+        assessmentViewModel.assessmentRef.get().addOnCompleteListener { task ->
                 val assessment = task.result.toObject<Assessment>()!!
                 val assessmentQuestions = assessment.responses.keys.toTypedArray()
 
@@ -77,7 +75,6 @@ class AssessmentResponsesFragment: Fragment() {
                 binding.txvAssessmentQuestion11.text = assessmentQuestions[10]
                 binding.txvAssessmentResponse11.text = assessment.responses[assessmentQuestions[10]]
             }
-        })
     }
 
     override fun onDestroy() {

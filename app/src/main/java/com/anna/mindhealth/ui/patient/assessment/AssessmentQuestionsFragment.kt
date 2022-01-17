@@ -1,22 +1,18 @@
-package com.anna.mindhealth.ui.assessment
+package com.anna.mindhealth.ui.patient.assessment
 
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.Spinner
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.anna.mindhealth.R
+import com.anna.mindhealth.base.BaseFragment
 import com.anna.mindhealth.data.model.Assessment
 import com.anna.mindhealth.databinding.FragmentAssessmentQuestionsBinding
 
-class AssessmentQuestionsFragment: Fragment(){
+class AssessmentQuestionsFragment: BaseFragment(){
     private var _binding: FragmentAssessmentQuestionsBinding ?= null
     private lateinit var assessmentViewModel: AssessmentViewModel
 
@@ -40,18 +36,18 @@ class AssessmentQuestionsFragment: Fragment(){
         binding.btnSaveChoices.setOnClickListener {
             // Retrieve assessment responses
             val responses = hashMapOf(
-                binding.txvAssessmentQuestion1.text.toString() to getRadioSelectedItem(binding.radioGrpGender),
-                binding.txvAssessmentQuestion2.text.toString() to getRadioSelectedItem(binding.radioGrpAge),
-                binding.txvAssessmentQuestion3.text.toString() to getRadioSelectedItem(binding.radioGrpRshipStatus),
-                binding.txvAssessmentQuestion4.text.toString() to getRadioSelectedItem(binding.radioGrpSeenTherapist),
-                binding.txvAssessmentQuestion5.text.toString() to getRadioSelectedItem(binding.radioGrpMentalEffect),
-                binding.txvAssessmentQuestion6.text.toString() to getRadioSelectedItem(binding.radioGrpPhysicalHealth),
-                binding.txvAssessmentQuestion7.text.toString() to getRadioSelectedItem(binding.radioGrpEatingHabits),
-                binding.txvAssessmentQuestion8.text.toString() to getRadioSelectedItem(binding.radioGrpFinances),
-                binding.txvAssessmentQuestion9.text.toString() to getRadioSelectedItem(binding.radioGrpPrefLang),
+                binding.txvAssessmentQuestion1.text.toString() to getRadioSelectedItem(binding.radioGrpGender, binding.root),
+                binding.txvAssessmentQuestion2.text.toString() to getRadioSelectedItem(binding.radioGrpAge, binding.root),
+                binding.txvAssessmentQuestion3.text.toString() to getRadioSelectedItem(binding.radioGrpRshipStatus, binding.root),
+                binding.txvAssessmentQuestion4.text.toString() to getRadioSelectedItem(binding.radioGrpSeenTherapist, binding.root),
+                binding.txvAssessmentQuestion5.text.toString() to getRadioSelectedItem(binding.radioGrpMentalEffect, binding.root),
+                binding.txvAssessmentQuestion6.text.toString() to getRadioSelectedItem(binding.radioGrpPhysicalHealth, binding.root),
+                binding.txvAssessmentQuestion7.text.toString() to getRadioSelectedItem(binding.radioGrpEatingHabits, binding.root),
+                binding.txvAssessmentQuestion8.text.toString() to getRadioSelectedItem(binding.radioGrpFinances, binding.root),
+                binding.txvAssessmentQuestion9.text.toString() to getRadioSelectedItem(binding.radioGrpPrefLang, binding.root),
                 binding.txvAssessmentQuestion10.text.toString() to getSelectedSpinnerItem(binding.spinnerCountries),
                 binding.txvAssessmentQuestion11.text.toString() to
-                        getSelectedCheckboxes(listOf(
+                        getSelectedCheckboxesInString(listOf(
                     binding.checkboxCouplesTherapy, binding.checkboxGroupTherapy, binding.checkboxIndividualTherapy
                 ))
             )
@@ -66,26 +62,6 @@ class AssessmentQuestionsFragment: Fragment(){
     }
 
 
-    private fun getRadioSelectedItem(radioGroup: RadioGroup): String {
-        val checkedRadioBtn = binding.root.findViewById<RadioButton>(radioGroup.checkedRadioButtonId)
-        return checkedRadioBtn.text.toString()
-    }
-
-    private fun getSelectedSpinnerItem(spinner: Spinner): String {
-        return spinner.selectedItem.toString()
-    }
-
-    private fun getSelectedCheckboxes(checkBoxes: List<CheckBox>): String {
-        val selectedItems = ArrayList<String>()
-
-        checkBoxes.forEach { checkBox ->
-            if (checkBox.isChecked){
-                selectedItems.add(checkBox.text.toString())
-            }
-        }
-
-        return selectedItems.joinToString()
-    }
 
     private fun redirectToHome(){
         view?.findNavController()?.navigate(R.id.action_fragment_assessment_questions_to_fragment_home)

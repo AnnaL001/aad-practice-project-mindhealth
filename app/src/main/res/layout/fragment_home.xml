@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:visibility="visible">
+    android:visibility="gone">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/txv_welcome_user"
@@ -144,7 +144,6 @@
                 android:fontFamily="sans-serif-condensed-medium"
                 android:text="@string/btn_therapist_selection_state_text"
                 android:textAppearance="@style/CardTextTitleVariant"
-                android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/guideline3"
                 app:layout_constraintTop_toTopOf="parent" />

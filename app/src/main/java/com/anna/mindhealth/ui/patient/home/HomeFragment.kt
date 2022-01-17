@@ -1,4 +1,4 @@
-package com.anna.mindhealth.ui.home
+package com.anna.mindhealth.ui.patient.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -38,9 +38,13 @@ class HomeFragment: Fragment() {
             }
 
             binding.txvWelcomeUser.text = getString(R.string.txv_welcome_user_text, patient.name)
-            binding.imvAssignmentStatus.setImageResource(R.drawable.ic_outline_assignment_turned_in_24)
             initializeAssessmentStatus(patient)
         }
+    }
+
+    private fun updateViewDetails(){
+        binding.imvAssignmentStatus.setImageResource(R.drawable.ic_outline_assignment_turned_in_24)
+        binding.imvAssignmentStatus.contentDescription = getString(R.string.icon_assessment_status_true)
     }
 
 
@@ -52,6 +56,7 @@ class HomeFragment: Fragment() {
                     redirectToResponses()
                 }
             }
+            updateViewDetails()
         } else {
             binding.btnViewResponsesLink.apply {
                 setOnClickListener {
@@ -67,10 +72,6 @@ class HomeFragment: Fragment() {
 
     private fun redirectToResponses(){
         view?.findNavController()?.navigate(R.id.action_fragment_home_to_fragment_assessment_responses)
-    }
-
-    companion object{
-        val TAG = HomeFragment::class.simpleName
     }
 
     override fun onDestroy() {

@@ -5,5 +5,5 @@ import com.google.firebase.firestore.DocumentReference
 
 interface CrudRepo {
     fun insert(data: Any)
-    fun read(id: String): LiveData<DocumentReference>
+    fun read(id: String): DocumentReference
 }

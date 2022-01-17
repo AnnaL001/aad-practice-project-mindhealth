@@ -1,12 +1,8 @@
 package com.anna.mindhealth.data.repository
 
 import android.app.Application
-import android.content.Context
 import android.net.Uri
-import android.provider.OpenableColumns
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.anna.mindhealth.R
 import com.anna.mindhealth.base.Utility.getFileName
 import com.anna.mindhealth.base.Utility.shortToastMessage
@@ -19,14 +15,13 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import com.google.firebase.storage.ktx.storageMetadata
-import java.io.File
-import java.io.FileInputStream
 
 class UserRepository(private val application: Application): UserRepo {
     /* ================================================
     *   Function to insert user data into Firestore
-    *   @param email
-    *   @param securityLevel
+    *   @param email: String
+    *   @param securityLevel: Int
+    *   @param resumeUri: Uri
     * =================================================  */
     override fun insert(email: String, securityLevel: Int, resumeUri: Uri?) {
         val authId = Firebase.auth.currentUser!!.uid
@@ -45,23 +40,31 @@ class UserRepository(private val application: Application): UserRepo {
         }
     }
 
+    /* ================================================
+    *   Function to insert therapist data into Firestore
+    *   @param email: String
+    *   @param securityLevel: Int
+    *   @param resumeUri: Uri
+    *   @param authId: String
+    * =================================================  */
     private fun insertTherapist(resumeUri: Uri?, authId: String, email: String, securityLevel: Int
     ) {
         Log.d(AuthRepository.TAG, "insertUser: Inserting ...")
 
         val fileMetadata = storageMetadata {
             contentType = "application/pdf"
+            setCustomMetadata(CUSTOM_KEY, CUSTOM_VALUE)
         }
 
         val uploadReference =
             Firebase.storage.reference.child("$authId/resume/${getFileName(application.applicationContext, resumeUri!!)}")
 
         uploadReference.putFile(resumeUri, fileMetadata).addOnProgressListener { task ->
-            val progress = (100 * task.bytesTransferred) / task.totalByteCount
+            val progress = (100.0 * task.bytesTransferred) / task.totalByteCount
             Log.d(TAG, "Upload progress: $progress%")
             shortToastMessage(
                 application.applicationContext,
-                application.getString(R.string.toast_upload_progress, progress)
+                application.getString(R.string.toast_upload_progress, progress.toInt())
             )
         }.addOnPausedListener {
             Log.d(TAG, "Upload paused")
@@ -103,7 +106,11 @@ class UserRepository(private val application: Application): UserRepo {
         }
     }
 
-    private fun insertPatient(patient: Patient) {
+    /* ================================================
+    *   Function to insert patient data into Firestore
+    *   @param patient: Patient
+    * =================================================  */
+    private fun insertPatient(patient: Patient){
         Log.d(TAG, "insertUser: Inserting ...")
 
         Firebase.firestore.collection(application.getString(R.string.dbcol_users))
@@ -123,7 +130,7 @@ class UserRepository(private val application: Application): UserRepo {
 
     /* =======================================================
     *   Function to update whether assessment has been done
-    *   @param status
+    *   @param status: Boolean
     * ========================================================  */
     override fun updateAssessmentStatus(status: Boolean){
         val patientId = Firebase.auth.currentUser!!.uid
@@ -139,19 +146,21 @@ class UserRepository(private val application: Application): UserRepo {
     }
 
     /* ======================================================
-    *   Function to fetch patient data
-    *   @param patientId
+    *   Function to fetch user data
+    *   @param userId: String
     * =======================================================  */
     override fun read(userId: String?): DocumentReference? {
-        val patientRef = userId?.let {
+        val userRef = userId?.let {
             Firebase.firestore.collection(application.getString(R.string.dbcol_users))
                 .document(it)
         }
-        return patientRef
+        return userRef
     }
 
 
     companion object {
         val TAG = UserRepository::class.simpleName
+        const val CUSTOM_KEY = "File Type"
+        const val CUSTOM_VALUE = "Resume"
     }
 }

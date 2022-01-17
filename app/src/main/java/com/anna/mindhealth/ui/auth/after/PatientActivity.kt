@@ -45,8 +45,13 @@ class PatientActivity : AppCompatActivity() {
             }
         })
 
+        initializeNavController()
+
+    }
+
+    private fun initializeNavController(){
         // Get NavHostFragment and NavController
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        val navController = findNavController(R.id.nav_host_fragment_content_patient)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
@@ -58,17 +63,16 @@ class PatientActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         // Connect Bottom Navigation View with NavController
         navView.setupWithNavController(navController)
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.option_menu_patient, menu)
+        menuInflater.inflate(R.menu.option_menu, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId){
-            R.id.option_logout_patient -> {
+            R.id.option_logout -> {
                 userActivityViewModel.logout()
                 true
             }
