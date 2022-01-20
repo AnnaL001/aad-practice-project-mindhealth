@@ -2,11 +2,8 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:layout_editor_absoluteX="36dp"
-    tools:layout_editor_absoluteY="-161dp">
+    android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -40,63 +37,63 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imv_logo_login_screen" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edt_input_email_login"
-        style="@style/InputTextField"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="16dp"
-        android:hint="@string/hint_input_email"
-        app:hintTextAppearance="@style/ScreenTextSubTitle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txv_app_name_login_screen">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edt_input_email_login"
+            style="@style/InputTextField"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:inputType="textEmailAddress"
-            android:textAppearance="@style/ScreenTextSubTitle"
-            android:textSize="16sp" />
+            android:layout_marginStart="@dimen/screen_margin"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="@dimen/screen_margin"
+            android:hint="@string/hint_input_email"
+            app:hintTextAppearance="@style/ScreenTextSubTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txv_app_name_login_screen">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:inputType="textEmailAddress"
+                android:textAppearance="@style/ScreenTextSubTitle"
+                android:textSize="16sp" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edt_input_password_login"
-        style="@style/InputTextField"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:hint="@string/hint_input_password"
-        app:endIconMode="password_toggle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edt_input_email_login">
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/TextInputEditText"
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edt_input_password_login"
+            style="@style/InputTextField"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:inputType="textPassword"
-            android:textAppearance="@style/ScreenTextSubTitle"
-            android:textSize="16sp" />
+            android:layout_marginStart="@dimen/screen_margin"
+            android:layout_marginTop="@dimen/screen_margin"
+            android:layout_marginEnd="@dimen/screen_margin"
+            android:hint="@string/hint_input_password"
+            app:endIconMode="password_toggle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edt_input_email_login">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/TextInputEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:inputType="textPassword"
+                android:textAppearance="@style/ScreenTextSubTitle"
+                android:textSize="16sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_login_via_email"
             style="@style/ButtonText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/screen_margin"
             android:layout_marginTop="48dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="@dimen/screen_margin"
             android:fontFamily="sans-serif-medium"
             android:paddingVertical="18dp"
             android:text="@string/txv_login_text"
@@ -144,7 +141,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="@dimen/screen_margin"
             android:clickable="true"
             android:fontFamily="sans-serif-condensed-medium"
             android:minHeight="48dp"
@@ -160,7 +157,7 @@
             android:id="@+id/txv_register_link"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/screen_margin"
             android:layout_marginTop="32dp"
             android:clickable="true"
             android:fontFamily="sans-serif-condensed-medium"

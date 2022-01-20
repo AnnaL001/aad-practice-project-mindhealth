@@ -33,7 +33,7 @@
     <string name="txv_therapist_info_subtext">View, rate/switch therapist</string>
     <string name="icon_session_history_desc">Icon representing session history</string>
     <string name="txv_session_history_info_text">Session history</string>
-    <string name="txv_session_history_subtext">View previous sessions details</string>
+    <string name="txv_session_history_subtext">View previous sessions</string>
     <string name="logout">Logout</string>
     <string name="open_personal_info_screen">Open personal info screen </string>
     <string name="open_therapist_profile_screen">Open therapist profile screen</string>
@@ -52,12 +52,22 @@
     <string name="icon_availability_status_true">Available</string>
     <string name="btn_update_availability_text">Update availability</string>
     <string name="hint_input_short_desc">Short description</string>
-    <string name="hint_input_concerns">Concerns</string>
+    <string name="hint_input_concerns">Concerns(comma-separated)</string>
     <string name="hint_input_helping_approach">Approach to helping</string>
-    <string name="hint_input_services_provided">Services provided</string>
+    <string name="hint_input_services_provided">Services provided(comma-separated)</string>
     <string name="working_ages">Select ages you work with</string>
     <string name="preferred_lang">Select your preferred language(s)</string>
-    <string name="hint_input_physical_address">Physical address</string>
+    <string name="hint_input_physical_address">Office address</string>
+    <string name="menu_therapy_profile">Therapy profile</string>
+    <string name="content_desc_avatar">User\'s avatar</string>
+    <string name="content_desc_country_icon">User\'s country</string>
+    <string name="content_desc_gender_icon">User\'s gender</string>
+    <string name="name">Name</string>
+    <string name="phone_no">Phone number</string>
+    <string name="hint_update_profile">/* Update profile */</string>
+    <string name="ages_preferences">Ages I work with</string>
+    <string name="lang_preferred">Languages</string>
+    <string name="numbered_list">%1$d. %2$s \n</string>
 
 
     <!-- Navigation -->
@@ -142,5 +152,12 @@
     <string name="menu_assessment_responses">Assessment Responses</string>
     <string name="assessment_question_text">Assessment question</string>
     <string name="assessment_response_text">Assessment response</string>
-    <string name="menu_therapy_profile">Therapy profile</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="edit_personal_info">Edit info</string>
+    <string name="menu_personal_info">Personal Info</string>
+    <string name="rate">Rate</string>
+    <string name="txv_therapy_info_subtext">View/edit therapy profile</string>
+    <string name="txv_patient_list_info_text">List of patients</string>
+    <string name="txv_patient_list_subtext">View your patient list</string>
+    <string name="upload_photo">Upload photo</string>
 </resources>

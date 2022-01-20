@@ -3,6 +3,7 @@ package com.anna.mindhealth.data.model
 data class Patient(
     val id: String = "",
     val email: String = "",
+    val phone_no: String = "",
     val name: String = "",
     val avatar: String = "",
     @field:JvmField // Boolean field prefixed with 'is'

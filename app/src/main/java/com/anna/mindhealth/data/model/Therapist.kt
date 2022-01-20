@@ -1,11 +1,10 @@
 package com.anna.mindhealth.data.model
 
-import android.net.Uri
-
 data class Therapist(
     val id: String = "",
     val name: String = "",
     val email:String = "",
+    val phone_no: String = "",
     val avatar: String = "",
     val resume: String = "",
     @field:JvmField // Boolean field prefixed with 'is'

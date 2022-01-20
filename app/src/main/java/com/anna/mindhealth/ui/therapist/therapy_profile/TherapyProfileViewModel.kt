@@ -15,11 +15,13 @@ class TherapyProfileViewModel(application: Application): AndroidViewModel(applic
     private val therapistProfileRepository: CrudRepo
     private val userRepository: UserRepo
     val therapistProfileReference: DocumentReference?
+    val therapistReference: DocumentReference?
 
     init {
         therapistProfileRepository = TherapistProfileRepository(application)
         userRepository = UserRepository(application)
         therapistProfileReference = therapistProfileRepository.read(Firebase.auth.currentUser!!.uid)
+        therapistReference = userRepository.read(Firebase.auth.currentUser!!.uid)
     }
 
     fun updateProfile(therapistProfile: TherapistProfile){

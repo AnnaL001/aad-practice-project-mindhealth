@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txv_ages_preference_profile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="@string/ages_preferences"
+        android:textAppearance="@style/ScreenTextSubTitle"
+        android:textColor="@color/splash_screen_text_color"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/txv_lang_preference_profile"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txv_lang_preference_profile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/screen_margin"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="@string/lang_preferred"
+        android:textAppearance="@style/ScreenTextSubTitle"
+        android:textColor="@color/splash_screen_text_color"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@id/txv_ages_preference_profile"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txv_ages_preference_saved"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/hint_update_profile"
+        android:textAppearance="@style/ScreenTextSubTitle"
+        app:layout_constraintEnd_toStartOf="@id/txv_lang_preference_saved"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txv_ages_preference_profile" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txv_lang_preference_saved"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/screen_margin"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="@string/hint_update_profile"
+        android:textAppearance="@style/ScreenTextSubTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/txv_ages_preference_saved"
+        app:layout_constraintTop_toBottomOf="@id/txv_ages_preference_profile" />
+
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="24dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txv_ages_preference_saved" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

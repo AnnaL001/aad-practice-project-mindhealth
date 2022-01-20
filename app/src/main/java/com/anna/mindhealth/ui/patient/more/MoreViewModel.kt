@@ -1,4 +1,7 @@
 package com.anna.mindhealth.ui.patient.more
 
-class MoreViewModel {
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
+
+class MoreViewModel(application: Application): AndroidViewModel(application) {
 }

@@ -1,6 +1,370 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="70dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_general_info_profile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/screen_margin"
+            android:layout_marginTop="@dimen/screen_margin"
+            android:layout_marginEnd="@dimen/screen_margin"
+            app:cardCornerRadius="@dimen/corner_radius"
+            app:cardElevation="4dp"
+            app:cardPreventCornerOverlap="false"
+            app:cardUseCompatPadding="true"
+            app:contentPadding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imv_avatar"
+                    android:layout_width="@dimen/dimen_avatar_profile_image"
+                    android:layout_height="@dimen/dimen_avatar_profile_image"
+                    android:layout_marginTop="8dp"
+                    android:clickable="false"
+                    android:contentDescription="@string/content_desc_avatar"
+                    android:tint="@color/color_lighter_black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearance="@style/AvatarImageShapeStyle"
+                    app:srcCompat="@drawable/ic_baseline_account_circle_24" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imv_gender_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="@dimen/dimen_icon_profile"
+                    android:layout_marginTop="@dimen/screen_margin"
+                    android:contentDescription="@string/content_desc_gender_icon"
+                    android:tint="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.23"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imv_avatar"
+                    app:shapeAppearance="@style/RoundedCornerImageShapeStyle"
+                    app:srcCompat="@drawable/ic_baseline_male_24" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txv_name_profile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/screen_margin"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="24dp"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:text="@string/name"
+                    android:textAppearance="@style/ScreenTextSubTitle"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@id/imv_gender_icon"
+                    app:layout_constraintTop_toBottomOf="@id/imv_avatar" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imv_country_icon"
+                    android:layout_width="@dimen/dimen_icon_profile"
+                    android:layout_height="@dimen/dimen_icon_profile"
+                    android:layout_marginTop="8dp"
+                    android:contentDescription="@string/content_desc_country_icon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.25"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@id/txv_phone_profile"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imv_gender_icon"
+                    app:shapeAppearance="@style/RoundedCornerImageShapeStyle"
+                    app:srcCompat="@drawable/ic_baseline_emoji_flags_24" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txv_phone_profile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="24dp"
+                    android:clickable="true"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:minHeight="40dp"
+                    android:text="@string/phone_no"
+                    android:textAppearance="@style/ScreenTextSubTitle"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toEndOf="@id/imv_country_icon"
+                    app:layout_constraintTop_toBottomOf="@id/txv_name_profile" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_edit_profile_link"
+            style="@style/SecondaryButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/screen_margin"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="@dimen/screen_margin"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:paddingVertical="16dp"
+            android:text="@string/edit_profile"
+            android:textAppearance="@style/ButtonText"
+            android:textSize="16sp"
+            app:icon="@drawable/ic_baseline_co_present_24"
+            app:iconTint="@color/color_primary_dark"
+            app:layout_constraintEnd_toStartOf="@id/btn_update_personal_info_link"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_general_info_profile" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_update_personal_info_link"
+            style="@style/SecondaryButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/screen_margin"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="@dimen/screen_margin"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:paddingVertical="16dp"
+            android:text="@string/edit_personal_info"
+            android:textAppearance="@style/ButtonText"
+            android:textSize="16sp"
+            app:icon="@drawable/ic_baseline_account_circle_24"
+            app:iconTint="@color/color_primary_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toEndOf="@id/btn_edit_profile_link"
+            app:layout_constraintTop_toBottomOf="@id/card_general_info_profile" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txv_short_desc_profile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/screen_margin"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="@string/hint_input_short_desc"
+            android:textAppearance="@style/ScreenTextSubTitle"
+            android:textColor="@color/splash_screen_text_color"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_edit_profile_link" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txv_short_desc_saved"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/screen_margin"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/hint_update_profile"
+            android:textAppearance="@style/ScreenTextSubTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txv_short_desc_profile" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/screen_margin"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="@dimen/screen_margin"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txv_short_desc_saved" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txv_concerns_profile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="@string/hint_input_concerns"
+            android:textAppearance="@style/ScreenTextSubTitle"
+            android:textColor="@color/splash_screen_text_color"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_grp_concerns_saved"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txv_concerns_profile" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/screen_margin"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="@dimen/screen_margin"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chip_grp_concerns_saved" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txv_services_provided_profile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/screen_margin"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="@string/hint_input_services_provided"
+            android:textAppearance="@style/ScreenTextSubTitle"
+            android:textColor="@color/splash_screen_text_color"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider2" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_grp_services_saved"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txv_services_provided_profile" />
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/screen_margin"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="@dimen/screen_margin"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chip_grp_services_saved" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txv_helping_approach_profile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/screen_margin"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:text="@string/hint_input_helping_approach"
+                    android:textAppearance="@style/ScreenTextSubTitle"
+                    android:textColor="@color/splash_screen_text_color"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/divider3" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txv_helping_approach_saved"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/screen_margin"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginBottom="@dimen/screen_margin"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/hint_update_profile"
+                    android:textAppearance="@style/ScreenTextSubTitle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txv_helping_approach_profile" />
+
+                <View
+                    android:id="@+id/divider4"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/screen_margin"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="@dimen/screen_margin"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txv_helping_approach_saved" />
+
+
+                <ViewStub
+                    android:id="@+id/vs_preferences"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:inflatedId="@+id/vs_preferences"
+                    android:layout="@layout/layout_therapy_preferences"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/divider4"
+                    tools:visibility="visible" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txv_physical_address_profile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/screen_margin"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:text="@string/hint_input_physical_address"
+                    android:textAppearance="@style/ScreenTextSubTitle"
+                    android:textColor="@color/splash_screen_text_color"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vs_preferences" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txv_physical_address_saved"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/screen_margin"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="24dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/hint_update_profile"
+                    android:textAppearance="@style/ScreenTextSubTitle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txv_physical_address_profile" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>

@@ -9,8 +9,8 @@ import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 
 object Utility {
-    val PATIENT_ROLE = 1
-    val THERAPIST_ROLE = 2
+    const val PATIENT_ROLE = 1
+    const val THERAPIST_ROLE = 2
 
     fun shortToastMessage(context: Context, message: String) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()

@@ -54,7 +54,7 @@ class HomeFragment: Fragment() {
 
     private fun initializeButtons(){
         binding.btnUpdateProfileLink.setOnClickListener {
-            view?.findNavController()?.navigate(R.id.action_fragment_home_to_fragment_edit_profile)
+            view?.findNavController()?.navigate(R.id.action_fragment_to_fragment_edit_profile)
         }
 
         binding.btnUpdateAvailabilityLink.setOnClickListener {

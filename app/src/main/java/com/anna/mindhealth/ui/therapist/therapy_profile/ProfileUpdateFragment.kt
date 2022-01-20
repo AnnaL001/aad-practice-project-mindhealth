@@ -83,7 +83,7 @@ class ProfileUpdateFragment: BaseFragment() {
     }
 
     private fun redirectToTherapyProfile(){
-        view?.findNavController()?.navigate(R.id.action_fragment_edit_profile_to_fragment_therapy_profile)
+        view?.findNavController()?.navigate(R.id.action_fragment_to_fragment_therapy_profile)
     }
 
     override fun onDestroy() {

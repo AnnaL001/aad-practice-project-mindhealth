@@ -32,7 +32,7 @@
             android:id="@+id/txv_app_name_register_screen"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/screen_margin"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:fontFamily="sans-serif-medium"
@@ -44,45 +44,45 @@
             app:layout_constraintTop_toBottomOf="@id/imv_logo_register_screen" />
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edt_input_email"
-        style="@style/InputTextField"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:hint="@string/hint_input_email"
-        app:layout_constraintEnd_toStartOf="@+id/guideline11"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txv_app_name_register_screen">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edt_input_email"
+            style="@style/InputTextField"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="@dimen/screen_margin"
+            android:layout_marginTop="@dimen/screen_margin"
+            android:layout_marginEnd="@dimen/screen_margin"
+            android:hint="@string/hint_input_email"
+            app:layout_constraintEnd_toStartOf="@+id/guideline11"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txv_app_name_register_screen">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/edt_input_password"
-        style="@style/InputTextField"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:hint="@string/hint_input_password"
-        app:endIconMode="password_toggle"
-        app:layout_constraintEnd_toStartOf="@+id/guideline11"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edt_input_email">
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edt_input_password"
+            style="@style/InputTextField"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed-medium"
-            android:inputType="textPassword" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="@dimen/screen_margin"
+            android:layout_marginTop="@dimen/screen_margin"
+            android:layout_marginEnd="@dimen/screen_margin"
+            android:hint="@string/hint_input_password"
+            app:endIconMode="password_toggle"
+            app:layout_constraintEnd_toStartOf="@+id/guideline11"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edt_input_email">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -90,9 +90,9 @@
             style="@style/InputTextField"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="@dimen/screen_margin"
+            android:layout_marginTop="@dimen/screen_margin"
+            android:layout_marginEnd="@dimen/screen_margin"
             android:hint="@string/hint_input_confirm_password"
             app:endIconMode="password_toggle"
             app:layout_constraintEnd_toStartOf="@+id/guideline11"
@@ -110,9 +110,9 @@
             android:id="@+id/vs_submit_cv"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/screen_margin"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="@dimen/screen_margin"
             android:inflatedId="@+id/vs_submit_cv"
             android:layout="@layout/layout_submit_cv"
             app:layout_constraintEnd_toStartOf="@+id/guideline11"
@@ -157,9 +157,9 @@
             style="@style/ButtonText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="@dimen/screen_margin"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="@dimen/screen_margin"
             android:fontFamily="sans-serif-condensed-medium"
             android:paddingVertical="18dp"
             android:text="@string/txv_create_account_text"
@@ -176,7 +176,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="176dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="@dimen/screen_margin"
             android:fontFamily="sans-serif-medium"
             android:text="@string/txv_login_text"
             android:textAppearance="@style/TextButton"

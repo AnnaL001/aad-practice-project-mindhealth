@@ -5,12 +5,12 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_patient_profile_link"
+        android:id="@+id/card_personal_info_link"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="@dimen/screen_margin"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="@dimen/screen_margin"
         app:cardCornerRadius="@dimen/corner_radius"
         app:cardElevation="4dp"
         app:cardUseCompatPadding="true"
@@ -36,7 +36,7 @@
                 app:layout_constraintEnd_toStartOf="@id/guideline2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_outline_assignment_late_24"
+                app:srcCompat="@drawable/ic_baseline_account_circle_24"
                 app:tint="@color/image_in_card_with_color_tint" />
 
             <androidx.constraintlayout.widget.Guideline
@@ -57,7 +57,7 @@
                 android:id="@+id/textView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="@dimen/screen_margin"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:fontFamily="sans-serif-condensed-medium"
@@ -73,7 +73,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="@dimen/screen_margin"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:fontFamily="sans-serif-condensed"
@@ -88,13 +88,13 @@
                 android:layout_width="0dp"
                 android:layout_height="35dp"
                 android:layout_marginEnd="8dp"
+                android:contentDescription="@string/open_personal_info_screen"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline3"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_baseline_keyboard_arrow_right_24"
-                app:tint="@color/image_in_card_with_color_tint"
-                android:contentDescription="@string/open_personal_info_screen" />
+                app:tint="@color/image_in_card_with_color_tint" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -102,16 +102,16 @@
         android:id="@+id/card_therapist_profile_link"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="@dimen/screen_margin"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="@dimen/screen_margin"
         app:cardCornerRadius="@dimen/corner_radius"
         app:cardElevation="4dp"
         app:cardUseCompatPadding="true"
         app:contentPadding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/card_patient_profile_link">
+        app:layout_constraintTop_toBottomOf="@id/card_personal_info_link">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -151,7 +151,7 @@
                 android:id="@+id/txv_therapist_info"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="@dimen/screen_margin"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:fontFamily="sans-serif-condensed-medium"
@@ -167,7 +167,7 @@
                 android:id="@+id/txv_therapist_subtext"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="@dimen/screen_margin"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:fontFamily="sans-serif-condensed"
@@ -188,8 +188,7 @@
                 app:layout_constraintStart_toStartOf="@+id/guideline5"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_baseline_keyboard_arrow_right_24"
-                app:tint="@color/image_in_card_with_color_tint"
-                />
+                app:tint="@color/image_in_card_with_color_tint" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -197,9 +196,9 @@
         android:id="@+id/card_session_history_link"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="@dimen/screen_margin"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="@dimen/screen_margin"
         app:cardCornerRadius="@dimen/corner_radius"
         app:cardElevation="4dp"
         app:cardUseCompatPadding="true"
@@ -246,7 +245,7 @@
                 android:id="@+id/txv_session_history_info"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="@dimen/screen_margin"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:fontFamily="sans-serif-condensed-medium"
@@ -262,7 +261,7 @@
                 android:id="@+id/txv_session_history_subtext"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="@dimen/screen_margin"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:fontFamily="sans-serif-condensed"
@@ -277,13 +276,13 @@
                 android:layout_width="0dp"
                 android:layout_height="35dp"
                 android:layout_marginEnd="8dp"
+                android:contentDescription="@string/open_session_history_screen"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline7"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_baseline_keyboard_arrow_right_24"
-                app:tint="@color/image_in_card_with_color_tint"
-                android:contentDescription="@string/open_session_history_screen" />
+                app:tint="@color/image_in_card_with_color_tint" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
