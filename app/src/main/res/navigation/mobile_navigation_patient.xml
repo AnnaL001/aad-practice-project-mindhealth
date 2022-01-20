@@ -10,7 +10,7 @@
         android:name="com.anna.mindhealth.ui.patient.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
-        <action android:id="@+id/action_fragment_home_to_fragment_assessment_questions"
+        <action android:id="@+id/action_fragment_to_fragment_assessment_questions"
             app:destination="@id/nav_assessment_questions"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"

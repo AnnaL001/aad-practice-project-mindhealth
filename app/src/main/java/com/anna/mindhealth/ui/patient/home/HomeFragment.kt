@@ -67,7 +67,7 @@ class HomeFragment: Fragment() {
     }
 
     private fun redirectToAssessment(){
-        view?.findNavController()?.navigate(R.id.action_fragment_home_to_fragment_assessment_questions)
+        view?.findNavController()?.navigate(R.id.action_fragment_to_fragment_assessment_questions)
     }
 
     private fun redirectToResponses(){
