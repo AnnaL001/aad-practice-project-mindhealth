@@ -1,11 +1,14 @@
 package com.anna.mindhealth.base
 
 import android.content.Context
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Message
 import android.provider.OpenableColumns
 import android.view.View
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 
 object Utility {
@@ -24,4 +27,5 @@ object Utility {
         cursor?.close()
         return fileName
     }
+
 }

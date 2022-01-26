@@ -78,7 +78,7 @@
     </style>
 
     <style name="RoundedCornerImageShapeStyle" parent="">
-        <item name="cornerSize">10%</item>
+        <item name="cornerSize">20%</item>
     </style>
 
     <style name="CardTextTitle" parent="SubTitle">

@@ -22,10 +22,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.auth.after.PatientActivity" />
+        <activity android:name=".ui.auth.after.PatientActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
         <activity android:name=".ui.auth.before.LoginActivity" />
         <activity android:name=".ui.auth.before.RegisterActivity" />
-        <activity android:name=".ui.auth.after.TherapistActivity"/>
+        <activity android:name=".ui.auth.after.TherapistActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"/>
     </application>
 
 </manifest>

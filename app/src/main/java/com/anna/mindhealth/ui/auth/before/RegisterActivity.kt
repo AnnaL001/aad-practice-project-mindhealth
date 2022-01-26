@@ -1,11 +1,15 @@
 package com.anna.mindhealth.ui.auth.before
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageButton
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.anna.mindhealth.R
 import com.anna.mindhealth.base.Utility.PATIENT_ROLE
@@ -13,8 +17,7 @@ import com.anna.mindhealth.base.Utility.THERAPIST_ROLE
 import com.anna.mindhealth.base.Utility.getFileName
 import com.anna.mindhealth.base.Utility.shortToastMessage
 import com.anna.mindhealth.databinding.ActivityRegisterBinding
-import com.anna.mindhealth.databinding.LayoutSubmitCvBinding
-import com.anna.mindhealth.ui.role.RoleSelectionActivity
+import com.anna.mindhealth.ui.therapist.profile.TherapistInfoFragment
 import com.google.android.material.textview.MaterialTextView
 
 class RegisterActivity: AppCompatActivity() {
@@ -24,6 +27,26 @@ class RegisterActivity: AppCompatActivity() {
     private var resumeUri: Uri ?= null
     private val selectedSecurityLevel by lazy {
         intent.getIntExtra(LoginActivity.securityLevel, 0)
+    }
+    private var storagePermission: Boolean = false
+
+    private val requestStoragePermission = registerForActivityResult(ActivityResultContracts.RequestPermission()) { permission ->
+        Log.d(TherapistInfoFragment.TAG, "RequestStoragePermission")
+        if (permission == true){
+            Log.d(TherapistInfoFragment.TAG, "User has allowed permission to access MANIFEST.permission.READ_EXTERNAL_STORAGE")
+        }
+    }
+
+    private fun verifyStoragePermission() {
+        Log.d(TherapistInfoFragment.TAG, "verifyPermissions: asking user for permissions.")
+        val permission = Manifest.permission.READ_EXTERNAL_STORAGE
+
+        if (ContextCompat.checkSelfPermission(binding.root.context, permission) == PackageManager.PERMISSION_GRANTED){
+            storagePermission = true
+        } else {
+            // Request for permissions
+            requestStoragePermission.launch(permission)
+        }
     }
 
 
@@ -45,7 +68,11 @@ class RegisterActivity: AppCompatActivity() {
         if (selectedSecurityLevel == THERAPIST_ROLE){
             binding.vsSubmitCv.inflate()
             findViewById<ImageButton>(R.id.imv_btn_upload_cv).setOnClickListener {
-                openFileSelector.launch("application/pdf")
+                when(storagePermission){
+                    true -> openFileSelector.launch("application/pdf")
+                    else -> verifyStoragePermission()
+                }
+
             }
         }
 

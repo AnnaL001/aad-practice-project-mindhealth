@@ -1,4 +1,4 @@
-package com.anna.mindhealth.ui.therapist.therapy_profile
+package com.anna.mindhealth.ui.therapist.profile
 
 import android.os.Bundle
 import android.util.Log
@@ -37,21 +37,24 @@ class ProfileUpdateFragment: BaseFragment() {
     private fun initializeEditTextValues(){
         profileUpdateViewModel.therapistProfileReference?.get()?.addOnCompleteListener { task ->
             if (task.isSuccessful){
-                val therapistProfile = task.result.toObject<TherapistProfile>()!!
+                val therapistProfile = task.result.toObject<TherapistProfile>()
 
                 val workingAgesCheckboxes = listOf(binding.checkboxChildAge, binding.checkboxYoungAdult,
                         binding.checkboxMiddleAged, binding.checkboxOldAged)
                 val languageCheckBoxes = listOf(binding.checkboxLangEng, binding.checkboxLangSwa, binding.checkboxLangFre)
 
-                setEditTextValues(binding.edtInputShortDesc.editText!!, therapistProfile.shortDesc)
-                setSelectedSpinnerItem(binding.spinnerCountriesTherapist, therapistProfile.country)
-                setSelectedRadioButton(binding.radioGrpGenderTherapist, binding.root, therapistProfile.gender)
-                setEditTextValues(binding.edtInputConcerns.editText!!, therapistProfile.concerns)
-                setEditTextValues(binding.edtInputHelpingApproach.editText!!, therapistProfile.helpingApproach)
-                setEditTextValues(binding.edtInputServicesProvided.editText!!, therapistProfile.servicesProvided)
-                setSelectedCheckBoxes(workingAgesCheckboxes, therapistProfile.workingAges)
-                setSelectedCheckBoxes(languageCheckBoxes, therapistProfile.languages)
-                setEditTextValues(binding.edtInputPhysicalAddress.editText!!, therapistProfile.officeAddress)
+                if (therapistProfile != null) {
+                    setEditTextValues(binding.edtInputShortDesc.editText!!, therapistProfile.shortDesc)
+                    setSelectedSpinnerItem(binding.spinnerCountriesTherapist, therapistProfile.country)
+                    setSelectedRadioButton(binding.radioGrpGenderTherapist, binding.root, therapistProfile.gender)
+                    setEditTextValues(binding.edtInputConcerns.editText!!, therapistProfile.concerns)
+                    setEditTextValues(binding.edtInputHelpingApproach.editText!!, therapistProfile.helpingApproach)
+                    setEditTextValues(binding.edtInputServicesProvided.editText!!, therapistProfile.servicesProvided)
+                    setSelectedCheckBoxes(workingAgesCheckboxes, therapistProfile.workingAges)
+                    setSelectedCheckBoxes(languageCheckBoxes, therapistProfile.languages)
+                    setEditTextValues(binding.edtInputPhysicalAddress.editText!!, therapistProfile.officeAddress)
+                }
+
 
                 Log.d(TAG, "$therapistProfile")
             }

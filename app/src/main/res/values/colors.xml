@@ -15,4 +15,5 @@
     <color name="image_in_card_with_color_tint">@color/color_primary_dark</color>
     <color name="card_primary_button_color">@color/color_primary_light</color>
     <color name="card_primary_btn_text">@color/color_primary_dark</color>
+    <color name="card_general_info_text_color">@color/color_light_black</color>
 </resources>

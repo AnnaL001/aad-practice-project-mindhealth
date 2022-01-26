@@ -91,7 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed"
-                android:paddingHorizontal="24dp"
+                android:paddingHorizontal="16dp"
                 android:text="@string/male_gender"
                 android:textAppearance="@style/ScreenTextSubTitle" />
 
@@ -101,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_horizontal|center_vertical"
-                android:paddingHorizontal="24dp"
+                android:paddingHorizontal="16dp"
                 android:text="@string/female_gender"
                 android:textAppearance="@style/ScreenTextSubTitle" />
 
@@ -111,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center_vertical|end"
-                android:paddingHorizontal="24dp"
+                android:paddingHorizontal="16dp"
                 android:text="@string/other_gender"
                 android:textAppearance="@style/ScreenTextSubTitle" />
 

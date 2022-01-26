@@ -1,4 +1,4 @@
-package com.anna.mindhealth.ui.therapist.therapy_profile
+package com.anna.mindhealth.ui.therapist.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +11,7 @@ import com.anna.mindhealth.R
 import com.anna.mindhealth.data.model.Therapist
 import com.anna.mindhealth.data.model.TherapistProfile
 import com.anna.mindhealth.databinding.FragmentTherapyProfileBinding
+import com.bumptech.glide.Glide
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.imageview.ShapeableImageView
@@ -43,6 +44,11 @@ class ProfileViewFragment: Fragment() {
         therapyProfileViewModel.therapistReference?.get()?.addOnCompleteListener { task ->
             val therapist = task.result.toObject<Therapist>()!!
 
+            Glide.with(requireContext())
+                .asBitmap().load(therapist.avatar)
+                .placeholder(R.drawable.ic_baseline_account_circle_24)
+                .into(binding.imvAvatar)
+
             setTextViewValues(binding.txvNameProfile, therapist.name)
             setTextViewValues(binding.txvPhoneProfile, therapist.phone_no)
         }
@@ -50,26 +56,29 @@ class ProfileViewFragment: Fragment() {
 
     private fun initializeTherapyProfile(){
         therapyProfileViewModel.therapistProfileReference?.get()?.addOnCompleteListener { task ->
-            val therapyProfile = task.result.toObject<TherapistProfile>()!!
+            val therapyProfile = task.result.toObject<TherapistProfile>()
 
-            setGenderImageView(binding.imvGenderIcon, therapyProfile.gender)
-            setCountryImageView(binding.imvCountryIcon, therapyProfile.country)
-            setTextViewValues(binding.txvShortDescSaved, therapyProfile.shortDesc)
-            setChipTextValues(binding.chipGrpConcernsSaved, therapyProfile.concerns)
-            setChipTextValues(binding.chipGrpServicesSaved, therapyProfile.servicesProvided)
-            setTextViewValues(binding.txvHelpingApproachSaved, therapyProfile.helpingApproach)
-            setTextViewValues(binding.txvPhysicalAddressSaved, therapyProfile.officeAddress)
+            if (therapyProfile != null) {
+                setGenderImageView(binding.imvGenderIcon, therapyProfile.gender)
+                setCountryImageView(binding.imvCountryIcon, therapyProfile.country)
+                setTextViewValues(binding.txvShortDescSaved, therapyProfile.shortDesc)
+                setChipTextValues(binding.chipGrpConcernsSaved, therapyProfile.concerns)
+                setChipTextValues(binding.chipGrpServicesSaved, therapyProfile.servicesProvided)
+                setTextViewValues(binding.txvHelpingApproachSaved, therapyProfile.helpingApproach)
+                setTextViewValues(binding.txvPhysicalAddressSaved, therapyProfile.officeAddress)
 
-            if(therapyProfile.workingAges.isNotEmpty() || therapyProfile.languages.isNotEmpty()){
-                binding.vsPreferences.inflate()
-                val txvAges = requireView().findViewById<MaterialTextView>(R.id.txv_ages_preference_saved)
-                val txvLang = requireView().findViewById<MaterialTextView>(R.id.txv_lang_preference_saved)
-                val txvValAge = listOf(R.string.child_age, R.string.young_adult, R.string.middle_aged, R.string.old_aged)
-                val txvValLang = listOf(R.string.lang_eng, R.string.lang_swa, R.string.lang_fre)
+                if(therapyProfile.workingAges.isNotEmpty() || therapyProfile.languages.isNotEmpty()){
+                    binding.vsPreferences.inflate()
+                    val txvAges = requireView().findViewById<MaterialTextView>(R.id.txv_ages_preference_saved)
+                    val txvLang = requireView().findViewById<MaterialTextView>(R.id.txv_lang_preference_saved)
+                    val txvValAge = listOf(R.string.child_age, R.string.young_adult, R.string.middle_aged, R.string.old_aged)
+                    val txvValLang = listOf(R.string.lang_eng, R.string.lang_swa, R.string.lang_fre)
 
-                setAgePrefCheckBoxValue(txvAges, txvValAge, therapyProfile.workingAges)
-                setLanguageCheckBoxValue(txvLang, txvValLang, therapyProfile.languages)
+                    setAgePrefCheckBoxValue(txvAges, txvValAge, therapyProfile.workingAges)
+                    setLanguageCheckBoxValue(txvLang, txvValLang, therapyProfile.languages)
+                }
             }
+
         }
     }
 

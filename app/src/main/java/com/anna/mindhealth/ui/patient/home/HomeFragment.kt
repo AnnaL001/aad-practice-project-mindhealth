@@ -71,7 +71,7 @@ class HomeFragment: Fragment() {
     }
 
     private fun redirectToResponses(){
-        view?.findNavController()?.navigate(R.id.action_fragment_home_to_fragment_assessment_responses)
+        view?.findNavController()?.navigate(R.id.action_fragment_to_fragment_assessment_responses)
     }
 
     override fun onDestroy() {

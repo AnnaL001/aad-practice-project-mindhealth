@@ -89,8 +89,11 @@ class TherapistActivity: AppCompatActivity() {
         userActivityViewModel.logout()
     }
 
+
+
     override fun onStart() {
         super.onStart()
         userActivityViewModel.checkAuthenticationState()
     }
+
 }

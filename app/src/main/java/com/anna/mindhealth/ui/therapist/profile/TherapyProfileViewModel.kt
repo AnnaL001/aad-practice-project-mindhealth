@@ -1,9 +1,11 @@
-package com.anna.mindhealth.ui.therapist.therapy_profile
+package com.anna.mindhealth.ui.therapist.profile
 
 import android.app.Application
+import android.graphics.Bitmap
 import androidx.lifecycle.AndroidViewModel
 import com.anna.mindhealth.data.`interface`.CrudRepo
 import com.anna.mindhealth.data.`interface`.UserRepo
+import com.anna.mindhealth.data.model.Therapist
 import com.anna.mindhealth.data.model.TherapistProfile
 import com.anna.mindhealth.data.repository.TherapistProfileRepository
 import com.anna.mindhealth.data.repository.UserRepository
@@ -26,5 +28,9 @@ class TherapyProfileViewModel(application: Application): AndroidViewModel(applic
 
     fun updateProfile(therapistProfile: TherapistProfile){
         therapistProfileRepository.insert(therapistProfile)
+    }
+
+    fun updatePersonalInfo(therapist: Therapist, securityLevel: Int, bitmap: Bitmap){
+        userRepository.update(therapist, securityLevel, bitmap)
     }
 }

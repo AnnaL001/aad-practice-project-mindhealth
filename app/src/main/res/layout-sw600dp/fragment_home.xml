@@ -71,7 +71,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_view_responses_link"
-                style="@style/ButtonWithIcon"
+                style="@style/SecondaryButton"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -80,9 +80,8 @@
                 android:paddingVertical="16dp"
                 android:text="@string/btn_view_assessment_link_text"
                 android:textAppearance="@style/ButtonText"
-                android:textColor="#01579B"
+                android:textColor="@color/card_primary_btn_text"
                 android:textSize="20sp"
-                app:backgroundTint="@color/card_primary_button_color"
                 app:cornerRadius="@dimen/corner_radius"
                 app:icon="@drawable/ic_baseline_keyboard_arrow_right_24"
                 app:iconGravity="textEnd"
