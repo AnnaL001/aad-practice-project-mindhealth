@@ -4,15 +4,25 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.13796296296296295" />
+        <entry key="app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.14166666666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_clear_24.xml" value="0.14166666666666666" />
         <entry key="app/src/main/res/drawable/ic_baseline_co_present_24.xml" value="0.13425925925925927" />
         <entry key="app/src/main/res/drawable/ic_baseline_dashboard_24.xml" value="0.13425925925925927" />
+        <entry key="app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.14166666666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_emoji_flags_24.xml" value="0.14166666666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_female_24.xml" value="0.14166666666666666" />
         <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.13425925925925927" />
         <entry key="app/src/main/res/drawable/ic_baseline_image_24.xml" value="0.13425925925925927" />
         <entry key="app/src/main/res/drawable/ic_baseline_keyboard_arrow_right_24.xml" value="0.13425925925925927" />
         <entry key="app/src/main/res/drawable/ic_baseline_logout_24.xml" value="0.13425925925925927" />
+        <entry key="app/src/main/res/drawable/ic_baseline_male_24.xml" value="0.14166666666666666" />
         <entry key="app/src/main/res/drawable/ic_baseline_manage_accounts_24.xml" value="0.13425925925925927" />
+        <entry key="app/src/main/res/drawable/ic_baseline_people_alt_24.xml" value="0.14166666666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_photo_camera_24.xml" value="0.14166666666666666" />
         <entry key="app/src/main/res/drawable/ic_baseline_replay_24.xml" value="0.13425925925925927" />
         <entry key="app/src/main/res/drawable/ic_baseline_self_improvement_24.xml" value="0.13796296296296295" />
+        <entry key="app/src/main/res/drawable/ic_baseline_transgender_24.xml" value="0.14166666666666666" />
+        <entry key="app/src/main/res/drawable/ic_baseline_upload_file_24.xml" value="0.14166666666666666" />
         <entry key="app/src/main/res/drawable/ic_baseline_videocam_24.xml" value="0.13425925925925927" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.13425925925925927" />
         <entry key="app/src/main/res/drawable/ic_outline_assignment_late_24.xml" value="0.13425925925925927" />
@@ -51,7 +61,7 @@
         <entry key="app/src/main/res/layout/content_main.xml" value="0.15185185185185185" />
         <entry key="app/src/main/res/layout/content_patient.xml" value="0.15185185185185185" />
         <entry key="app/src/main/res/layout/content_therapist.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/dialog_set_avatar.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/dialog_set_avatar.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_assessment_questions.xml" value="0.2165016501650165" />
         <entry key="app/src/main/res/layout/fragment_assessment_responses.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_edit_profile.xml" value="0.25" />
@@ -70,7 +80,7 @@
         <entry key="app/src/main/res/layout/fragment_session_therapist.xml" value="0.15185185185185185" />
         <entry key="app/src/main/res/layout/fragment_sessions_therapist.xml" value="0.15185185185185185" />
         <entry key="app/src/main/res/layout/fragment_splashscreen.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_therapy_profile.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_therapy_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/layout_submit_cv.xml" value="0.25" />
         <entry key="app/src/main/res/layout/layout_therapy_preferences.xml" value="0.1" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.15185185185185185" />

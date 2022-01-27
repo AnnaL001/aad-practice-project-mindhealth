@@ -32,6 +32,12 @@ class PatientActivity : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
 
+        init()
+        initializeNavController()
+
+    }
+
+    private fun init(){
         userActivityViewModel.authUser.observe(this, { patientUser ->
             if (patientUser == null){
                 startActivity(Intent(this, RoleSelectionActivity::class.java))
@@ -44,9 +50,6 @@ class PatientActivity : AppCompatActivity() {
                 }
             }
         })
-
-        initializeNavController()
-
     }
 
     private fun initializeNavController(){

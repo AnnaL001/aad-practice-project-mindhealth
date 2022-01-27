@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.anna.mindhealth.base.Utility
+import com.anna.mindhealth.base.Utility.setTextViewValues
 import com.anna.mindhealth.data.model.Assessment
 import com.anna.mindhealth.databinding.FragmentAssessmentResponsesBinding
 import com.google.firebase.firestore.ktx.toObject

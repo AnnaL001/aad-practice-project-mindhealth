@@ -165,4 +165,11 @@
     <string name="choose_photo">Choose photo from memory</string>
     <string name="open_camera">Take a photo</string>
     <string name="dialog_set_avatar">SetAvatarDialog</string>
+    <string name="country">Country</string>
+    <string name="gender">Gender</string>
+    <string name="rating">Rating</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
+    <string name="prompt_update_availability">Are you available to take on more patients?</string>
+    <string name="cancel">Cancel</string>
 </resources>

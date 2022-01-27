@@ -35,38 +35,21 @@
                     android:layout_width="@dimen/dimen_avatar_profile_image"
                     android:layout_height="@dimen/dimen_avatar_profile_image"
                     android:layout_marginTop="8dp"
-                    android:clickable="false"
                     android:contentDescription="@string/content_desc_avatar"
                     android:scaleType="centerCrop"
                     android:tint="@color/color_lighter_black"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintEnd_toStartOf="@id/guideline12"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:shapeAppearance="@style/AvatarImageShapeStyle"
                     app:srcCompat="@drawable/ic_baseline_account_circle_24" />
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/imv_gender_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="@dimen/dimen_icon_profile"
-                    android:layout_marginTop="24dp"
-                    android:contentDescription="@string/content_desc_gender_icon"
-                    android:tint="@color/card_general_info_text_color"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.23"
-                    app:layout_constraintHorizontal_chainStyle="packed"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/imv_avatar"
-                    app:shapeAppearance="@style/RoundedCornerImageShapeStyle"
-                    app:srcCompat="@drawable/ic_baseline_male_24" />
-
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/txv_name_profile"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/screen_margin"
-                    android:layout_marginTop="28dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
                     android:layout_marginEnd="24dp"
                     android:fontFamily="sans-serif-condensed-medium"
                     android:text="@string/name"
@@ -74,43 +57,145 @@
                     android:textColor="@color/card_general_info_text_color"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_chainStyle="packed"
-                    app:layout_constraintStart_toEndOf="@id/imv_gender_icon"
-                    app:layout_constraintTop_toBottomOf="@id/imv_avatar" />
-
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/imv_country_icon"
-                    android:layout_width="@dimen/dimen_icon_profile"
-                    android:layout_height="@dimen/dimen_icon_profile"
-                    android:layout_marginTop="8dp"
-                    android:contentDescription="@string/content_desc_country_icon"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.25"
-                    app:layout_constraintHorizontal_chainStyle="packed"
-                    app:layout_constraintStart_toEndOf="@id/txv_phone_profile"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/imv_gender_icon"
-                    app:shapeAppearance="@style/RoundedCornerImageShapeStyle"
-                    app:srcCompat="@drawable/ic_baseline_emoji_flags_24" />
+                    app:layout_constraintStart_toEndOf="@id/guideline12"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/txv_phone_profile"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="24dp"
                     android:clickable="true"
                     android:fontFamily="sans-serif-condensed-medium"
-                    android:minHeight="40dp"
+                    android:minHeight="48dp"
                     android:text="@string/phone_no"
                     android:textAppearance="@style/ScreenTextSubTitle"
                     android:textColor="@color/card_general_info_text_color"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_chainStyle="packed"
-                    app:layout_constraintStart_toEndOf="@id/imv_country_icon"
+                    app:layout_constraintStart_toEndOf="@id/guideline12"
                     app:layout_constraintTop_toBottomOf="@id/txv_name_profile" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.35" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txv_country_profile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="24dp"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:gravity="center_horizontal"
+                    android:text="@string/country"
+                    android:textAppearance="@style/ScreenTextSubTitle"
+                    android:textColor="@color/card_general_info_text_color"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/divider11"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imv_avatar" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imv_country_icon"
+                    android:layout_width="@dimen/dimen_icon_profile"
+                    android:layout_height="@dimen/dimen_icon_profile"
+                    android:contentDescription="@string/content_desc_country_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/divider11"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txv_country_profile"
+                    app:shapeAppearance="@style/RoundedCornerImageShapeStyle"
+                    app:srcCompat="@drawable/ic_baseline_emoji_flags_24" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txv_gender_profile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:gravity="center_horizontal"
+                    android:text="@string/gender"
+                    android:textAppearance="@style/ScreenTextSubTitle"
+                    android:textColor="@color/card_general_info_text_color"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@id/divider12"
+                    app:layout_constraintStart_toEndOf="@id/divider11"
+                    app:layout_constraintTop_toBottomOf="@id/imv_avatar" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imv_gender_icon"
+                    android:layout_width="40dp"
+                    android:layout_height="@dimen/dimen_icon_profile"
+                    android:contentDescription="@string/content_desc_gender_icon"
+                    android:tint="@color/card_general_info_text_color"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/divider12"
+                    app:layout_constraintStart_toEndOf="@id/divider11"
+                    app:layout_constraintTop_toBottomOf="@id/txv_gender_profile"
+                    app:shapeAppearance="@style/RoundedCornerImageShapeStyle"
+                    app:srcCompat="@drawable/ic_baseline_male_24" />
+
+                <View
+                    android:id="@+id/divider11"
+                    android:layout_width="1dp"
+                    android:layout_height="24dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.33"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imv_avatar"
+                    app:layout_constraintVertical_bias="0.8" />
+
+                <View
+                    android:id="@+id/divider12"
+                    android:layout_width="1dp"
+                    android:layout_height="24dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.66"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imv_avatar"
+                    app:layout_constraintVertical_bias="0.8" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txv_rating_profile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:gravity="center_horizontal"
+                    android:text="@string/rating"
+                    android:textAppearance="@style/ScreenTextSubTitle"
+                    android:textColor="@color/card_general_info_text_color"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/divider12"
+                    app:layout_constraintTop_toBottomOf="@id/imv_avatar" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txv_rating_no_profile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:gravity="center_horizontal"
+                    android:text="@string/rating"
+                    android:textAppearance="@style/ScreenTextSubTitle"
+                    android:textColor="@color/card_general_info_text_color"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/divider12"
+                    app:layout_constraintTop_toBottomOf="@id/txv_rating_profile" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -123,7 +208,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/screen_margin"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="sans-serif-condensed-medium"
             android:paddingVertical="16dp"
@@ -143,7 +228,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/screen_margin"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="@dimen/screen_margin"
             android:fontFamily="sans-serif-condensed-medium"
             android:paddingVertical="16dp"

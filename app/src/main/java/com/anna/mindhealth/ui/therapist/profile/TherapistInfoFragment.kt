@@ -21,10 +21,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.anna.mindhealth.R
 import com.anna.mindhealth.base.Utility.THERAPIST_ROLE
+import com.anna.mindhealth.base.Utility.setEditTextValues
+import com.anna.mindhealth.base.Utility.setImageViewResource
 import com.anna.mindhealth.data.`interface`.OnImageReceivedListener
 import com.anna.mindhealth.data.model.Therapist
 import com.anna.mindhealth.databinding.FragmentPersonalInfoTherapistBinding
-import com.anna.mindhealth.dialog.SetAvatarDialogFragment
+import com.anna.mindhealth.dialog.SetAvatarDialog
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.toObject
@@ -88,10 +90,10 @@ class TherapistInfoFragment: Fragment(), OnImageReceivedListener {
                 val therapistName = therapist.name.split(" ").toList()
 
                 if (therapistName.size < 2){
-                    binding.edtInputFirstName.editText?.setText(therapistName[0])
+                    binding.edtInputFirstName.editText?.let { setEditTextValues(it, therapistName[0]) }
                 } else {
-                    binding.edtInputFirstName.editText?.setText(therapistName[0])
-                    binding.edtInputLastName.editText?.setText(therapistName[1])
+                    binding.edtInputFirstName.editText?.let { setEditTextValues(it, therapistName[0]) }
+                    binding.edtInputLastName.editText?.let { setEditTextValues(it, therapistName[therapistName.size - 1]) }
                 }
 
                 Glide.with(requireContext())
@@ -99,9 +101,9 @@ class TherapistInfoFragment: Fragment(), OnImageReceivedListener {
                     .placeholder(R.drawable.ic_baseline_account_circle_24)
                     .into(binding.imvAvatar)
 
-                binding.edtInputEmail.editText?.setText(therapist.email)
-                binding.edtInputPhoneNo.editText?.setText(therapist.phone_no)
-                binding.edtInputRate.editText?.setText(therapist.rate.toString())
+                binding.edtInputEmail.editText?.let { setEditTextValues(it, therapist.email) }
+                binding.edtInputPhoneNo.editText?.let { setEditTextValues(it, therapist.phone_no) }
+                binding.edtInputRate.editText?.let { setEditTextValues(it, therapist.rate.toString()) }
             } else {
                 Log.d(TAG, "Unable to fetch data", task.exception)
             }
@@ -132,7 +134,7 @@ class TherapistInfoFragment: Fragment(), OnImageReceivedListener {
         binding.txvUploadPhoto.setOnClickListener {
             when(storagePermission){
                 true -> {
-                    SetAvatarDialogFragment().show(childFragmentManager, SetAvatarDialogFragment.TAG)
+                    SetAvatarDialog().show(childFragmentManager, SetAvatarDialog.TAG)
                 }
                 else -> verifyStoragePermission()
             }
@@ -155,10 +157,10 @@ class TherapistInfoFragment: Fragment(), OnImageReceivedListener {
             MediaStore.Images.Media.getBitmap(requireContext().contentResolver, uri)
         }
 
-        binding.imvAvatar.setImageBitmap(bitmap)
+        setImageViewResource(shapeableImageView = binding.imvAvatar, bitmap = bitmap)
     }
 
     override fun getImageBitmap(bitmap: Bitmap) {
-        binding.imvAvatar.setImageBitmap(bitmap)
+        setImageViewResource(shapeableImageView = binding.imvAvatar, bitmap = bitmap)
     }
 }

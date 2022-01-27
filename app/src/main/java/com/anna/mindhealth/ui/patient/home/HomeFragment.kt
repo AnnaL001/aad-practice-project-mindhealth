@@ -9,8 +9,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.anna.mindhealth.R
 import com.anna.mindhealth.base.Utility.PATIENT_ROLE
+import com.anna.mindhealth.base.Utility.setImageViewResource
+import com.anna.mindhealth.base.Utility.setTextViewValues
 import com.anna.mindhealth.data.model.Patient
 import com.anna.mindhealth.databinding.FragmentHomeBinding
+import com.google.android.material.imageview.ShapeableImageView
 import com.google.firebase.firestore.ktx.toObject
 
 class HomeFragment: Fragment() {
@@ -37,14 +40,16 @@ class HomeFragment: Fragment() {
                 binding.root.visibility = View.VISIBLE
             }
 
-            binding.txvWelcomeUser.text = getString(R.string.txv_welcome_user_text, patient.name)
+            setTextViewValues(textView = binding.txvWelcomeUser, textValue = getString(R.string.txv_welcome_user_text, patient.name))
             initializeAssessmentStatus(patient)
         }
     }
 
     private fun updateViewDetails(){
-        binding.imvAssignmentStatus.setImageResource(R.drawable.ic_outline_assignment_turned_in_24)
-        binding.imvAssignmentStatus.contentDescription = getString(R.string.icon_assessment_status_true)
+        binding.imvAssignmentStatus.apply {
+            setImageViewResource(imageView = this, resId = R.drawable.ic_outline_assignment_turned_in_24)
+            contentDescription = getString(R.string.icon_assessment_status_true)
+        }
     }
 
 

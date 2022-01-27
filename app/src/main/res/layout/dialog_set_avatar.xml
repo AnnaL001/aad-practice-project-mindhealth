@@ -5,27 +5,32 @@
     android:padding="10dp">
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/txv_choose_photo"
+        android:id="@+id/txv_open_gallery"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/screen_margin"
-        android:layout_marginBottom="@dimen/screen_margin"
+        android:layout_marginTop="@dimen/screen_margin"
         android:clickable="true"
-        android:fontFamily="sans-serif-condensed"
-        android:gravity="center_vertical"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:minHeight="48dp"
         android:text="@string/choose_photo"
-        android:textAppearance="@style/ScreenTextSubTitle" />
+        android:textAppearance="@style/ScreenTextSubTitle"
+        android:textColor="@color/card_general_info_text_color"
+        android:textSize="17sp" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/txv_open_camera"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_below="@id/txv_choose_photo"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txv_open_gallery"
         android:layout_marginHorizontal="@dimen/screen_margin"
+        android:layout_marginTop="10dp"
         android:clickable="true"
-        android:fontFamily="sans-serif-condensed"
-        android:gravity="center_vertical"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:minHeight="48dp"
         android:text="@string/open_camera"
-        android:textAppearance="@style/ScreenTextSubTitle" />
+        android:textAppearance="@style/ScreenTextSubTitle"
+        android:textColor="@color/card_general_info_text_color"
+        android:textSize="17sp" />
 
 </RelativeLayout>

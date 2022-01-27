@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.anna.mindhealth.R
 import com.anna.mindhealth.base.BaseFragment
+import com.anna.mindhealth.base.Utility.setEditTextValues
 import com.anna.mindhealth.data.model.TherapistProfile
 import com.anna.mindhealth.databinding.FragmentEditProfileBinding
 import com.google.firebase.firestore.ktx.toObject
@@ -79,10 +80,6 @@ class ProfileUpdateFragment: BaseFragment() {
             // redirect to profile
             redirectToTherapyProfile()
         }
-    }
-
-    private fun setEditTextValues(editText: EditText, textValue: String){
-        editText.setText(textValue)
     }
 
     private fun redirectToTherapyProfile(){

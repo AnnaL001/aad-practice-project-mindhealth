@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.anna.mindhealth.R
+import com.anna.mindhealth.base.Utility.setImageViewResource
+import com.anna.mindhealth.base.Utility.setTextViewValues
 import com.anna.mindhealth.data.model.Therapist
 import com.anna.mindhealth.data.model.TherapistProfile
 import com.anna.mindhealth.databinding.FragmentTherapyProfileBinding
@@ -51,6 +53,7 @@ class ProfileViewFragment: Fragment() {
 
             setTextViewValues(binding.txvNameProfile, therapist.name)
             setTextViewValues(binding.txvPhoneProfile, therapist.phone_no)
+            setTextViewValues(binding.txvRatingNoProfile, therapist.rating.toString())
         }
     }
 
@@ -90,10 +93,6 @@ class ProfileViewFragment: Fragment() {
         binding.btnUpdatePersonalInfoLink.setOnClickListener {
             view?.findNavController()?.navigate(R.id.action_fragment_to_fragment_personal_info)
         }
-    }
-
-    private fun setTextViewValues(textView: MaterialTextView, textValue: String){
-        textView.text = textValue
     }
 
     private fun setLanguageCheckBoxValue(textView: MaterialTextView, textValues: List<Int>, preferences: HashMap<String, Boolean>){
@@ -142,17 +141,17 @@ class ProfileViewFragment: Fragment() {
 
     private fun setCountryImageView(imageView: ShapeableImageView, textValue: String){
         when(textValue){
-            COUNTRY_KENYA -> imageView.setImageResource(R.drawable.kenya)
-            COUNTRY_UGANDA -> imageView.setImageResource(R.drawable.uganda)
-            COUNTRY_TANZANIA -> imageView.setImageResource(R.drawable.tanzania)
+            COUNTRY_KENYA -> setImageViewResource(imageView, R.drawable.kenya)
+            COUNTRY_UGANDA -> setImageViewResource(imageView, R.drawable.uganda)
+            COUNTRY_TANZANIA -> setImageViewResource(imageView, R.drawable.tanzania)
         }
     }
 
     private fun setGenderImageView(imageView: ShapeableImageView, textValue: String){
         when(textValue){
-            GENDER_MALE -> imageView.setImageResource(R.drawable.ic_baseline_male_24)
-            GENDER_FEMALE -> imageView.setImageResource(R.drawable.ic_baseline_female_24)
-            GENDER_OTHER -> imageView.setImageResource(R.drawable.ic_baseline_transgender_24)
+            GENDER_MALE -> setImageViewResource(imageView, R.drawable.ic_baseline_male_24)
+            GENDER_FEMALE -> setImageViewResource(imageView, R.drawable.ic_baseline_female_24)
+            GENDER_OTHER -> setImageViewResource(imageView, R.drawable.ic_baseline_transgender_24)
         }
     }
 

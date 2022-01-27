@@ -1,8 +1,6 @@
 package com.anna.mindhealth.dialog
 
 import android.content.Context
-import android.graphics.Bitmap
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -12,9 +10,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.DialogFragment
 import com.anna.mindhealth.data.`interface`.OnImageReceivedListener
 import com.anna.mindhealth.databinding.DialogSetAvatarBinding
-import javax.security.auth.callback.Callback
 
-class SetAvatarDialogFragment: DialogFragment() {
+class SetAvatarDialog: DialogFragment() {
     private var _binding: DialogSetAvatarBinding ?= null
     private lateinit var imageReceived: OnImageReceivedListener
 
@@ -43,11 +40,10 @@ class SetAvatarDialogFragment: DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initializeOptions()
-
     }
 
     private fun initializeOptions(){
-        binding.txvChoosePhoto.setOnClickListener {
+        binding.txvOpenGallery.setOnClickListener {
             Log.d(TAG, "onClick: accessing phones memory.")
             openGalleryLauncher.launch("image/*")
         }
@@ -67,12 +63,7 @@ class SetAvatarDialogFragment: DialogFragment() {
         super.onAttach(context)
     }
 
-//    interface OnImageReceivedListener{
-//        fun getImageUri(uri: Uri)
-//        fun getImageBitmap(bitmap: Bitmap)
-//    }
-
     companion object{
-        val TAG = SetAvatarDialogFragment::class.simpleName
+        val TAG = SetAvatarDialog::class.simpleName
     }
 }

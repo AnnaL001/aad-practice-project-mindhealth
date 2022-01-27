@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="dimen_avatar_profile_image">90dp</dimen>
+    <dimen name="dimen_avatar_profile_image">80dp</dimen>
     <dimen name="image_pixels_splashscreen">90dp</dimen>
     <dimen name="corner_radius">8dp</dimen>
     <dimen name="screen_margin">16dp</dimen>

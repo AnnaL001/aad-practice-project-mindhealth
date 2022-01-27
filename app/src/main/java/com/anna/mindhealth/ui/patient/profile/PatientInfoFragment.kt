@@ -22,11 +22,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.anna.mindhealth.R
 import com.anna.mindhealth.base.Utility
 import com.anna.mindhealth.base.Utility.PATIENT_ROLE
+import com.anna.mindhealth.base.Utility.setEditTextValues
+import com.anna.mindhealth.base.Utility.setImageViewResource
 import com.anna.mindhealth.data.`interface`.OnImageReceivedListener
 import com.anna.mindhealth.data.model.Patient
-import com.anna.mindhealth.data.model.Therapist
 import com.anna.mindhealth.databinding.FragmentPersonalInfoBinding
-import com.anna.mindhealth.dialog.SetAvatarDialogFragment
+import com.anna.mindhealth.dialog.SetAvatarDialog
 import com.anna.mindhealth.ui.therapist.profile.TherapistInfoFragment
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.ktx.auth
@@ -37,6 +38,9 @@ class PatientInfoFragment: Fragment(), OnImageReceivedListener {
     private var _binding: FragmentPersonalInfoBinding ?= null
     private lateinit var profileViewModel: ProfileViewModel
     private var storagePermission: Boolean = false
+    private val setAvatarDialogFragment by lazy {
+        SetAvatarDialog()
+    }
 
     private val binding get() = _binding!!
 
@@ -60,7 +64,7 @@ class PatientInfoFragment: Fragment(), OnImageReceivedListener {
         profileViewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
 
         setPatientInfo()
-        initializeAvatarDisplay()
+        initializeDialog()
         initializeButton()
     }
 
@@ -100,11 +104,11 @@ class PatientInfoFragment: Fragment(), OnImageReceivedListener {
         }
     }
 
-    private fun initializeAvatarDisplay(){
+    private fun initializeDialog(){
         binding.txvUploadPhoto.setOnClickListener {
             when(storagePermission){
                 true -> {
-                    SetAvatarDialogFragment().show(childFragmentManager, SetAvatarDialogFragment.TAG)
+                    setAvatarDialogFragment.show(childFragmentManager, SetAvatarDialog.TAG)
                 }
                 else -> verifyStoragePermission()
             }
@@ -118,10 +122,10 @@ class PatientInfoFragment: Fragment(), OnImageReceivedListener {
                 val patientName = patient.name.split(" ").toList()
 
                 if (patientName.size < 2){
-                    binding.edtInputFirstName.editText?.setText(patientName[0])
+                    binding.edtInputFirstName.editText?.let { setEditTextValues(it, patientName[0]) }
                 } else {
-                    binding.edtInputFirstName.editText?.setText(patientName[0])
-                    binding.edtInputLastName.editText?.setText(patientName[1])
+                    binding.edtInputFirstName.editText?.let { setEditTextValues(it, patientName[0]) }
+                    binding.edtInputLastName.editText?.let { setEditTextValues(it, patientName[1]) }
                 }
 
                 Glide.with(requireContext())
@@ -129,8 +133,8 @@ class PatientInfoFragment: Fragment(), OnImageReceivedListener {
                     .placeholder(R.drawable.ic_baseline_account_circle_24)
                     .into(binding.imvAvatar)
 
-                binding.edtInputEmail.editText?.setText(patient.email)
-                binding.edtInputPhoneNo.editText?.setText(patient.phone_no)
+                binding.edtInputEmail.editText?.let { setEditTextValues(it, patient.email) }
+                binding.edtInputPhoneNo.editText?.let { setEditTextValues(it, patient.phone_no) }
             } else {
                 Log.d(TAG, "Unable to fetch data", task.exception)
             }
@@ -149,11 +153,13 @@ class PatientInfoFragment: Fragment(), OnImageReceivedListener {
             MediaStore.Images.Media.getBitmap(requireContext().contentResolver, uri)
         }
 
-        binding.imvAvatar.setImageBitmap(bitmap)
+        setImageViewResource(binding.imvAvatar, bitmap)
+        setAvatarDialogFragment.dismiss()
     }
 
     override fun getImageBitmap(bitmap: Bitmap) {
-        binding.imvAvatar.setImageBitmap(bitmap)
+        setImageViewResource(binding.imvAvatar, bitmap)
+        setAvatarDialogFragment.dismiss()
     }
 
     companion object{

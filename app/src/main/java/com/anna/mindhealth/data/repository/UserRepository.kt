@@ -292,6 +292,15 @@ class UserRepository(private val application: Application): UserRepo {
         }
     }
 
+    /* ======================================================
+    *   Function to update therapist availability
+    *   @param therapist: Therapist
+    * =======================================================  */
+    override fun updateTherapistAvailability(therapist: Therapist){
+        Firebase.firestore.collection(application.getString(R.string.dbcol_users))
+            .document(therapist.id).update("is_available", therapist.is_available)
+    }
+
 
 
     /* ======================================================

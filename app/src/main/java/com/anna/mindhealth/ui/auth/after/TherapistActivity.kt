@@ -32,6 +32,11 @@ class TherapistActivity: AppCompatActivity() {
 
         userActivityViewModel = ViewModelProvider(this).get(UserActivityViewModel::class.java)
 
+        init()
+        initializeNavController()
+    }
+
+    private fun init(){
         userActivityViewModel.authUser.observe(this, { therapistUser ->
             if (therapistUser == null){
                 startActivity(Intent(this, RoleSelectionActivity::class.java))
@@ -48,8 +53,6 @@ class TherapistActivity: AppCompatActivity() {
                 }
             }
         })
-
-        initializeNavController()
     }
 
     private fun initializeNavController(){
