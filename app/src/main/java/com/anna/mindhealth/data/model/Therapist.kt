@@ -1,17 +1,22 @@
 package com.anna.mindhealth.data.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Therapist(
-    val id: String = "",
-    val name: String = "",
-    val email:String = "",
-    val phone_no: String = "",
-    val avatar: String = "",
-    val resume: String = "",
+    var id: String = "",
+    var name: String = "",
+    var email:String = "",
+    var phone_no: String = "",
+    var avatar: String = "",
+    var resume: String = "",
     @field:JvmField // Boolean field prefixed with 'is'
-    val is_available: Boolean = false,
+    var is_available: Boolean = false,
     @field:JvmField // Boolean field prefixed with 'is'
-    val is_vetted: Boolean = false,
-    val rating: Int = 0,
-    val rate: Double = 0.0,
-    val security_level: Int = 0
-)
+    var is_vetted: Boolean = false,
+    var rating: Int = 0,
+    var rate: Double = 0.0,
+    var security_level: Int = 0,
+    var profile: TherapistProfile = TherapistProfile()
+): Parcelable

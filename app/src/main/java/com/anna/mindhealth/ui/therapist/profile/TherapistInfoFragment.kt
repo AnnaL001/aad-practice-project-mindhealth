@@ -123,18 +123,22 @@ class TherapistInfoFragment: Fragment(), OnImageReceivedListener {
             }
 
 
-            val therapist = Therapist(id = Firebase.auth.currentUser!!.uid ,name = name, phone_no = phoneNo, rate = rate)
+            val therapist = Therapist(
+                id = Firebase.auth.currentUser!!.uid ,
+                name = name, phone_no = phoneNo, rate = rate)
 
             therapyProfileViewModel.updatePersonalInfo(therapist, THERAPIST_ROLE, avatar)
 
         }
     }
 
+    private val setAvatarDialog = SetAvatarDialog()
+
     private fun initializeAvatarDisplay(){
         binding.txvUploadPhoto.setOnClickListener {
             when(storagePermission){
                 true -> {
-                    SetAvatarDialog().show(childFragmentManager, SetAvatarDialog.TAG)
+                    setAvatarDialog.show(childFragmentManager, SetAvatarDialog.TAG)
                 }
                 else -> verifyStoragePermission()
             }
@@ -158,9 +162,11 @@ class TherapistInfoFragment: Fragment(), OnImageReceivedListener {
         }
 
         setImageViewResource(shapeableImageView = binding.imvAvatar, bitmap = bitmap)
+        setAvatarDialog.dismiss()
     }
 
     override fun getImageBitmap(bitmap: Bitmap) {
         setImageViewResource(shapeableImageView = binding.imvAvatar, bitmap = bitmap)
+        setAvatarDialog.dismiss()
     }
 }

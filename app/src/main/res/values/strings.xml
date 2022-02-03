@@ -22,6 +22,8 @@
     <string name="btn_view_responses_link_text">View your responses</string>
     <string name="btn_view_assessment_link_text">Take assessment test</string>
     <string name="btn_therapist_selection_state_text">You\'re yet to be assigned a therapist</string>
+    <string name="therapist_selection_true"> Get to know more about your therapist</string>
+    <string name="btn_therapist_selection_true"> View therapist profile</string>
     <string name="icon_assessment_status_false">Assessment not done icon</string>
     <string name="icon_assessment_status_true">Assessment done icon</string>
     <string name="btn_therapist_selection_link_text">Select therapist</string>
@@ -80,7 +82,6 @@
     <string name="menu_edit_profile">Edit Profile</string>
 
     <!-- App Notifications -->
-    <string name="toast_log_in_success"> Authenticated with email: %1$s </string>
     <string name="toast_log_in_fail"> Authentication failure</string>
     <string name="toast_sign_up_fail"> Something went wrong </string>
     <string name="toast_email_verification_success"> Sent email verification </string>
@@ -99,6 +100,7 @@
     <string name="toast_therapist_profile_data_save_fail">Error occurred while saving your profile data</string>
     <string name="toast_update_personal_info_success"> Your personal info has been updated</string>
     <string name="toast_update_personal_info_fail"> Error while updating personal info </string>
+    <string name="toast_take_assessment_prompt"> Kindly complete the assessment before the therapist selection</string>
 
     <!-- Error messages -->
     <string name="error_msg_required"> All fields must be filled </string>
@@ -108,11 +110,12 @@
     <string name="error_msg_email_criteria"> Email pattern is name@example.com </string>
 
     <!-- Database fields -->
-    <string name="dbcol_users"> users </string>
+    <string name="dbcol_therapists">therapists</string>
+    <string name="dbcol_patients">patients</string>
     <string name="dbcol_assessment"> assessment </string>
     <string name="doc_initial_assessment"> initial assessment </string>
-    <string name="dbcol_therapist_profile">profile</string>
-    <string name="doc_therapist_profile">therapy profile</string>
+    <string name="storage_images">images</string>
+    <string name="storage_resume">resume</string>
 
     <!-- Assessment questions -->
     <string name="assessment_title">Initial Assessment </string>
@@ -146,16 +149,16 @@
     <string name="lang_fre">French</string>
     <string name="assessment_question10">Select your country</string>
     <string name="assessment_question11">Select your preferred options</string>
-    <string name="individual_therapy">Individual Therapy</string>
-    <string name="group_therapy">Group Therapy</string>
-    <string name="couples_therapy">Couples Therapy</string>
+    <string name="individual_therapy">Individual therapy</string>
+    <string name="group_therapy">Group therapy</string>
+    <string name="couples_therapy">Couples therapy</string>
     <string name="submit">Submit</string>
     <string name="checkbox_options">Select a value</string>
     <string name="menu_assessment_responses">Assessment Responses</string>
     <string name="assessment_question_text">Assessment question</string>
     <string name="assessment_response_text">Assessment response</string>
     <string name="edit_profile">Edit profile</string>
-    <string name="edit_personal_info">Edit user info</string>
+    <string name="edit_personal_info">Edit info</string>
     <string name="menu_personal_info">Personal Info</string>
     <string name="rate">Rate per session</string>
     <string name="txv_therapy_info_subtext">View/edit therapy profile</string>
@@ -172,4 +175,6 @@
     <string name="camera">Camera</string>
     <string name="prompt_update_availability">Are you available to take on more patients?</string>
     <string name="cancel">Cancel</string>
+    <string name="menu_therapists">Therapists</string>
+
 </resources>

@@ -76,6 +76,8 @@ class RegisterActivity: AppCompatActivity() {
             }
         }
 
+        
+
         binding.btnRegisterViaEmail.setOnClickListener {
             when(selectedSecurityLevel){
                 PATIENT_ROLE -> {
@@ -88,6 +90,8 @@ class RegisterActivity: AppCompatActivity() {
                             binding.edtInputPassword.editText!!.text.toString(),
                             selectedSecurityLevel,
                             null)
+                        startActivity(Intent(this, LoginActivity::class.java).putExtra(
+                            securityLevel, selectedSecurityLevel))
                     }
                 }
 

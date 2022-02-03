@@ -34,8 +34,6 @@ class AuthRepository(private val application: Application): AuthRepo {
                         _authUser.postValue(Firebase.auth.currentUser)
 
                         Log.d(TAG, "signInUserWithEmail: Success")
-                        shortToastMessage(application.applicationContext, application.getString(
-                            R.string.toast_log_in_success, Firebase.auth.currentUser!!.email))
 
                     } else {
                         Log.d(TAG, "Sending email verification prompt")

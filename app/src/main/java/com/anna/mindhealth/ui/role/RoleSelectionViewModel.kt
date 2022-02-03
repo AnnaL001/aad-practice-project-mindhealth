@@ -3,7 +3,7 @@ package com.anna.mindhealth.ui.role
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.viewModelScope
+import com.anna.mindhealth.base.Utility.THERAPIST_ROLE
 import com.anna.mindhealth.data.`interface`.AuthRepo
 import com.anna.mindhealth.data.`interface`.UserRepo
 import com.anna.mindhealth.data.repository.AuthRepository
@@ -28,5 +28,5 @@ class RoleSelectionViewModel(application: Application): AndroidViewModel(applica
         authRepository.checkAuthState()
     }
 
-    val userReference: DocumentReference? = userRepository.read(Firebase.auth.currentUser?.uid)
+    val therapistReference: DocumentReference? = userRepository.read(Firebase.auth.currentUser?.uid, THERAPIST_ROLE)
 }

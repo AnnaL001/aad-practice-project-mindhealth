@@ -13,7 +13,6 @@ import com.anna.mindhealth.base.Utility.setImageViewResource
 import com.anna.mindhealth.base.Utility.setTextViewValues
 import com.anna.mindhealth.data.model.Patient
 import com.anna.mindhealth.databinding.FragmentHomeBinding
-import com.google.android.material.imageview.ShapeableImageView
 import com.google.firebase.firestore.ktx.toObject
 
 class HomeFragment: Fragment() {
@@ -36,16 +35,19 @@ class HomeFragment: Fragment() {
         homeViewModel.patientReference?.get()?.addOnCompleteListener { task ->
             val patient = task.result.toObject<Patient>()
 
-            if (patient!!.security_level == PATIENT_ROLE){
-                binding.root.visibility = View.VISIBLE
-            }
+            if (patient != null){
+                if (patient.security_level == PATIENT_ROLE){
+                    binding.root.visibility = View.VISIBLE
+                }
 
-            setTextViewValues(textView = binding.txvWelcomeUser, textValue = getString(R.string.txv_welcome_user_text, patient.name))
-            initializeAssessmentStatus(patient)
+                setTextViewValues(textView = binding.txvWelcomeUser, textValue = getString(R.string.txv_welcome_user_text, patient.name))
+                initializeAssessmentStatus(patient)
+                initializeTherapistSelectionStatus(patient)
+            }
         }
     }
 
-    private fun updateViewDetails(){
+    private fun updateAssessmentDetails(){
         binding.imvAssignmentStatus.apply {
             setImageViewResource(imageView = this, resId = R.drawable.ic_outline_assignment_turned_in_24)
             contentDescription = getString(R.string.icon_assessment_status_true)
@@ -54,18 +56,47 @@ class HomeFragment: Fragment() {
 
 
     private fun initializeAssessmentStatus(patient: Patient){
-        if (patient.is_assessment_done){
-            binding.btnViewResponsesLink.apply {
-                text = getString(R.string.btn_view_responses_link_text)
-                setOnClickListener {
-                    redirectToResponses()
+        when(patient.is_assessment_done){
+            true -> {
+                binding.btnViewResponsesLink.apply {
+                    text = getString(R.string.btn_view_responses_link_text)
+                    setOnClickListener {
+                        redirectToResponses()
+                    }
+                }
+                updateAssessmentDetails()
+            }
+            false -> {
+                binding.btnViewResponsesLink.apply {
+                    setOnClickListener {
+                        redirectToAssessment()
+                    }
                 }
             }
-            updateViewDetails()
-        } else {
-            binding.btnViewResponsesLink.apply {
-                setOnClickListener {
-                    redirectToAssessment()
+        }
+    }
+
+    private fun updateTherapistSelectionDetails(){
+        setTextViewValues(binding.txvTherapistSelectionState, getString(R.string.therapist_selection_true))
+    }
+    private fun initializeTherapistSelectionStatus(patient: Patient){
+        when(patient.is_therapist_selected){
+            true -> {
+                updateTherapistSelectionDetails()
+
+                binding.btnTherapistSelectionLink.apply {
+                    text = getString(R.string.btn_therapist_selection_true)
+                    setOnClickListener {
+
+                    }
+                }
+            }
+
+            false -> {
+                binding.btnTherapistSelectionLink.apply {
+                    setOnClickListener {
+                        redirectToTherapistList()
+                    }
                 }
             }
         }
@@ -77,6 +108,10 @@ class HomeFragment: Fragment() {
 
     private fun redirectToResponses(){
         view?.findNavController()?.navigate(R.id.action_fragment_to_fragment_assessment_responses)
+    }
+
+    private fun redirectToTherapistList(){
+        requireView().findNavController().navigate(R.id.action_fragment_to_fragment_therapist_list)
     }
 
     override fun onDestroy() {

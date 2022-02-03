@@ -1,7 +1,6 @@
 package com.anna.mindhealth.ui.auth.before
 
 import android.app.Application
-import android.content.Context
 import android.net.Uri
 import androidx.core.util.PatternsCompat
 import androidx.lifecycle.AndroidViewModel

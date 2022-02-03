@@ -15,11 +15,7 @@ import com.anna.mindhealth.data.`interface`.OnClickAvailabilityDialogListener
 import com.anna.mindhealth.data.model.Therapist
 import com.anna.mindhealth.databinding.FragmentHomeTherapistBinding
 import com.anna.mindhealth.dialog.UpdateAvailabilityDialog
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.imageview.ShapeableImageView
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.toObject
-import com.google.firebase.ktx.Firebase
 
 class HomeFragment: Fragment(), OnClickAvailabilityDialogListener {
     private var _binding: FragmentHomeTherapistBinding ?= null
@@ -41,12 +37,14 @@ class HomeFragment: Fragment(), OnClickAvailabilityDialogListener {
         homeViewModel.therapistReference?.get()?.addOnCompleteListener { task ->
             val therapist = task.result.toObject<Therapist>()
 
-            if (therapist!!.security_level == THERAPIST_ROLE && therapist.is_vetted){
-                binding.root.visibility = View.VISIBLE
-            }
+            if(therapist != null){
+                if (therapist.security_level == THERAPIST_ROLE && therapist.is_vetted){
+                    binding.root.visibility = View.VISIBLE
+                }
 
-            setTextViewValues(textView = binding.txvGreetingsUser, textValue = getString(R.string.txv_greetings_user_text, therapist.name))
-            setAvailability(therapist.is_available)
+                setTextViewValues(textView = binding.txvGreetingsUser, textValue = getString(R.string.txv_greetings_user_text, therapist.name))
+                setAvailability(therapist.is_available)
+            }
         }
 
         initializeButtons()

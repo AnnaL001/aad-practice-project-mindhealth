@@ -1,6 +1,7 @@
 package com.anna.mindhealth.ui.patient.assessment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,9 +9,15 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.anna.mindhealth.base.Utility
 import com.anna.mindhealth.base.Utility.setTextViewValues
+import com.anna.mindhealth.data.`interface`.TherapistRepo
 import com.anna.mindhealth.data.model.Assessment
+import com.anna.mindhealth.data.repository.TherapistRepository
+import com.anna.mindhealth.data.repository.UserRepository
 import com.anna.mindhealth.databinding.FragmentAssessmentResponsesBinding
+import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
+import com.google.firebase.ktx.Firebase
 
 class AssessmentResponsesFragment: Fragment() {
     private var _binding: FragmentAssessmentResponsesBinding ?= null
@@ -76,7 +83,21 @@ class AssessmentResponsesFragment: Fragment() {
                 // Assessment Response 11
                 binding.txvAssessmentQuestion11.text = assessmentQuestions[10]
                 binding.txvAssessmentResponse11.text = assessment.responses[assessmentQuestions[10]]
+
+            val therapistRepository: TherapistRepo = TherapistRepository(requireActivity().application)
+            therapistRepository.retrieveCuratedTherapistList(assessment)
+                ?.get()
+                ?.addOnCompleteListener {
+                    if (it.isSuccessful){
+                        Log.d("AssessmentResponseFragment", "${it.result.size()}")
+                        for (document in it.result){
+                            Log.d("AssessmentResponseFragment", "${document.data}")
+                        }
+                    }
+                }
             }
+
+
     }
 
     override fun onDestroy() {

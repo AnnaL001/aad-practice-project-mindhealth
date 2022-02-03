@@ -66,12 +66,12 @@
         <entry key="app/src/main/res/layout/fragment_assessment_responses.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_edit_profile.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.22" />
-        <entry key="app/src/main/res/layout/fragment_home_therapist.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/fragment_home_therapist.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_more.xml" value="0.15185185185185185" />
         <entry key="app/src/main/res/layout/fragment_more_therapist.xml" value="0.15185185185185185" />
         <entry key="app/src/main/res/layout/fragment_personal_info.xml" value="0.15185185185185185" />
-        <entry key="app/src/main/res/layout/fragment_personal_info_therapist.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_personal_info_therapist.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_profile_therapist.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.15" />
@@ -80,7 +80,10 @@
         <entry key="app/src/main/res/layout/fragment_session_therapist.xml" value="0.15185185185185185" />
         <entry key="app/src/main/res/layout/fragment_sessions_therapist.xml" value="0.15185185185185185" />
         <entry key="app/src/main/res/layout/fragment_splashscreen.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_therapy_profile.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_therapist_list.xml" value="0.15231481481481482" />
+        <entry key="app/src/main/res/layout/fragment_therapists_list.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_therapy_profile.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_therapist_list.xml" value="0.2111111111111111" />
         <entry key="app/src/main/res/layout/layout_submit_cv.xml" value="0.25" />
         <entry key="app/src/main/res/layout/layout_therapy_preferences.xml" value="0.1" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.15185185185185185" />

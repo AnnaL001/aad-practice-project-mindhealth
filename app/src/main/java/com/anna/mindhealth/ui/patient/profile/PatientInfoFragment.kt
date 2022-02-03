@@ -20,7 +20,6 @@ import androidx.core.view.drawToBitmap
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.anna.mindhealth.R
-import com.anna.mindhealth.base.Utility
 import com.anna.mindhealth.base.Utility.PATIENT_ROLE
 import com.anna.mindhealth.base.Utility.setEditTextValues
 import com.anna.mindhealth.base.Utility.setImageViewResource
@@ -38,9 +37,8 @@ class PatientInfoFragment: Fragment(), OnImageReceivedListener {
     private var _binding: FragmentPersonalInfoBinding ?= null
     private lateinit var profileViewModel: ProfileViewModel
     private var storagePermission: Boolean = false
-    private val setAvatarDialogFragment by lazy {
-        SetAvatarDialog()
-    }
+    private val setAvatarDialog = SetAvatarDialog()
+
 
     private val binding get() = _binding!!
 
@@ -108,7 +106,7 @@ class PatientInfoFragment: Fragment(), OnImageReceivedListener {
         binding.txvUploadPhoto.setOnClickListener {
             when(storagePermission){
                 true -> {
-                    setAvatarDialogFragment.show(childFragmentManager, SetAvatarDialog.TAG)
+                    setAvatarDialog.show(childFragmentManager, SetAvatarDialog.TAG)
                 }
                 else -> verifyStoragePermission()
             }
@@ -154,12 +152,12 @@ class PatientInfoFragment: Fragment(), OnImageReceivedListener {
         }
 
         setImageViewResource(binding.imvAvatar, bitmap)
-        setAvatarDialogFragment.dismiss()
+        setAvatarDialog.dismiss()
     }
 
     override fun getImageBitmap(bitmap: Bitmap) {
         setImageViewResource(binding.imvAvatar, bitmap)
-        setAvatarDialogFragment.dismiss()
+        setAvatarDialog.dismiss()
     }
 
     companion object{

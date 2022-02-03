@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.anna.mindhealth.R
@@ -13,7 +12,6 @@ import com.anna.mindhealth.base.BaseFragment
 import com.anna.mindhealth.base.Utility.setEditTextValues
 import com.anna.mindhealth.data.model.TherapistProfile
 import com.anna.mindhealth.databinding.FragmentEditProfileBinding
-import com.google.firebase.firestore.ktx.toObject
 
 class ProfileUpdateFragment: BaseFragment() {
     private var _binding: FragmentEditProfileBinding ?= null
@@ -36,25 +34,24 @@ class ProfileUpdateFragment: BaseFragment() {
     }
 
     private fun initializeEditTextValues(){
-        profileUpdateViewModel.therapistProfileReference?.get()?.addOnCompleteListener { task ->
+        profileUpdateViewModel.therapistReference?.get()?.addOnCompleteListener { task ->
             if (task.isSuccessful){
-                val therapistProfile = task.result.toObject<TherapistProfile>()
+                @Suppress("UNCHECKED_CAST")
+                val therapistProfile = profileUpdateViewModel.getTherapyProfile(task.result.data?.get("profile") as HashMap<String, Any>)
 
                 val workingAgesCheckboxes = listOf(binding.checkboxChildAge, binding.checkboxYoungAdult,
                         binding.checkboxMiddleAged, binding.checkboxOldAged)
                 val languageCheckBoxes = listOf(binding.checkboxLangEng, binding.checkboxLangSwa, binding.checkboxLangFre)
 
-                if (therapistProfile != null) {
-                    setEditTextValues(binding.edtInputShortDesc.editText!!, therapistProfile.shortDesc)
-                    setSelectedSpinnerItem(binding.spinnerCountriesTherapist, therapistProfile.country)
-                    setSelectedRadioButton(binding.radioGrpGenderTherapist, binding.root, therapistProfile.gender)
-                    setEditTextValues(binding.edtInputConcerns.editText!!, therapistProfile.concerns)
-                    setEditTextValues(binding.edtInputHelpingApproach.editText!!, therapistProfile.helpingApproach)
-                    setEditTextValues(binding.edtInputServicesProvided.editText!!, therapistProfile.servicesProvided)
-                    setSelectedCheckBoxes(workingAgesCheckboxes, therapistProfile.workingAges)
-                    setSelectedCheckBoxes(languageCheckBoxes, therapistProfile.languages)
-                    setEditTextValues(binding.edtInputPhysicalAddress.editText!!, therapistProfile.officeAddress)
-                }
+                setEditTextValues(binding.edtInputShortDesc.editText!!, therapistProfile.short_desc)
+                setSelectedSpinnerItem(binding.spinnerCountriesTherapist, therapistProfile.country)
+                setSelectedRadioButton(binding.radioGrpGenderTherapist, binding.root, therapistProfile.gender)
+                setEditTextValues(binding.edtInputConcerns.editText!!, therapistProfile.concerns.joinToString())
+                setEditTextValues(binding.edtInputHelpingApproach.editText!!, therapistProfile.helping_approach)
+                setEditTextValues(binding.edtInputServicesProvided.editText!!, therapistProfile.services_provided.joinToString())
+                setSelectedCheckBoxes(workingAgesCheckboxes, therapistProfile.working_ages)
+                setSelectedCheckBoxes(languageCheckBoxes, therapistProfile.languages)
+                setEditTextValues(binding.edtInputPhysicalAddress.editText!!, therapistProfile.office_address)
 
 
                 Log.d(TAG, "$therapistProfile")
@@ -63,24 +60,26 @@ class ProfileUpdateFragment: BaseFragment() {
 
     }
 
+
     private fun initializeButton(){
         binding.btnUpdateProfile.setOnClickListener {
             profileUpdateViewModel.updateProfile(
                 TherapistProfile(
-                    shortDesc = binding.edtInputShortDesc.editText?.text.toString(),
+                    short_desc = binding.edtInputShortDesc.editText?.text.toString(),
                     country = getSelectedSpinnerItem(binding.spinnerCountriesTherapist),
                     gender = getRadioSelectedItem(binding.radioGrpGenderTherapist, binding.root),
-                    concerns = binding.edtInputConcerns.editText?.text.toString(),
-                    helpingApproach = binding.edtInputHelpingApproach.editText?.text.toString(),
-                    servicesProvided = binding.edtInputServicesProvided.editText?.text.toString(),
-                    workingAges = getSelectedCheckboxesInHashMap(listOf(binding.checkboxChildAge, binding.checkboxYoungAdult, binding.checkboxMiddleAged, binding.checkboxOldAged)),
+                    concerns = binding.edtInputConcerns.editText?.text.toString().split(",").toMutableList() as ArrayList<String>,
+                    helping_approach = binding.edtInputHelpingApproach.editText?.text.toString(),
+                    services_provided = binding.edtInputServicesProvided.editText?.text.toString().split(",").toMutableList() as ArrayList<String>,
+                    working_ages = getSelectedCheckboxesInHashMap(listOf(binding.checkboxChildAge, binding.checkboxYoungAdult, binding.checkboxMiddleAged, binding.checkboxOldAged)),
                     languages = getSelectedCheckboxesInHashMap(listOf(binding.checkboxLangEng, binding.checkboxLangSwa, binding.checkboxLangFre)),
-                    officeAddress = binding.edtInputPhysicalAddress.editText?.text.toString()
+                    office_address = binding.edtInputPhysicalAddress.editText?.text.toString()
                 ))
             // redirect to profile
             redirectToTherapyProfile()
         }
     }
+
 
     private fun redirectToTherapyProfile(){
         view?.findNavController()?.navigate(R.id.action_fragment_to_fragment_therapy_profile)

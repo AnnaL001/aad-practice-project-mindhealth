@@ -22,6 +22,12 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <action android:id="@+id/action_fragment_to_fragment_therapist_list"
+            app:destination="@id/nav_therapist_list"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
 
     <fragment
         android:id="@+id/nav_session"
@@ -71,5 +77,11 @@
         android:name="com.anna.mindhealth.ui.patient.profile.PatientInfoFragment"
         android:label="@string/menu_personal_info"
         tools:layout="@layout/fragment_personal_info"/>
+
+    <fragment
+        android:id="@+id/nav_therapist_list"
+        android:name="com.anna.mindhealth.ui.patient.therapist.TherapistListFragment"
+        android:label="@string/menu_therapists"
+        tools:layout="@layout/fragment_therapist_list" />
 
 </navigation>

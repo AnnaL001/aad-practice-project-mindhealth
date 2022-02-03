@@ -3,6 +3,7 @@ package com.anna.mindhealth.ui.auth.after
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.lifecycle.ViewModelProvider
@@ -14,6 +15,7 @@ import com.anna.mindhealth.R
 import com.anna.mindhealth.base.Utility.PATIENT_ROLE
 import com.anna.mindhealth.base.Utility.shortToastMessage
 import com.anna.mindhealth.databinding.ActivityPatientBinding
+import com.anna.mindhealth.ui.auth.before.LoginActivity
 import com.anna.mindhealth.ui.role.RoleSelectionActivity
 
 class PatientActivity : AppCompatActivity() {
@@ -38,18 +40,22 @@ class PatientActivity : AppCompatActivity() {
     }
 
     private fun init(){
-        userActivityViewModel.authUser.observe(this, { patientUser ->
-            if (patientUser == null){
+        userActivityViewModel.authUser.observe(this) { patientUser ->
+            if (patientUser == null) {
                 startActivity(Intent(this, RoleSelectionActivity::class.java))
             } else {
-                userActivityViewModel.userReference?.get()?.addOnCompleteListener { task ->
-                    if (task.result.data?.get("security_level").toString().toInt() != PATIENT_ROLE){
-                        userActivityViewModel.logout()
-                        shortToastMessage(this, getString(R.string.toast_log_in_wrong_role_patient))
+                userActivityViewModel.patientReference?.get()?.addOnCompleteListener { task ->
+                    if (task.isSuccessful){
+                        if (!task.result.exists()){
+                            userActivityViewModel.logout()
+                            shortToastMessage(this, getString(R.string.toast_log_in_wrong_role_patient))
+                        }
                     }
+                }?.addOnFailureListener {
+                    Log.e(LoginActivity.TAG, "Error fetching patient data", it.cause)
                 }
             }
-        })
+        }
     }
 
     private fun initializeNavController(){
@@ -84,14 +90,15 @@ class PatientActivity : AppCompatActivity() {
         }
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        userActivityViewModel.logout()
-    }
-
     override fun onStart() {
         super.onStart()
         userActivityViewModel.checkAuthenticationState()
+    }
+
+
+
+    companion object{
+        val TAG = PatientActivity::class.simpleName
     }
     
 }

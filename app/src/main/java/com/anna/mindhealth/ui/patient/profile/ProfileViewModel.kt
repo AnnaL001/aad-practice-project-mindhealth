@@ -3,6 +3,7 @@ package com.anna.mindhealth.ui.patient.profile
 import android.app.Application
 import android.graphics.Bitmap
 import androidx.lifecycle.AndroidViewModel
+import com.anna.mindhealth.base.Utility.PATIENT_ROLE
 import com.anna.mindhealth.data.`interface`.UserRepo
 import com.anna.mindhealth.data.model.Patient
 import com.anna.mindhealth.data.model.Therapist
@@ -17,7 +18,7 @@ class ProfileViewModel(application: Application): AndroidViewModel(application) 
 
     init {
         userRepository = UserRepository(application)
-        patientReference = userRepository.read(Firebase.auth.currentUser!!.uid)
+        patientReference = userRepository.read(Firebase.auth.currentUser!!.uid, PATIENT_ROLE)
     }
 
     fun updatePersonalInfo(patient: Patient, securityLevel: Int, bitmap: Bitmap){

@@ -2,6 +2,7 @@ package com.anna.mindhealth.ui.patient.home
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import com.anna.mindhealth.base.Utility.PATIENT_ROLE
 import com.anna.mindhealth.data.`interface`.AuthRepo
 import com.anna.mindhealth.data.`interface`.UserRepo
 import com.anna.mindhealth.data.repository.AuthRepository
@@ -17,6 +18,6 @@ class HomeViewModel(application: Application): AndroidViewModel(application) {
 
     init {
         userRepository = UserRepository(application)
-        patientReference = userRepository.read(Firebase.auth.currentUser!!.uid)
+        patientReference = userRepository.read(Firebase.auth.currentUser!!.uid, PATIENT_ROLE)
     }
 }

@@ -3,6 +3,8 @@ package com.anna.mindhealth.ui.auth.after
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import com.anna.mindhealth.base.Utility.PATIENT_ROLE
+import com.anna.mindhealth.base.Utility.THERAPIST_ROLE
 import com.anna.mindhealth.data.`interface`.AuthRepo
 import com.anna.mindhealth.data.`interface`.UserRepo
 import com.anna.mindhealth.data.repository.AuthRepository
@@ -16,13 +18,15 @@ class UserActivityViewModel(application: Application): AndroidViewModel(applicat
     private val authRepository: AuthRepo
     private val userRepository: UserRepo
     val authUser: LiveData<FirebaseUser>
-    val userReference: DocumentReference?
+    val therapistReference: DocumentReference?
+    val patientReference: DocumentReference?
 
     init {
         authRepository = AuthRepository(application)
         userRepository = UserRepository(application)
         authUser = authRepository.authUser
-        userReference = userRepository.read(Firebase.auth.currentUser?.uid)
+        therapistReference = userRepository.read(Firebase.auth.currentUser?.uid, THERAPIST_ROLE)
+        patientReference = userRepository.read(Firebase.auth.currentUser?.uid, PATIENT_ROLE)
     }
 
     fun checkAuthenticationState(){

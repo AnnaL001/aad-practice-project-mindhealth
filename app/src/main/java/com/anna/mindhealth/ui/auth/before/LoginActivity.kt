@@ -13,6 +13,8 @@ import com.anna.mindhealth.databinding.ActivityLoginBinding
 import com.anna.mindhealth.ui.auth.after.PatientActivity
 import com.anna.mindhealth.ui.auth.after.TherapistActivity
 import com.anna.mindhealth.ui.role.RoleSelectionActivity
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -50,19 +52,19 @@ class LoginActivity : AppCompatActivity() {
     private fun initializeSelectedSecurityLevel(){
         when (selectedSecurityLevel) {
             PATIENT_ROLE -> {
-                loginViewModel.authUser.observe(this, { patientUser ->
+                loginViewModel.authUser.observe(this) { patientUser ->
                     if (patientUser != null) {
                         startActivity(Intent(this, PatientActivity::class.java))
                     }
-                })
+                }
             }
 
             THERAPIST_ROLE -> {
-                loginViewModel.authUser.observe(this, { therapistUser ->
+                loginViewModel.authUser.observe(this) { therapistUser ->
                     if (therapistUser != null) {
                         startActivity(Intent(this, TherapistActivity::class.java))
                     }
-                })
+                }
             }
             else -> Log.d(
                 TAG,
@@ -74,19 +76,19 @@ class LoginActivity : AppCompatActivity() {
     private fun initializeSetSecurityLevel(){
         when (setSecurityLevel) {
             PATIENT_ROLE -> {
-                loginViewModel.authUser.observe(this, { patientUser ->
+                loginViewModel.authUser.observe(this) { patientUser ->
                     if (patientUser != null) {
                         startActivity(Intent(this, PatientActivity::class.java))
                     }
-                })
+                }
             }
 
             THERAPIST_ROLE -> {
-                loginViewModel.authUser.observe(this, { therapistUser ->
+                loginViewModel.authUser.observe(this) { therapistUser ->
                     if (therapistUser != null) {
-                        startActivity(Intent(this, TherapistActivity::class.java))
+                        startActivity(Intent(this, RoleSelectionActivity::class.java))
                     }
-                })
+                }
             }
             else -> Log.d(
                 TAG,

@@ -23,19 +23,19 @@ class RoleSelectionActivity : AppCompatActivity() {
 
         roleSelectionViewModel = ViewModelProvider(this).get(RoleSelectionViewModel::class.java)
 
-        roleSelectionViewModel.authUser.observe(this, { firebaseUser ->
-            if (firebaseUser != null){
-                roleSelectionViewModel.userReference?.get()?.addOnCompleteListener { task ->
-                    when (task.result.data?.get("security_level").toString().toInt()) {
-                        PATIENT_ROLE -> startActivity(Intent(this, PatientActivity::class.java))
-                        THERAPIST_ROLE -> startActivity(Intent(this, TherapistActivity::class.java))
-                        else -> Log.d(TAG, "User's security level is not among the specified security levels")
+        roleSelectionViewModel.authUser.observe(this) { firebaseUser ->
+            if (firebaseUser != null) {
+                roleSelectionViewModel.therapistReference?.get()?.addOnSuccessListener { document ->
+                    when(document.exists()){
+                        true -> startActivity(Intent(this, TherapistActivity::class.java))
+                        false -> startActivity(Intent(this, PatientActivity::class.java))
                     }
-
+                }?.addOnFailureListener {
+                    Log.e(TAG, "Error fetching user data", it.cause)
                 }
 
             }
-        })
+        }
 
         initializeButtons()
     }
