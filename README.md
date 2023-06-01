@@ -6,12 +6,12 @@ A mobile application enabling access to mental healthcare services such as indiv
 #### By **[Lynn Nyangon](https://github.com/AnnaL001)**
 
 ## Description
-**"I need therapy" user journey**
-Currently, the existing features comprise of authentication(login & signup), capturing assessment responses and displaying them to the user and fetching a filtered list of therapists from the database based on the captured assessment responses, from which a user selects a therapist of their preferred choice. A user can also input personal information such as a profile photo, their name and phone number. Aside from that, there are different screen designs for the dark mode and light mode.
+**"I need therapy" user journey**<br>
+Currently, the existing features comprise of authentication(login & signup), capturing assessment responses and displaying them to the user and fetching a filtered list of therapists from the database based on the captured assessment responses, from which a user selects a therapist of their preferred choice. A user can also input personal information such as a profile photo, their name and phone number. Aside from that, there are different screen designs for the dark mode and light mode.<br>
 
 The remaining features include selection of a therapist, the ability to switch a therapist, viewing a therapist's profile before selecting one, viewing one's selected therapist's profile, addition of video and text-based sessions for individual, group and couples therapy and the implementation of the settings page.
 
-**"I am a therapist" user journey**
+**"I am a therapist" user journey** <br>
 To be implemented at a later date.
 
 Launching screen image
