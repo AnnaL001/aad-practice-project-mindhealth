@@ -15,11 +15,11 @@ Launching screen image
 - Downloaded from the internet 
 https://reservoirnow.com/wp-content/uploads/online-psychotherapy-concept-psychological-counseling-vector-illustration-internet-service-remote-consultation-mental-health-care-189838478-edited.jpg
 
-### "I am a therapist" user journey** <br>
+### "I am a therapist" user journey <br>
 To be implemented at a later date.
 
 ## Screenshots
-i) Dark mode
+i) Dark mode<br>
 ii) Light mode
 
 ## Setup/Installation Requirements
