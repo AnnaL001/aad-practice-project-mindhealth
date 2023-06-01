@@ -11,12 +11,12 @@ Currently, the existing features comprise of authentication(login & signup), cap
 
 The remaining features include selection of a therapist, the ability to switch a therapist, viewing a therapist's profile before selecting one, viewing one's selected therapist's profile, addition of video and text-based sessions for individual, group and couples therapy and the implementation of the settings page.
 
-### "I am a therapist" user journey** <br>
-To be implemented at a later date.
-
 Launching screen image
 - Downloaded from the internet 
 https://reservoirnow.com/wp-content/uploads/online-psychotherapy-concept-psychological-counseling-vector-illustration-internet-service-remote-consultation-mental-health-care-189838478-edited.jpg
+
+### "I am a therapist" user journey** <br>
+To be implemented at a later date.
 
 ## Screenshots
 i) Dark mode
