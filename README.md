@@ -19,8 +19,10 @@ https://reservoirnow.com/wp-content/uploads/online-psychotherapy-concept-psychol
 To be implemented at a later date.
 
 ## Screenshots
-i) Dark mode<br>
-ii) Light mode
+![DARK-MODE-SLIDE](https://github.com/AnnaL001/aad-practice-project-mindhealth/assets/43697008/70d42fb4-c4cc-44de-b9ac-05be6d67ca83)<br><br>
+![LIGHT-MODE-SLIDE](https://github.com/AnnaL001/aad-practice-project-mindhealth/assets/43697008/48dc7cd8-869a-42c9-a5f3-5bb763e7ba0f)
+
+
 
 ## Setup/Installation Requirements
 
